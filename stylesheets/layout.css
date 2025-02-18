@@ -1,27 +1,30 @@
 body {
   background-color: #ffe4e4;
 }
+
 .game {
   width: 80vw;
-  height: 20vw;
+  height: 21vw;
   border-bottom: 0.5vw solid #861d38;
   background-color: #fcf3f3;
   margin: auto;
 }
+
 #klava {
   width: 10vw;
   height: 13vw;
-  background-image: url(../ballet-school/images/bug.png);
+  background-image: url(../images/bug.png);
   background-size: 10vw 13vw;
   background-repeat: no-repeat;
   position: absolute;
-  top: 8vw; /* Исправлено, чтобы не опускался ниже линии */
+  top: 8vw;
   left: 20vw;
 }
+
 #kamen {
   width: 4vw;
   height: 4vw;
-  background-image: url(../ballet-school/images/kamen.png);
+  background-image: url(../images/kamen.png);
   background-size: 4vw 4vw;
   background-repeat: no-repeat;
   position: relative;
@@ -29,6 +32,7 @@ body {
   left: 95vw;
   animation: kamenmove 1.5s infinite linear;
 }
+
 @keyframes kamenmove {
   0% {
     left: 95vw;
@@ -37,23 +41,37 @@ body {
     left: -5vw;
   }
 }
+
 .jump {
   animation: jump 0.5s linear;
 }
+
 @keyframes jump {
   0% {
-    top: 8vw; /* Начальная позиция */
+    top: 8vw;
   }
   30% {
-    top: 5vw; /* Начинает подниматься */
+    top: 5vw;
   }
   50% {
-    top: 3vw; /* Максимальная высота */
+    top: 3vw;
   }
   80% {
-    top: 5vw; /* Начинает опускаться */
+    top: 5vw;
   }
   100% {
-    top: 8vw; /* Возвращается в начальное положение */
+    top: 8vw;
   }
+}
+
+#score {
+  position: absolute;
+  top: 0vw;
+  left: 10vw;
+  font-size: 6vw;
+  font-family: Arial, sans-serif;
+  color: #861d38;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

@@ -8,7 +8,7 @@ scoreDisplay.innerText = 'Счёт: 0';
 let isJumping = false;
 let score = 0;
 
-// Обработчик прыжка
+// Функция прыжка
 function jump() {
   if (!isJumping) {
     isJumping = true;
@@ -27,7 +27,7 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// Проверка столкновения и обновление счёта
+// Проверка столкновения (ТОЛЬКО когда KLAVA и KAMEN пересекаются)
 setInterval(() => {
   let klavaTop = parseInt(
     window.getComputedStyle(klava).getPropertyValue('top')
@@ -36,59 +36,10 @@ setInterval(() => {
     window.getComputedStyle(kamen).getPropertyValue('left')
   );
 
-  if (kamenLeft < 30 && kamenLeft > 0) {
-    if (klavaTop < 8) {
-      // Klava прыгает над камнем
-      score++;
-      scoreDisplay.innerText = `Счёт: ${score}`;
-    } else {
-      // Столкновение
-      alert(`GAME OVER!! Ваш счёт: ${score}`);
-      score = 0;
-      scoreDisplay.innerText = `Счёт: ${score}`;
-    }
+  // Если камень в зоне Klava и Klava на земле - GAME OVER
+  if (kamenLeft > 10 && kamenLeft < 35 && klavaTop >= 8) {
+    alert(`GAME OVER!! Ваш счёт: ${score}`);
+    score = 0; // Обнуление счёта
+    scoreDisplay.innerText = `Счёт: ${score}`;
   }
-}, 100);
-
-// const klava = document.getElementById('klava');
-// const kamen = document.getElementById('kamen');
-// const scoreDisplay = document.getElementById('score'); // Используем HTML-элемент
-
-// let isJumping = false;
-// let score = 0;
-
-// document.addEventListener('keydown', function (event) {
-//   if (event.code === 'Space' && !isJumping) {
-//     jump();
-//   }
-// });
-
-// function jump() {
-//   isJumping = true;
-//   klava.classList.add('jump');
-
-//   setTimeout(() => {
-//     klava.classList.remove('jump');
-//     isJumping = false;
-//   }, 500);
-// }
-
-// setInterval(() => {
-//   let klavaTop = parseInt(
-//     window.getComputedStyle(klava).getPropertyValue('top')
-//   );
-//   let kamenLeft = parseInt(
-//     window.getComputedStyle(kamen).getPropertyValue('left')
-//   );
-
-//   if (kamenLeft < 30 && kamenLeft > 0) {
-//     if (isJumping) {
-//       score++;
-//       scoreDisplay.innerText = `Счёт: ${score}`;
-//     } else {
-//       alert(`GAME OVER!! Ваш счёт: ${score}`);
-//       score = 0;
-//       scoreDisplay.innerText = `Счёт: ${score}`;
-//     }
-//   }
-// }, 100);
+}, 50);

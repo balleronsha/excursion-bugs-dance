@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BUGS DANCE</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
-    <script src="javascripts/script.js" defer></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.139.0/build/three.module.js",
+          "OrbitControls": "https://unpkg.com/three@0.139.0/examples/jsm/controls/OrbitControls.js",
+          "GLTFLoader": "https://unpkg.com/three@0.139.0/examples/jsm/loaders/GLTFLoader.js",
+          "RectAreaLightUniformsLib": "https://unpkg.com/three@0.139.0/examples/jsm/lights/RectAreaLightUniformsLib.js"
+        }
+      }
+    </script>
+    <script src="script.js" type="module"></script>
   </head>
   <body>
-    <div class="game">
+    <div class="model"></div>
+    <!-- <div class="game">
       <div id="klava"></div>
       <div id="kamen"></div>
-    </div>
+    </div> -->
   </body>
 </html>

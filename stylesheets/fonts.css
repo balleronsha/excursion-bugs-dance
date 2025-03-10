@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'LT Remark';
+  src: local('LT Remark - Bold3'), local('LT Remark - Bold3'),
+    url('../fonts/LT\ Remark\ -\ Bold3.otf') format('opentype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Pragmatica';
+  src: local('PRG43'), local('PRG43'),
+    url('../fonts/PRG43.otf') format('opentype');
+}

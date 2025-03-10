@@ -1,7 +1,378 @@
 body {
   background-color: #ffe4e4;
 }
+/* ЗАГРУЗОЧНЫЙ ЭКРАН */
+.zagruzka,
+.glavsvet,
+.play1,
+.play2 {
+  width: 100vw;
+  height: 62.5vw;
+  position: relative;
+}
+.zagruzkafon {
+  width: 100vw;
+  height: 62.5vw;
+  position: absolute;
+}
 
+.zagr {
+  position: relative;
+  width: 59vw;
+  height: 59vw;
+  left: 20.139vw;
+  top: 1.389vw;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44.444vw;
+  height: 54.861vw;
+  position: fixed;
+}
+/* ГЛАВНЫЙ ЭКРАН СО СВЕТОМ  */
+
+.glavekran {
+  width: 100vw;
+  height: 62.5vw;
+}
+
+.iconklava1 {
+  height: 7.5vw;
+  width: 7.5vw;
+  top: 2.5vw;
+  left: 2vw;
+  position: absolute;
+}
+
+.shkafsvet {
+  width: 7.708vw;
+  height: 32.5vw;
+  top: 25.6vw;
+  left: -0.1vw;
+  position: absolute;
+}
+.dver402svet {
+  width: 19.236vw;
+  height: 35.417vw;
+  top: 22.5vw;
+  left: 17vw;
+  position: absolute;
+}
+.dverconsvet {
+  width: 27.847vw;
+  height: 35.417vw;
+  top: 22.5vw;
+  left: 42vw;
+  position: absolute;
+}
+.dver404svet {
+  width: 19.236vw;
+  height: 35.417vw;
+  top: 22.5vw;
+  left: 76vw;
+  position: absolute;
+}
+.rech1 {
+  width: 46.042vw;
+  height: 8.653vw;
+  top: 2.5vw;
+  left: 9.5vw;
+  position: absolute;
+}
+.mini402 {
+  width: 7.778vw;
+  height: 2.778vw;
+  top: 19vw;
+  left: 23vw;
+  position: absolute;
+}
+.max {
+  width: 20.903vw;
+  height: 2.778vw;
+  top: 19vw;
+  left: 45vw;
+  position: absolute;
+}
+.mini404 {
+  width: 7.778vw;
+  height: 2.778vw;
+  top: 19vw;
+  left: 82vw;
+  position: absolute;
+}
+.r1 {
+  font-family: 'Pragmatica';
+  font-size: 2vw;
+  position: absolute;
+  line-height: 120%;
+  letter-spacing: -0.09vw;
+  top: 3.9vw;
+  left: 12.5vw;
+  color: #fff6f9;
+}
+.t402 {
+  font-family: 'LT Remark';
+  font-size: 2.431vw;
+  position: absolute;
+  line-height: 120%;
+  top: 19vw;
+  left: 24.7vw;
+  color: #fff6f9;
+}
+.t403 {
+  font-family: 'LT Remark';
+  font-size: 2.431vw;
+  position: absolute;
+  line-height: 120%;
+  top: 18.8vw;
+  left: 47vw;
+  color: #fff6f9;
+}
+.t404 {
+  font-family: 'LT Remark';
+  font-size: 2.431vw;
+  position: absolute;
+  line-height: 120%;
+  top: 19vw;
+  left: 83.7vw;
+  color: #fff6f9;
+}
+/* ИГРА 1 СО ШКАФЧИКАМИ */
+.pustota {
+  width: 100vw;
+  height: 62.5vw;
+  position: absolute;
+}
+.strelka1 {
+  width: 4.861vw;
+  height: 4.167vw;
+  position: absolute;
+  top: 55.7vw;
+  left: 91.597vw;
+}
+.iphone {
+  position: absolute;
+  width: 6.206vw;
+  height: 11.23vw;
+  top: 19.5vw;
+  left: 5.5vw;
+}
+.naush {
+  position: absolute;
+  width: 12.083vw;
+  height: 12.083vw;
+  top: 18vw;
+  left: 0vw;
+}
+.getri {
+  position: absolute;
+  width: 13.642vw;
+  height: 15.556vw;
+  top: 15vw;
+  left: 37vw;
+}
+.points {
+  position: absolute;
+  width: 11.897vw;
+  height: 14.306vw;
+  top: 17vw;
+  left: 57vw;
+}
+.giri {
+  position: absolute;
+  width: 12.9vw;
+  height: 10.833vw;
+  top: 20vw;
+  left: 76vw;
+}
+.roll {
+  position: absolute;
+  width: 13.167vw;
+  height: 19.153vw;
+  top: 43vw;
+  left: 0vw;
+}
+.stanley {
+  position: absolute;
+  width: 8.812vw;
+  height: 19.028vw;
+  top: 42vw;
+  left: 21vw;
+}
+.bag {
+  position: absolute;
+  width: 15.054vw;
+  height: 16.806vw;
+  top: 44vw;
+  left: 35.5vw;
+}
+.flowers {
+  position: absolute;
+  width: 16.603vw;
+  height: 16.389vw;
+  top: 45vw;
+  left: 54vw;
+}
+.instax {
+  position: absolute;
+  width: 11.369vw;
+  height: 11.736vw;
+  top: 49vw;
+  left: 76vw;
+}
+/* двери */
+.dver1 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 3vw;
+  left: -2vw;
+}
+.dver3 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 3vw;
+  left: 34.5vw;
+}
+.dver4 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 3vw;
+  left: 53.8vw;
+}
+.dver5 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 3vw;
+  left: 72.9vw;
+}
+.dver6 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 33.1vw;
+  left: -2vw;
+}
+.dver7 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 33.1vw;
+  left: 15.3vw;
+}
+.dver8 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 33.1vw;
+  left: 34.5vw;
+}
+.dver9 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 33.1vw;
+  left: 53.8vw;
+}
+.dver10 {
+  position: absolute;
+  z-index: 2;
+  width: 17.083vw;
+  height: 28.472vw;
+  top: 33.1vw;
+  left: 72.9vw;
+}
+/* ИГРА 2 ДИКО */
+.gradient {
+  width: 100vw;
+  height: 62.5vw;
+  position: absolute;
+}
+/* плееры */
+.player1 {
+  width: 27.569vw;
+  height: 16.667vw;
+  position: absolute;
+  top: 1.8vw;
+  left: 2.5vw;
+}
+.player2 {
+  width: 27.569vw;
+  height: 16.667vw;
+  position: absolute;
+  top: 22.8vw;
+  left: 2.5vw;
+}
+.player3 {
+  width: 27.569vw;
+  height: 16.667vw;
+  position: absolute;
+  top: 43.8vw;
+  left: 2.5vw;
+}
+.knpl1 {
+  width: 4.278vw;
+  height: 5.042vw;
+  position: absolute;
+  top: 12.4vw;
+  left: 24.7vw;
+}
+.knpl2 {
+  width: 4.278vw;
+  height: 5.042vw;
+  position: absolute;
+  top: 33.4vw;
+  left: 24.7vw;
+}
+.knpl3 {
+  width: 4.278vw;
+  height: 5.042vw;
+  position: absolute;
+  top: 54.4vw;
+  left: 24.7vw;
+}
+.knpa1 {
+  width: 2.639vw;
+  height: 3.75vw;
+  position: absolute;
+  top: 8.3vw;
+  left: 26.6vw;
+}
+.knpa2 {
+  width: 2.639vw;
+  height: 3.75vw;
+  position: absolute;
+  top: 29.3vw;
+  left: 26.6vw;
+}
+.knpa3 {
+  width: 2.639vw;
+  height: 3.75vw;
+  position: absolute;
+  top: 50.3vw;
+  left: 26.6vw;
+}
+.strelka2 {
+  width: 4.861vw;
+  height: 4.167vw;
+  position: absolute;
+  top: 55.7vw;
+  left: 91.597vw;
+}
+/* ПОДВАЛ */
 .game {
   width: 80vw;
   height: 21vw;

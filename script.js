@@ -168,47 +168,36 @@ $(document).ready(function () {
   });
 });
 // ❗️ МУЗЫКААААААААА
-// Создаем аудиофайлы с помощью Howler.js
 document.addEventListener('DOMContentLoaded', function () {
-  // Создаем треки
+  // Создаем треки с помощью Howler.js
   const tracks = [
     new Howl({ src: ['music/esmeralda.mp3'], html5: true }), // Трек 1
     new Howl({ src: ['music/swan.mp3'], html5: true }), // Трек 2
     new Howl({ src: ['music/masha.mp3'], html5: true }), // Трек 3
   ];
 
-  let isUserInteracted = false;
+  let currentTrackIndex = -1; // Переменная для отслеживания текущего трека
 
   // Функция для воспроизведения трека
   function playTrack(index) {
-    if (!isUserInteracted) {
-      Howler.ctx.resume().then(() => {
-        isUserInteracted = true;
-        startTrack(index);
-      });
-    } else {
-      startTrack(index);
-    }
-  }
-
-  function startTrack(index) {
-    stopAllTracks();
+    stopAllTracks(); // Останавливаем все треки перед воспроизведением нового
+    currentTrackIndex = index; // Обновляем текущий индекс трека
     console.log('Воспроизведение трека: ' + index);
-    tracks[index].play();
+    tracks[index].play(); // Воспроизводим трек
   }
 
-  // Функция для паузы
+  // Функция для паузы трека
   function pauseTrack(index) {
     console.log('Пауза трека: ' + index);
-    tracks[index].pause();
+    tracks[index].pause(); // Останавливаем текущий трек
   }
 
   // Функция для остановки всех треков
   function stopAllTracks() {
-    tracks.forEach((track) => track.stop());
+    tracks.forEach((track) => track.stop()); // Останавливаем все треки
   }
 
-  // Назначение обработчиков событий
+  // Привязываем кнопки для воспроизведения треков
   document
     .querySelector('.knpl1')
     .addEventListener('click', () => playTrack(0));
@@ -219,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .querySelector('.knpl3')
     .addEventListener('click', () => playTrack(2));
 
+  // Привязываем кнопки для паузы треков
   document
     .querySelector('.knpa1')
     .addEventListener('click', () => pauseTrack(0));

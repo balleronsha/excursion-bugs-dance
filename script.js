@@ -142,7 +142,7 @@ document.querySelector('.dver9').addEventListener('click', function () {
 document.querySelector('.dver10').addEventListener('click', function () {
   this.style.display = 'none'; // Скрыть dver10
 });
-// ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
+// ❗️ ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
 $(document).ready(function () {
   // Делаем предметы перетаскиваемыми
   $(
@@ -167,6 +167,41 @@ $(document).ready(function () {
     },
   });
 });
+// ❗️ МУЗЫКААААААААА
+// Создаем аудиофайлы
+const tracks = [
+  new Audio('music/esmeralda.mp3'), // Трек 1
+  new Audio('music/swan.mp3'), // Трек 2
+  new Audio('music/masha.mp3'), // Трек 3
+];
+
+// Функция для воспроизведения трека
+function playTrack(index) {
+  stopAllTracks(); // Останавливаем все треки перед запуском нового
+  tracks[index].play();
+}
+
+// Функция для остановки конкретного трека
+function pauseTrack(index) {
+  tracks[index].pause();
+}
+
+// Функция для остановки всех треков
+function stopAllTracks() {
+  tracks.forEach((track) => {
+    track.pause();
+    track.currentTime = 0; // Сбрасываем на начало
+  });
+}
+
+// Привязываем кнопки к функциям
+document.querySelector('.knpl1').addEventListener('click', () => playTrack(0));
+document.querySelector('.knpl2').addEventListener('click', () => playTrack(1));
+document.querySelector('.knpl3').addEventListener('click', () => playTrack(2));
+
+document.querySelector('.knpa1').addEventListener('click', () => pauseTrack(0));
+document.querySelector('.knpa2').addEventListener('click', () => pauseTrack(1));
+document.querySelector('.knpa3').addEventListener('click', () => pauseTrack(2));
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');
 // let scoreDisplay = document.createElement('div');

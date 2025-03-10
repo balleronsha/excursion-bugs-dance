@@ -3,30 +3,34 @@ import { OrbitControls } from 'OrbitControls';
 import { GLTFLoader } from 'GLTFLoader';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThree('.zagruzka', { position: [0, 1, 3], scale: [1, 1, 1] });
-  initThree('.play2', { position: [0, 0, 5], scale: [1.5, 1.5, 1.5] });
+  // Выбираем, где будет рендериться 3D ('.zagruzka' или '.play2')
+  initThree('.zagruzka');
+  initThree('.play2');
 });
 
-function initThree(selector, options) {
-  const container = document.querySelector(selector);
-  if (!container) return;
+function initThree(containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) {
+    console.error(`Контейнер ${containerSelector} не найден!`);
+    return;
+  }
 
-  // Получаем реальные размеры контейнера
-  const { width, height } = container.getBoundingClientRect();
+  const width = container.clientWidth;
+  const height = container.clientHeight;
 
   // Создаем сцену
   const scene = new THREE.Scene();
 
   // Камера
-  const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 100);
-  camera.position.set(...options.position);
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+  camera.position.set(2, 2, 5);
 
   // Рендерер
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
-  renderer.setClearColor(0x000000, 0); // Прозрачный фон
-  container.appendChild(renderer.domElement);
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  container.appendChild(renderer.domElement); // Добавляем рендер в контейнер
 
   // Управление камерой
   const controls = new OrbitControls(camera, renderer.domElement);
@@ -35,14 +39,24 @@ function initThree(selector, options) {
   controls.maxDistance = 10;
   controls.maxPolarAngle = Math.PI / 2.2;
 
-  // Освещение
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+  // --- Освещение ---
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
   scene.add(ambientLight);
 
-  const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 2.5);
   dirLight.position.set(3, 6, 5);
   dirLight.castShadow = true;
+  dirLight.shadow.mapSize.width = 2048;
+  dirLight.shadow.mapSize.height = 2048;
   scene.add(dirLight);
+
+  // Пол (принимает тени)
+  const groundGeometry = new THREE.PlaneGeometry(10, 10);
+  const groundMaterial = new THREE.ShadowMaterial({ opacity: 0.15 });
+  const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
 
   // Загрузка 3D-модели
   const loader = new GLTFLoader();
@@ -50,8 +64,13 @@ function initThree(selector, options) {
     './3d/result.gltf',
     (gltf) => {
       const model = gltf.scene;
-      model.scale.set(...options.scale);
-      model.position.set(0, 0, 0);
+      model.traverse((node) => {
+        if (node.isMesh) {
+          node.material.roughness = 0.6;
+          node.material.metalness = 0.05;
+          node.material.envMapIntensity = 2;
+        }
+      });
       scene.add(model);
     },
     undefined,
@@ -68,10 +87,11 @@ function initThree(selector, options) {
 
   // Адаптация под размер контейнера
   window.addEventListener('resize', () => {
-    const { width, height } = container.getBoundingClientRect();
-    camera.aspect = width / height;
+    const newWidth = container.clientWidth;
+    const newHeight = container.clientHeight;
+    camera.aspect = newWidth / newHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(width, height);
+    renderer.setSize(newWidth, newHeight);
   });
 }
 // import * as THREE from 'three';

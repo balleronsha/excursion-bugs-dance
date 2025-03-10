@@ -103,11 +103,11 @@ canvas {
   position: absolute;
 }
 .r1 {
-  font-family: 'Pragmatica';
+  font-family: 'SF Pro';
   font-size: 2vw;
   position: absolute;
-  line-height: 120%;
-  letter-spacing: -0.09vw;
+  /* line-height: 120%; */
+  /* letter-spacing: -0.09vw; */
   top: 3.9vw;
   left: 12.5vw;
   color: #fff6f9;

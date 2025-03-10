@@ -5,7 +5,7 @@
   font-weight: bold;
 }
 @font-face {
-  font-family: 'Pragmatica';
-  src: local('PRG43'), local('PRG43'),
-    url('../fonts/PRG43.otf') format('opentype');
+  font-family: 'SF Pro';
+  src: local('SF Pro'), local('SF-Pro'),
+    url('../fonts/SF-Pro.ttf') format('truetype');
 }

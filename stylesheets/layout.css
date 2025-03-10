@@ -4,6 +4,7 @@ body {
 /* ЗАГРУЗОЧНЫЙ ЭКРАН */
 .zagruzka,
 .glavsvet,
+.glavsvet402,
 .play1,
 .play2 {
   width: 100vw;
@@ -46,7 +47,8 @@ canvas {
   position: absolute;
 }
 
-.shkafsvet {
+.shkafsvet,
+.glavsvet402 {
   width: 7.708vw;
   height: 32.5vw;
   top: 25.6vw;
@@ -60,6 +62,13 @@ canvas {
   left: 17vw;
   position: absolute;
 }
+.dver402temnota {
+  width: 19.236vw;
+  height: 35.417vw;
+  top: 22.5vw;
+  left: 17vw;
+  position: absolute;
+}
 .dverconsvet {
   width: 27.847vw;
   height: 35.417vw;
@@ -67,7 +76,21 @@ canvas {
   left: 42vw;
   position: absolute;
 }
+.dvercontemnota {
+  width: 27.847vw;
+  height: 35.417vw;
+  top: 22.5vw;
+  left: 42vw;
+  position: absolute;
+}
 .dver404svet {
+  width: 19.236vw;
+  height: 35.417vw;
+  top: 22.5vw;
+  left: 76vw;
+  position: absolute;
+}
+.dver404temnota {
   width: 19.236vw;
   height: 35.417vw;
   top: 22.5vw;

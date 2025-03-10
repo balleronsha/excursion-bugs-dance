@@ -106,6 +106,7 @@
 //   });
 // }
 // 🤪 ЙОУ ПЕРЕХОД 1
+document.querySelector('.play1').style.display = 'none';
 document.querySelector('.shkafsvet').addEventListener('click', function () {
   // Скрыть главный экран
   document.querySelector('.glavsvet').style.display = 'none';
@@ -113,6 +114,36 @@ document.querySelector('.shkafsvet').addEventListener('click', function () {
   // Показать экран play1
   document.querySelector('.play1').style.display = 'block';
 });
+document.querySelector('.strelka1').addEventListener('click', function () {
+  // Скрыть экран play1
+  document.querySelector('.play1').style.display = 'none';
+
+  // Показать главный экран
+  document.querySelector('.glavsvet').style.display = 'block';
+});
+// 🥸 УРАААА 2 ИГРААА
+document.querySelector('.play2').style.display = 'none';
+document.querySelector('.dver402svet').addEventListener('click', function () {
+  // Скрыть главный экран
+  document.querySelector('.glavsvet').style.display = 'none';
+
+  // Показать экран play1
+  document.querySelector('.play2').style.display = 'block';
+});
+document.querySelector('.strelka2').addEventListener('click', function () {
+  // Скрыть экран play1
+  document.querySelector('.play2').style.display = 'none';
+
+  // Показать главный экран
+  document.querySelector('.glavsvet').style.display = 'block';
+  // 😘
+
+  document.querySelector('.strelka2').addEventListener('click', function () {
+    // Меняем изображение
+    document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
+  });
+});
+
 // ИГРА 1 СО ШКАФЧИКАМИ
 // УДАЛЕНИЕ ДВЕРЕЙ
 document.querySelector('.dver1').addEventListener('click', function () {

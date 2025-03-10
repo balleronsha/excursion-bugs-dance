@@ -227,6 +227,16 @@ canvas {
   top: 49vw;
   left: 76vw;
 }
+.allisonplate {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #333;
+  margin-top: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 /* двери */
 .dver1 {
   position: absolute;

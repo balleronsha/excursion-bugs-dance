@@ -143,60 +143,29 @@ document.querySelector('.dver10').addEventListener('click', function () {
   this.style.display = 'none'; // Скрыть dver10
 });
 // ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
-// Функция для перемещения элементов
-function makeDraggable(element) {
-  let offsetX,
-    offsetY,
-    isDragging = false;
+$(document).ready(function () {
+  // Делаем предметы перетаскиваемыми
+  $(
+    '.iphone, .naush, .getri, .points, .giri, .roll, .stanley, .bag, .flowers, .instax'
+  ).draggable();
 
-  // Событие при нажатии кнопки мыши
-  element.addEventListener('mousedown', function (e) {
-    // Запоминаем начальные координаты
-    offsetX = e.clientX - element.getBoundingClientRect().left;
-    offsetY = e.clientY - element.getBoundingClientRect().top;
+  // Делаем элемент с классом .allisonplate зоной для сброса
+  $('.allisonplate').droppable({
+    accept: '.draggable', // Только перетаскиваемые предметы могут быть сброшены в эту зону
+    drop: function (event, ui) {
+      // При сбросе предмета меняем его позицию на центр дроп-зоны
+      const dropZone = $(this);
+      const offset = dropZone.offset();
+      const width = dropZone.width();
+      const height = dropZone.height();
 
-    isDragging = true;
-
-    // Убираем выделение текста
-    element.style.userSelect = 'none';
-
-    // Следим за движением мыши
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+      // Рассчитываем новую позицию для элемента
+      ui.helper.css({
+        left: offset.left + (width - ui.helper.width()) / 2,
+        top: offset.top + (height - ui.helper.height()) / 2,
+      });
+    },
   });
-
-  // Обработчик движения мыши
-  function onMouseMove(e) {
-    if (isDragging) {
-      // Вычисляем новые координаты
-      let newX = e.clientX - offsetX;
-      let newY = e.clientY - offsetY;
-
-      // Перемещаем элемент в новые координаты
-      element.style.left = newX + 'px';
-      element.style.top = newY + 'px';
-    }
-  }
-
-  // Когда мышь отпускается
-  function onMouseUp() {
-    if (isDragging) {
-      isDragging = false;
-
-      // Восстанавливаем возможность выделения текста
-      element.style.userSelect = '';
-
-      // Убираем обработчики событий
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    }
-  }
-}
-
-// Применяем функцию ко всем draggable элементам
-const draggableItems = document.querySelectorAll('.draggable');
-draggableItems.forEach((item) => {
-  makeDraggable(item);
 });
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');

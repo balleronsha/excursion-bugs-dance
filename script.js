@@ -145,30 +145,36 @@ document.querySelector('.dver10').addEventListener('click', function () {
 // ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
 function makeDraggable(element) {
   let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
 
   // При нажатии на элемент (начало перетаскивания)
   element.addEventListener('mousedown', function (e) {
     isDragging = true;
+    // Запоминаем позицию, где был клик мыши
+    offsetX = e.clientX - element.getBoundingClientRect().left;
+    offsetY = e.clientY - element.getBoundingClientRect().top;
 
-    // Помещаем элемент на передний план
-    element.style.zIndex = 1000;
+    // Убираем текстовое выделение
+    element.style.userSelect = 'none';
 
-    // Начинаем отслеживать движение мыши
+    // При движении мыши перетаскиваем элемент
     document.addEventListener('mousemove', onMouseMove);
 
-    // При отпускании кнопки мыши завершаем перетаскивание
+    // Отключаем события мыши после отпускания кнопки
     document.addEventListener('mouseup', onMouseUp);
-
-    // Блокируем выделение текста
-    element.style.userSelect = 'none';
   });
 
   // Функция, которая будет вызываться при движении мыши
   function onMouseMove(e) {
     if (isDragging) {
+      // Рассчитываем новые координаты для перемещения элемента
+      let newX = e.clientX - offsetX;
+      let newY = e.clientY - offsetY;
+
       // Перемещаем элемент в зависимости от положения мыши
-      element.style.left = `${e.clientX - element.width / 2}px`;
-      element.style.top = `${e.clientY - element.height / 2}px`;
+      element.style.left = `${newX}px`;
+      element.style.top = `${newY}px`;
     }
   }
 
@@ -176,12 +182,11 @@ function makeDraggable(element) {
   function onMouseUp() {
     if (isDragging) {
       isDragging = false;
-      element.style.zIndex = ''; // Возвращаем z-index
 
       // Разрешаем выделение текста
       element.style.userSelect = '';
 
-      // Отключаем обработчики событий после завершения перетаскивания
+      // Убираем обработчики событий, так как перетаскивание завершено
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
     }

@@ -108,38 +108,47 @@ function initThree() {
 // ИГРА 1 СО ШКАФЧИКАМИ
 // УДАЛЕНИЕ ДВЕРЕЙ
 document.querySelector('.dver1').addEventListener('click', function () {
+  console.log('Дверь 1 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver1
 });
 
 document.querySelector('.dver3').addEventListener('click', function () {
+  console.log('Дверь 3 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver3
 });
 
 document.querySelector('.dver4').addEventListener('click', function () {
+  console.log('Дверь 4 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver4
 });
 
 document.querySelector('.dver5').addEventListener('click', function () {
+  console.log('Дверь 5 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver5
 });
 
 document.querySelector('.dver6').addEventListener('click', function () {
+  console.log('Дверь 6 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver6
 });
 
 document.querySelector('.dver7').addEventListener('click', function () {
+  console.log('Дверь 7 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver7
 });
 
 document.querySelector('.dver8').addEventListener('click', function () {
+  console.log('Дверь 8 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver8
 });
 
 document.querySelector('.dver9').addEventListener('click', function () {
+  console.log('Дверь 9 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver9
 });
 
 document.querySelector('.dver10').addEventListener('click', function () {
+  console.log('Дверь 10 кликнута'); // Для отладки
   this.style.display = 'none'; // Скрыть dver10
 });
 

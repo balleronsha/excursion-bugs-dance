@@ -122,7 +122,10 @@ document.querySelector('.strelka1').addEventListener('click', function () {
   document.querySelector('.glavsvet').style.display = 'block';
 });
 // 🥸 УРАААА 2 ИГРААА
+// Скрыть экран play2 изначально
 document.querySelector('.play2').style.display = 'none';
+
+// Обработчик для первого клика по dver402svet
 document.querySelector('.dver402svet').addEventListener('click', function () {
   // Скрыть главный экран
   document.querySelector('.glavsvet').style.display = 'none';
@@ -130,26 +133,17 @@ document.querySelector('.dver402svet').addEventListener('click', function () {
   // Показать экран play1
   document.querySelector('.play2').style.display = 'block';
 });
+
+// Обработчик для клика по strelka2
 document.querySelector('.strelka2').addEventListener('click', function () {
   // Скрыть экран play1
   document.querySelector('.play2').style.display = 'none';
 
   // Показать главный экран
   document.querySelector('.glavsvet').style.display = 'block';
-  // 😘
-  document.querySelector('.strelka2').addEventListener('click', function () {
-    const door = document.querySelector('.dver402svet');
-    door.src = 'images/dver402temnota.svg';
 
-    // Принудительно обновляем стиль
-    door.onload = function () {
-      door.style.zIndex = 1000;
-    };
-  });
-  // document.querySelector('.strelka2').addEventListener('click', function () {
-  //   // Меняем изображение
-  //   document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
-  // });
+  // Меняем изображение на dver402temnota
+  document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
 });
 
 // ИГРА 1 СО ШКАФЧИКАМИ

@@ -152,11 +152,11 @@ canvas {
   top: 55.7vw;
   left: 91.597vw;
 }
-.draggable {
+/* .draggable {
   position: absolute;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-}
+} */
 .iphone {
   position: absolute;
   width: 6.206vw;

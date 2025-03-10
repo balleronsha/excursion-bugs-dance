@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Создаем треки с помощью Howler.js
   const tracks = [
     new Howl({ src: ['music/esmeralda.mp3'], html5: true }), // Трек 1
-    new Howl({ src: ['music/swanlake.mp3'], html5: true }), // Трек 2
+    new Howl({ src: ['music/swan.mp3'], html5: true }), // Трек 2
     new Howl({ src: ['music/masha.mp3'], html5: true }), // Трек 3
   ];
 

@@ -3,29 +3,29 @@ import { OrbitControls } from 'OrbitControls';
 import { GLTFLoader } from 'GLTFLoader';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThree('.zagruzka');
-  initThree('.play2');
+  initThree('.zagruzka', { position: [0, 1, 3], scale: [1, 1, 1] });
+  initThree('.play2', { position: [0, 0, 5], scale: [1.5, 1.5, 1.5] });
 });
 
-function initThree(selector) {
+function initThree(selector, options) {
   const container = document.querySelector(selector);
   if (!container) return;
 
-  const width = container.clientWidth;
-  const height = container.clientHeight;
+  // Получаем реальные размеры контейнера
+  const { width, height } = container.getBoundingClientRect();
 
   // Создаем сцену
   const scene = new THREE.Scene();
 
   // Камера
-  const camera = new THREE.PerspectiveCamera(15, width / height, 0.1, 100);
-  camera.position.set(2, 2, 6);
+  const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 100);
+  camera.position.set(...options.position);
 
   // Рендерер
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0x000000, 0); // Прозрачный фон
   container.appendChild(renderer.domElement);
 
   // Управление камерой
@@ -50,7 +50,7 @@ function initThree(selector) {
     './3d/result.gltf',
     (gltf) => {
       const model = gltf.scene;
-      model.scale.set(1, 1, 1);
+      model.scale.set(...options.scale);
       model.position.set(0, 0, 0);
       scene.add(model);
     },
@@ -66,16 +66,14 @@ function initThree(selector) {
   }
   animate();
 
-  // Адаптация под размер экрана
+  // Адаптация под размер контейнера
   window.addEventListener('resize', () => {
-    const newWidth = container.clientWidth;
-    const newHeight = container.clientHeight;
-    camera.aspect = newWidth / newHeight;
+    const { width, height } = container.getBoundingClientRect();
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(newWidth, newHeight);
+    renderer.setSize(width, height);
   });
 }
-
 // import * as THREE from 'three';
 // import { OrbitControls } from 'OrbitControls';
 // import { GLTFLoader } from 'GLTFLoader';

@@ -143,57 +143,57 @@ document.querySelector('.dver10').addEventListener('click', function () {
   this.style.display = 'none'; // Скрыть dver10
 });
 // ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
+// Функция для перемещения элементов
 function makeDraggable(element) {
-  let isDragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
+  let offsetX,
+    offsetY,
+    isDragging = false;
 
-  // При нажатии на элемент (начало перетаскивания)
+  // Событие при нажатии кнопки мыши
   element.addEventListener('mousedown', function (e) {
-    isDragging = true;
-    // Запоминаем позицию, где был клик мыши
+    // Запоминаем начальные координаты
     offsetX = e.clientX - element.getBoundingClientRect().left;
     offsetY = e.clientY - element.getBoundingClientRect().top;
 
-    // Убираем текстовое выделение
+    isDragging = true;
+
+    // Убираем выделение текста
     element.style.userSelect = 'none';
 
-    // При движении мыши перетаскиваем элемент
+    // Следим за движением мыши
     document.addEventListener('mousemove', onMouseMove);
-
-    // Отключаем события мыши после отпускания кнопки
     document.addEventListener('mouseup', onMouseUp);
   });
 
-  // Функция, которая будет вызываться при движении мыши
+  // Обработчик движения мыши
   function onMouseMove(e) {
     if (isDragging) {
-      // Рассчитываем новые координаты для перемещения элемента
+      // Вычисляем новые координаты
       let newX = e.clientX - offsetX;
       let newY = e.clientY - offsetY;
 
-      // Перемещаем элемент в зависимости от положения мыши
-      element.style.left = `${newX}px`;
-      element.style.top = `${newY}px`;
+      // Перемещаем элемент в новые координаты
+      element.style.left = newX + 'px';
+      element.style.top = newY + 'px';
     }
   }
 
-  // Завершаем перетаскивание
+  // Когда мышь отпускается
   function onMouseUp() {
     if (isDragging) {
       isDragging = false;
 
-      // Разрешаем выделение текста
+      // Восстанавливаем возможность выделения текста
       element.style.userSelect = '';
 
-      // Убираем обработчики событий, так как перетаскивание завершено
+      // Убираем обработчики событий
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
     }
   }
 }
 
-// Применяем функцию ко всем элементам с классом .draggable
+// Применяем функцию ко всем draggable элементам
 const draggableItems = document.querySelectorAll('.draggable');
 draggableItems.forEach((item) => {
   makeDraggable(item);

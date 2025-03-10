@@ -169,40 +169,66 @@ $(document).ready(function () {
 });
 // ❗️ МУЗЫКААААААААА
 // Создаем аудиофайлы с помощью Howler.js
-const tracks = [
-  new Howl({ src: ['music/esmeralda.mp3'] }), // Трек 1
-  new Howl({ src: ['music/swan.mp3'] }), // Трек 2
-  new Howl({ src: ['music/masha.mp3'] }), // Трек 3
-];
+document.addEventListener('DOMContentLoaded', function () {
+  // Создаем треки
+  const tracks = [
+    new Howl({ src: ['music/esmeralda.mp3'], html5: true }), // Трек 1
+    new Howl({ src: ['music/swan.mp3'], html5: true }), // Трек 2
+    new Howl({ src: ['music/masha.mp3'], html5: true }), // Трек 3
+  ];
 
-// Функция для воспроизведения трека
-console.log('Нажата кнопка play ' + index);
-function playTrack(index) {
-  stopAllTracks(); // Останавливаем все треки перед запуском нового
-  tracks[index].play();
-}
+  let isUserInteracted = false;
 
-// Функция для остановки конкретного трека
-console.log('Нажата кнопка pause ' + index);
-function pauseTrack(index) {
-  tracks[index].pause();
-}
+  // Функция для воспроизведения трека
+  function playTrack(index) {
+    if (!isUserInteracted) {
+      Howler.ctx.resume().then(() => {
+        isUserInteracted = true;
+        startTrack(index);
+      });
+    } else {
+      startTrack(index);
+    }
+  }
 
-// Функция для остановки всех треков
-function stopAllTracks() {
-  tracks.forEach((track) => {
-    track.stop(); // Полностью останавливает трек
-  });
-}
+  function startTrack(index) {
+    stopAllTracks();
+    console.log('Воспроизведение трека: ' + index);
+    tracks[index].play();
+  }
 
-// Привязываем кнопки к функциям
-document.querySelector('.knpl1').addEventListener('click', () => playTrack(0));
-document.querySelector('.knpl2').addEventListener('click', () => playTrack(1));
-document.querySelector('.knpl3').addEventListener('click', () => playTrack(2));
+  // Функция для паузы
+  function pauseTrack(index) {
+    console.log('Пауза трека: ' + index);
+    tracks[index].pause();
+  }
 
-document.querySelector('.knpa1').addEventListener('click', () => pauseTrack(0));
-document.querySelector('.knpa2').addEventListener('click', () => pauseTrack(1));
-document.querySelector('.knpa3').addEventListener('click', () => pauseTrack(2));
+  // Функция для остановки всех треков
+  function stopAllTracks() {
+    tracks.forEach((track) => track.stop());
+  }
+
+  // Назначение обработчиков событий
+  document
+    .querySelector('.knpl1')
+    .addEventListener('click', () => playTrack(0));
+  document
+    .querySelector('.knpl2')
+    .addEventListener('click', () => playTrack(1));
+  document
+    .querySelector('.knpl3')
+    .addEventListener('click', () => playTrack(2));
+
+  document
+    .querySelector('.knpa1')
+    .addEventListener('click', () => pauseTrack(0));
+  document
+    .querySelector('.knpa2')
+    .addEventListener('click', () => pauseTrack(1));
+  document
+    .querySelector('.knpa3')
+    .addEventListener('click', () => pauseTrack(2));
+});
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');
 // let scoreDisplay = document.createElement('div');

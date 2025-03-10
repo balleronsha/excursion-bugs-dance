@@ -105,6 +105,14 @@
 //     renderer.setSize(window.innerWidth, window.innerHeight);
 //   });
 // }
+// 🤪 ЙОУ ПЕРЕХОД 1
+document.querySelector('.shkafsvet').addEventListener('click', function () {
+  // Скрыть главный экран
+  document.querySelector('.glavsvet').style.display = 'none';
+
+  // Показать экран play1
+  document.querySelector('.play1').style.display = 'block';
+});
 // ИГРА 1 СО ШКАФЧИКАМИ
 // УДАЛЕНИЕ ДВЕРЕЙ
 document.querySelector('.dver1').addEventListener('click', function () {

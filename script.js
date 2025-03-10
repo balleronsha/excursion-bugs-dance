@@ -137,11 +137,19 @@ document.querySelector('.strelka2').addEventListener('click', function () {
   // Показать главный экран
   document.querySelector('.glavsvet').style.display = 'block';
   // 😘
-
   document.querySelector('.strelka2').addEventListener('click', function () {
-    // Меняем изображение
-    document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
+    const door = document.querySelector('.dver402svet');
+    door.src = 'images/dver402temnota.svg';
+
+    // Принудительно обновляем стиль
+    door.onload = function () {
+      door.style.zIndex = 1000;
+    };
   });
+  // document.querySelector('.strelka2').addEventListener('click', function () {
+  //   // Меняем изображение
+  //   document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
+  // });
 });
 
 // ИГРА 1 СО ШКАФЧИКАМИ

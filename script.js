@@ -168,11 +168,11 @@ $(document).ready(function () {
   });
 });
 // ❗️ МУЗЫКААААААААА
-// Создаем аудиофайлы
+// Создаем аудиофайлы с помощью Howler.js
 const tracks = [
-  new Audio('music/esmeralda.mp3'), // Трек 1
-  new Audio('music/swan.mp3'), // Трек 2
-  new Audio('music/masha.mp3'), // Трек 3
+  new Howl({ src: ['../music/esmeralda.mp3'] }), // Трек 1
+  new Howl({ src: ['../music/swan.mp3'] }), // Трек 2
+  new Howl({ src: ['../music/masha.mp3'] }), // Трек 3
 ];
 
 // Функция для воспроизведения трека
@@ -189,8 +189,7 @@ function pauseTrack(index) {
 // Функция для остановки всех треков
 function stopAllTracks() {
   tracks.forEach((track) => {
-    track.pause();
-    track.currentTime = 0; // Сбрасываем на начало
+    track.stop(); // Полностью останавливает трек
   });
 }
 

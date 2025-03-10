@@ -105,6 +105,16 @@
 //     renderer.setSize(window.innerWidth, window.innerHeight);
 //   });
 // }
+//
+document.querySelector('.iconklava1').addEventListener('click', function () {
+  // Показать элементы rech1 и r1
+  document.querySelector('.rech1').style.display = 'block';
+  document.querySelector('.r1').style.display = 'block';
+});
+//
+//
+//
+//
 // 🤪 ЙОУ ПЕРЕХОД 1
 document.querySelector('.play1').style.display = 'none';
 document.querySelector('.shkafsvet').addEventListener('click', function () {
@@ -121,31 +131,9 @@ document.querySelector('.strelka1').addEventListener('click', function () {
   // Показать главный экран
   document.querySelector('.glavsvet').style.display = 'block';
 });
-// 🥸 УРАААА 2 ИГРААА
-// Скрыть экран play2 изначально
-document.querySelector('.play2').style.display = 'none';
-
-// Обработчик для первого клика по dver402svet
-document.querySelector('.dver402svet').addEventListener('click', function () {
-  // Скрыть главный экран
-  document.querySelector('.glavsvet').style.display = 'none';
-
-  // Показать экран play1
-  document.querySelector('.play2').style.display = 'block';
-});
-
-// Обработчик для клика по strelka2
-document.querySelector('.strelka2').addEventListener('click', function () {
-  // Скрыть экран play1
-  document.querySelector('.play2').style.display = 'none';
-
-  // Показать главный экран
-  document.querySelector('.glavsvet').style.display = 'block';
-
-  // Меняем изображение на dver402temnota
-  document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
-});
-
+//
+//
+//
 // ИГРА 1 СО ШКАФЧИКАМИ
 // УДАЛЕНИЕ ДВЕРЕЙ
 document.querySelector('.dver1').addEventListener('click', function () {
@@ -208,6 +196,36 @@ $(document).ready(function () {
     },
   });
 });
+//
+//
+//
+// 🥸 УРАААА 2 ИГРААА
+// Скрыть экран play2 изначально
+document.querySelector('.play2').style.display = 'none';
+
+// Обработчик для первого клика по dver402svet
+document.querySelector('.dver402svet').addEventListener('click', function () {
+  // Скрыть главный экран
+  document.querySelector('.glavsvet').style.display = 'none';
+
+  // Показать экран play1
+  document.querySelector('.play2').style.display = 'block';
+});
+
+// Обработчик для клика по strelka2
+document.querySelector('.strelka2').addEventListener('click', function () {
+  // Скрыть экран play1
+  document.querySelector('.play2').style.display = 'none';
+
+  // Показать главный экран
+  document.querySelector('.glavsvet').style.display = 'block';
+
+  // Меняем изображение на dver402temnota
+  document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
+});
+
+//
+//
 // ❗️ МУЗЫКААААААААА
 document.addEventListener('DOMContentLoaded', function () {
   // Создаем треки с помощью Howler.js
@@ -259,6 +277,94 @@ document.addEventListener('DOMContentLoaded', function () {
   document
     .querySelector('.knpa3')
     .addEventListener('click', () => pauseTrack(2));
+});
+//
+//
+//
+//
+//
+//
+//
+// 🫣 УРАААА 3 ИГРААА
+// Скрыть экран play2 изначально
+document.querySelector('.play3').style.display = 'none';
+
+// Обработчик для первого клика по dver402svet
+document.querySelector('.dverconsvet').addEventListener('click', function () {
+  // Скрыть главный экран
+  document.querySelector('.glavsvet').style.display = 'none';
+  document.querySelector('.play3').style.display = 'block';
+});
+// Обработчик для клика по strelka2
+document.querySelector('.strelka3').addEventListener('click', function () {
+  document.querySelector('.play3').style.display = 'none';
+
+  document.querySelector('.glavsvet').style.display = 'block';
+
+  // Меняем изображение на dver402temnota
+  document.querySelector('.dverconsvet').src = 'images/dvercontemnota.svg';
+});
+
+//
+//
+//
+//
+//
+// рисовашка
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+
+// Установка размеров canvas
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
+let drawing = false;
+let currentColor = '#000000';
+let brushActive = false;
+
+// Включение кисти
+document.querySelector('.kistochka').addEventListener('click', () => {
+  brushActive = true;
+  canvas.classList.add('kistochka-active');
+});
+
+// Очистка холста
+document.querySelector('.musor').addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+// Выбор цвета
+document.querySelectorAll('.color-btn').forEach((button) => {
+  button.addEventListener('click', () => {
+    currentColor = button.getAttribute('data-color');
+  });
+});
+
+// Рисование
+canvas.addEventListener('mousedown', (event) => {
+  if (!brushActive) return;
+  drawing = true;
+  ctx.beginPath();
+  ctx.moveTo(event.offsetX, event.offsetY);
+});
+
+canvas.addEventListener('mousemove', (event) => {
+  if (!drawing) return;
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = currentColor;
+
+  ctx.lineTo(event.offsetX, event.offsetY);
+  ctx.stroke();
+});
+
+canvas.addEventListener('mouseup', () => {
+  drawing = false;
+  ctx.beginPath();
+});
+
+canvas.addEventListener('mouseleave', () => {
+  drawing = false;
 });
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');

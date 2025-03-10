@@ -6,7 +6,9 @@ body {
 .glavsvet,
 .glavsvet402,
 .play1,
-.play2 {
+.play2,
+.play3,
+.play4 {
   width: 100vw;
   height: 62.5vw;
   position: relative;
@@ -42,8 +44,8 @@ canvas {
 .iconklava1 {
   height: 7.5vw;
   width: 7.5vw;
-  top: 2.5vw;
-  left: 2vw;
+  top: 4.5vw;
+  left: 1.5vw;
   position: absolute;
 }
 
@@ -101,7 +103,7 @@ canvas {
   width: 46.042vw;
   height: 8.653vw;
   top: 2.5vw;
-  left: 9.5vw;
+  left: 8.5vw;
   position: absolute;
 }
 .mini402 {
@@ -129,10 +131,14 @@ canvas {
   font-family: 'SF Pro';
   font-size: 2.083vw;
   position: absolute;
-
-  top: 3.9vw;
-  left: 12.5vw;
+  line-height: 120%;
+  top: 3.7vw;
+  left: 11.5vw;
   color: #fff6f9;
+}
+.rech1,
+.r1 {
+  display: none;
 }
 .t402 {
   font-family: 'LT Remark';
@@ -174,11 +180,7 @@ canvas {
   top: 55.7vw;
   left: 91.597vw;
 }
-/* .draggable {
-  position: absolute;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-} */
+
 .iphone {
   position: absolute;
   width: 6.206vw;
@@ -249,16 +251,7 @@ canvas {
   top: 49vw;
   left: 76vw;
 }
-/* .allisonplate {
-  width: 200px;
-  height: 200px;
 
-  margin-top: 300px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-} */
 /* двери */
 .dver1 {
   position: absolute;
@@ -333,7 +326,8 @@ canvas {
   left: 72.9vw;
 }
 /* ИГРА 2 ДИКО */
-.gradient {
+.gradient,
+.zadnick {
   width: 100vw;
   height: 62.5vw;
   position: absolute;
@@ -408,6 +402,98 @@ canvas {
   position: absolute;
   top: 55.7vw;
   left: 91.597vw;
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/* 3 ИГРА РИСОВАЛКА */
+.seroe {
+  width: 4.375vw;
+  height: 4.375vw;
+  position: absolute;
+  top: 13.9vw;
+  left: 91.9vw;
+}
+.rozovoe {
+  width: 4.375vw;
+  height: 4.375vw;
+  position: absolute;
+  top: 19.9vw;
+  left: 91.9vw;
+}
+.krasnoe {
+  width: 4.375vw;
+  height: 4.375vw;
+  position: absolute;
+  top: 25.9vw;
+  left: 91.9vw;
+}
+.zelenoe {
+  width: 4.375vw;
+  height: 4.375vw;
+  position: absolute;
+  top: 31.9vw;
+  left: 91.9vw;
+}
+.strelka3 {
+  width: 4.861vw;
+  height: 4.167vw;
+  position: absolute;
+  top: 55.7vw;
+  left: 91.597vw;
+}
+.musor {
+  width: 4.792vw;
+  height: 5.362vw;
+  position: absolute;
+  top: 37.3vw;
+  left: 91.7vw;
+}
+.kistochka {
+  width: 5.362vw;
+  height: 5.003vw;
+  position: absolute;
+  top: 43.7vw;
+  left: 91.597vw;
+}
+.iconklava2 {
+  height: 7.5vw;
+  width: 7.5vw;
+  top: 4.5vw;
+  left: 1.5vw;
+  position: absolute;
+}
+.rech2 {
+  width: 46.042vw;
+  height: 8.653vw;
+  top: 2.5vw;
+  left: 5vw;
+  position: absolute;
+}
+.r2 {
+  font-family: 'SF Pro';
+  font-size: 2.083vw;
+  position: absolute;
+  line-height: 120%;
+  top: 4vw;
+  left: 12vw;
+  color: #fff6f9;
+}
+#drawingCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kistochka-active {
+  cursor: url('../images/kistochka.svg') 16 16, auto;
+}
+.rech2,
+.r2 {
+  display: none;
 }
 /* ПОДВАЛ */
 .game {

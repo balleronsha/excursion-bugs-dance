@@ -143,297 +143,57 @@ document.querySelector('.dver10').addEventListener('click', function () {
   this.style.display = 'none'; // Скрыть dver10
 });
 // ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
-// Функция для перемещения iphone
-function makeDraggableIphone() {
-  const iphone = document.querySelector('.iphone');
+function makeDraggable(element) {
   let isDragging = false;
-  let offsetX, offsetY;
+  let offsetX = 0;
+  let offsetY = 0;
 
-  iphone.addEventListener('mousedown', (e) => {
+  // При нажатии на элемент (начало перетаскивания)
+  element.addEventListener('mousedown', function (e) {
+    // Запоминаем позицию, где был клик мыши
     isDragging = true;
-    offsetX = e.clientX - iphone.offsetLeft;
-    offsetY = e.clientY - iphone.offsetTop;
-    iphone.style.zIndex = 1000;
+    offsetX = e.clientX - element.getBoundingClientRect().left;
+    offsetY = e.clientY - element.getBoundingClientRect().top;
+
+    // Изменяем z-index, чтобы элемент был на переднем плане
+    element.style.zIndex = 1000;
+
+    // Отключаем текстовую подсказку (если есть)
+    element.style.userSelect = 'none';
   });
 
-  document.addEventListener('mousemove', (e) => {
+  // При движении мыши
+  document.addEventListener('mousemove', function (e) {
     if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      iphone.style.left = `${left}px`;
-      iphone.style.top = `${top}px`;
+      // Рассчитываем новые координаты
+      let newX = e.clientX - offsetX;
+      let newY = e.clientY - offsetY;
+
+      // Устанавливаем новые координаты элемента
+      element.style.left = `${newX}px`;
+      element.style.top = `${newY}px`;
     }
   });
 
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    iphone.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения naush
-function makeDraggableNaush() {
-  const naush = document.querySelector('.naush');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  naush.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - naush.offsetLeft;
-    offsetY = e.clientY - naush.offsetTop;
-    naush.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
+  // При отпускании кнопки мыши (конец перетаскивания)
+  document.addEventListener('mouseup', function () {
     if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      naush.style.left = `${left}px`;
-      naush.style.top = `${top}px`;
+      isDragging = false;
+
+      // Возвращаем z-index
+      element.style.zIndex = '';
+
+      // Включаем возможность выделять текст
+      element.style.userSelect = '';
     }
   });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    naush.style.zIndex = '';
-  });
 }
 
-// Функция для перемещения getri
-function makeDraggableGetri() {
-  const getri = document.querySelector('.getri');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  getri.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - getri.offsetLeft;
-    offsetY = e.clientY - getri.offsetTop;
-    getri.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      getri.style.left = `${left}px`;
-      getri.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    getri.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения points
-function makeDraggablePoints() {
-  const points = document.querySelector('.points');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  points.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - points.offsetLeft;
-    offsetY = e.clientY - points.offsetTop;
-    points.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      points.style.left = `${left}px`;
-      points.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    points.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения giri
-function makeDraggableGiri() {
-  const giri = document.querySelector('.giri');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  giri.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - giri.offsetLeft;
-    offsetY = e.clientY - giri.offsetTop;
-    giri.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      giri.style.left = `${left}px`;
-      giri.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    giri.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения roll
-function makeDraggableRoll() {
-  const roll = document.querySelector('.roll');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  roll.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - roll.offsetLeft;
-    offsetY = e.clientY - roll.offsetTop;
-    roll.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      roll.style.left = `${left}px`;
-      roll.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    roll.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения stanley
-function makeDraggableStanley() {
-  const stanley = document.querySelector('.stanley');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  stanley.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - stanley.offsetLeft;
-    offsetY = e.clientY - stanley.offsetTop;
-    stanley.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      stanley.style.left = `${left}px`;
-      stanley.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    stanley.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения bag
-function makeDraggableBag() {
-  const bag = document.querySelector('.bag');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  bag.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - bag.offsetLeft;
-    offsetY = e.clientY - bag.offsetTop;
-    bag.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      bag.style.left = `${left}px`;
-      bag.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    bag.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения flowers
-function makeDraggableFlowers() {
-  const flowers = document.querySelector('.flowers');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  flowers.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - flowers.offsetLeft;
-    offsetY = e.clientY - flowers.offsetTop;
-    flowers.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      flowers.style.left = `${left}px`;
-      flowers.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    flowers.style.zIndex = '';
-  });
-}
-
-// Функция для перемещения instax
-function makeDraggableInstax() {
-  const instax = document.querySelector('.instax');
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  instax.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - instax.offsetLeft;
-    offsetY = e.clientY - instax.offsetTop;
-    instax.style.zIndex = 1000;
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      instax.style.left = `${left}px`;
-      instax.style.top = `${top}px`;
-    }
-  });
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    instax.style.zIndex = '';
-  });
-}
-
-// Вызов всех функций для каждого предмета
-makeDraggableIphone();
-makeDraggableNaush();
-makeDraggableGetri();
-makeDraggablePoints();
-makeDraggableGiri();
-makeDraggableRoll();
-makeDraggableStanley();
-makeDraggableBag();
-makeDraggableFlowers();
-makeDraggableInstax();
+// Применяем функцию для всех элементов с классом .draggable
+const draggableItems = document.querySelectorAll('.draggable');
+draggableItems.forEach((item) => {
+  makeDraggable(item);
+});
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');
 // let scoreDisplay = document.createElement('div');

@@ -145,51 +145,50 @@ document.querySelector('.dver10').addEventListener('click', function () {
 // ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
 function makeDraggable(element) {
   let isDragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
 
   // При нажатии на элемент (начало перетаскивания)
   element.addEventListener('mousedown', function (e) {
-    // Запоминаем позицию, где был клик мыши
     isDragging = true;
-    offsetX = e.clientX - element.getBoundingClientRect().left;
-    offsetY = e.clientY - element.getBoundingClientRect().top;
 
-    // Изменяем z-index, чтобы элемент был на переднем плане
+    // Помещаем элемент на передний план
     element.style.zIndex = 1000;
 
-    // Отключаем текстовую подсказку (если есть)
+    // Начинаем отслеживать движение мыши
+    document.addEventListener('mousemove', onMouseMove);
+
+    // При отпускании кнопки мыши завершаем перетаскивание
+    document.addEventListener('mouseup', onMouseUp);
+
+    // Блокируем выделение текста
     element.style.userSelect = 'none';
   });
 
-  // При движении мыши
-  document.addEventListener('mousemove', function (e) {
+  // Функция, которая будет вызываться при движении мыши
+  function onMouseMove(e) {
     if (isDragging) {
-      // Рассчитываем новые координаты
-      let newX = e.clientX - offsetX;
-      let newY = e.clientY - offsetY;
-
-      // Устанавливаем новые координаты элемента
-      element.style.left = `${newX}px`;
-      element.style.top = `${newY}px`;
+      // Перемещаем элемент в зависимости от положения мыши
+      element.style.left = `${e.clientX - element.width / 2}px`;
+      element.style.top = `${e.clientY - element.height / 2}px`;
     }
-  });
+  }
 
-  // При отпускании кнопки мыши (конец перетаскивания)
-  document.addEventListener('mouseup', function () {
+  // Завершаем перетаскивание
+  function onMouseUp() {
     if (isDragging) {
       isDragging = false;
+      element.style.zIndex = ''; // Возвращаем z-index
 
-      // Возвращаем z-index
-      element.style.zIndex = '';
-
-      // Включаем возможность выделять текст
+      // Разрешаем выделение текста
       element.style.userSelect = '';
+
+      // Отключаем обработчики событий после завершения перетаскивания
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
     }
-  });
+  }
 }
 
-// Применяем функцию для всех элементов с классом .draggable
+// Применяем функцию ко всем элементам с классом .draggable
 const draggableItems = document.querySelectorAll('.draggable');
 draggableItems.forEach((item) => {
   makeDraggable(item);

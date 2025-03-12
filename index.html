@@ -15,10 +15,10 @@
         }
       }
     </script>
-    <script
+    <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.1/fabric.min.js"
       defer
-    ></script>
+    ></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -103,6 +103,7 @@
     <!--  -->
     <!-- CАМАЯ ДИКАЯ КОМНАТА 2 -->
     <div class="play2">
+      <div class="play2Model"></div>
       <img class="gradient" src="images/diko.png" alt="gradient" />
       <img class="strelka2" src="images/strelka2.svg" alt="strelkared" />
       <img class="player1" src="images/player1.svg" alt="player1" />
@@ -120,16 +121,15 @@
     <!--  -->
     <!-- КОНЦЕРТНЫЙ ЗАЛ -->
     <div class="play3">
-      <canvas id="drawingCanvas"></canvas>
+      <canvas id="drawing"></canvas>
       <img class="zadnick" src="images/zadnick.svg" alt="Задник рисовашка" />
-      <img class="canvas" src="images/canvas.svg" alt="Canvas" />
       <img class="strelka3" src="images/strelka3.svg" alt="Стрелка" />
       <img class="iconklava2" src="images/fav.png" alt="Иконка клавиатуры" />
-      <img class="seroe" src="images/seroe.svg" alt="Серый цвет" />
-      <img class="rozovoe" src="images/rozovoe.svg" alt="Розовый цвет" />
-      <img class="krasnoe" src="images/krasnoe.svg" alt="Красный цвет" />
-      <img class="zelenoe" src="images/zelenoe.svg" alt="Зелёный цвет" />
-      <img class="musor" src="images/musor.svg" alt="Мусорка" />
+      <div id="seroe"></div>
+      <div id="rozovoe"></div>
+      <div id="krasnoe"></div>
+      <div id="zelenoe"></div>
+      <div id="reset" class="musor"></div>
       <img class="kistochka" src="images/kistochka.svg" alt="Кисточка" />
       <img class="rech2" src="images/rech2.svg" alt="Речь2" />
       <p class="r2">

@@ -2,115 +2,120 @@ window.onload = function () {
   // После загрузки всего контента, скрыть экран загрузки
   document.querySelector('.zagruzka').style.display = 'none';
 };
-
-// import * as THREE from 'three';
-// import { OrbitControls } from 'OrbitControls';
-// import { GLTFLoader } from 'GLTFLoader';
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   initThree();
-// });
-
-// function initThree() {
-//   const container = document.querySelector('.zagruzka'); // Контейнер для 3D
-//   const width = container.clientWidth;
-//   const height = container.clientHeight;
-//   // Создаем сцену
-//   const scene = new THREE.Scene();
-//   // scene.background = new THREE.Color(0xffffff); // Белый фон
-//   // scene.background = new THREE.Color(0x000000); // Белый фон
-
-//   // Камера
-//   const camera = new THREE.PerspectiveCamera(
-//     8,
-//     window.innerWidth / window.innerHeight,
-//     0.1,
-//     100
-//   );
-//   camera.position.set(100, 2, 6);
-
-//   // Рендерер
-//   const renderer = new THREE.WebGLRenderer({ antialias: true });
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-//   renderer.shadowMap.enabled = true;
-//   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-//   renderer.setClearColor(0x000000, 0);
-//   document.body.appendChild(renderer.domElement);
-//   document.body.appendChild(renderer.zagruzka);
-//   document.body.appendChild(renderer.play2);
-
-//   // Управление камерой
-//   const controls = new OrbitControls(camera, renderer.domElement);
-//   controls.enableDamping = true;
-//   controls.dampingFactor = 0.05;
-//   controls.maxDistance = 10;
-//   controls.maxPolarAngle = Math.PI / 2.2;
-
-//   // --- Освещение ---
-//   const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
-//   scene.add(ambientLight);
-
-//   const dirLight = new THREE.DirectionalLight(0xffffff, 2.5);
-//   dirLight.position.set(3, 6, 5);
-//   dirLight.castShadow = true;
-//   dirLight.shadow.mapSize.width = 2048;
-//   dirLight.shadow.mapSize.height = 2048;
-//   dirLight.shadow.radius = 4;
-//   scene.add(dirLight);
-
-//   const fillLight = new THREE.DirectionalLight(0xffe0bd, 1.5);
-//   fillLight.position.set(-3, 4, -2);
-//   scene.add(fillLight);
-
-//   const backLight = new THREE.PointLight(0xffe0bd, 1.2, 10);
-//   backLight.position.set(0, 3, -3);
-//   scene.add(backLight);
-
-//   // Пол (принимает тени)
-//   const groundGeometry = new THREE.PlaneGeometry(10, 10);
-//   const groundMaterial = new THREE.ShadowMaterial({ opacity: 0.15 });
-//   const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-//   ground.rotation.x = -Math.PI / 2;
-//   ground.receiveShadow = true;
-//   scene.add(ground);
-
-//   // Загрузка 3D-модели
-//   const loader = new GLTFLoader();
-//   loader.load(
-//     './3d/result.gltf',
-//     (gltf) => {
-//       const model = gltf.scene;
-//       model.traverse((node) => {
-//         if (node.isMesh) {
-//           node.material.roughness = 0.6; // Матовость
-//           node.material.metalness = 0.05; // Уменьшаем отражения
-//           node.material.envMapIntensity = 2; // Подчеркиваем объем
-//         }
-//       });
-//       scene.add(model);
-//     },
-//     undefined,
-//     (error) => {
-//       console.error('Ошибка загрузки модели:', error);
-//     }
-//   );
-
-//   // Анимация
-//   function animate() {
-//     requestAnimationFrame(animate);
-//     controls.update();
-//     renderer.render(scene, camera);
-//   }
-//   animate();
-
-//   // Адаптация под размер экрана
-//   window.addEventListener('resize', () => {
-//     camera.aspect = window.innerWidth / window.innerHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(window.innerWidth, window.innerHeight);
-//   });
-// }
 //
+//
+//
+//
+//
+// 3D
+import * as THREE from 'three';
+import { OrbitControls } from 'OrbitControls';
+import { GLTFLoader } from 'GLTFLoader';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initThree();
+});
+
+function initThree() {
+  const container = document.querySelector('.zagruzka'); // Контейнер для 3D
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+  // Создаем сцену
+  const scene = new THREE.Scene();
+  // scene.background = new THREE.Color(0xffffff); // Белый фон
+  // scene.background = new THREE.Color(0x000000); // Белый фон
+
+  // Камера
+  const camera = new THREE.PerspectiveCamera(
+    8,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    100
+  );
+  camera.position.set(100, 2, 6);
+
+  // Рендерер
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  const play2Model = document.querySelector('.play2Model');
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0x000000, 0);
+  play2Model.appendChild(renderer.domElement);
+
+  // Управление камерой
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.maxDistance = 10;
+  controls.maxPolarAngle = Math.PI / 2.2;
+
+  // --- Освещение ---
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xffffff, 2.5);
+  dirLight.position.set(3, 6, 5);
+  dirLight.castShadow = true;
+  dirLight.shadow.mapSize.width = 2048;
+  dirLight.shadow.mapSize.height = 2048;
+  dirLight.shadow.radius = 4;
+  scene.add(dirLight);
+
+  const fillLight = new THREE.DirectionalLight(0xffe0bd, 1.5);
+  fillLight.position.set(-3, 4, -2);
+  scene.add(fillLight);
+
+  const backLight = new THREE.PointLight(0xffe0bd, 1.2, 10);
+  backLight.position.set(0, 3, -3);
+  scene.add(backLight);
+
+  // Пол (принимает тени)
+  const groundGeometry = new THREE.PlaneGeometry(10, 10);
+  const groundMaterial = new THREE.ShadowMaterial({ opacity: 0.15 });
+  const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  // Загрузка 3D-модели
+  const loader = new GLTFLoader();
+  loader.load(
+    './3d/result.gltf',
+    (gltf) => {
+      const model = gltf.scene;
+
+      model.traverse((node) => {
+        if (node.isMesh) {
+          node.material.roughness = 0.6; // Матовость
+          node.material.metalness = 0.05; // Уменьшаем отражения
+          node.material.envMapIntensity = 2; // Подчеркиваем объем
+        }
+      });
+      scene.add(model);
+    },
+    undefined,
+    (error) => {
+      console.error('Ошибка загрузки модели:', error);
+    }
+  );
+
+  // Анимация
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Адаптация под размер экрана
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+}
+
 document.querySelector('.iconklava1').addEventListener('click', function () {
   // Показать элементы rech1 и r1
   document.querySelector('.rech1').style.display = 'block';
@@ -321,64 +326,127 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 //
 //
 // рисовашка
-console.log(fabric);
-window.onload = function () {
-  // Инициализация холста Fabric.js
-  const canvas = new fabric.Canvas('drawingCanvas', {
-    width: window.innerWidth,
-    height: window.innerHeight * 0.82,
-  });
+var canvas = document.getElementById('drawing');
+var ctx = canvas.getContext('2d');
 
-  // Настройка кисти
-  let brush = new fabric.PencilBrush(canvas);
-  brush.width = 5; // Стандартная ширина кисти
-  brush.color = '#66A865'; // Цвет кисти по умолчанию
+var drawing = false; // Переменная для отслеживания рисования
+var currentColor = '#877177'; // Стартовый цвет (серый)
+var lineWidth = 2; // Стандартная ширина линии (5px)
 
-  // Устанавливаем кисточку на холст
-  canvas.freeDrawingBrush = brush;
-  canvas.isDrawingMode = false; // Изначально рисование отключено
+// Устанавливаем размер канваса
+canvas.width = window.innerWidth; // Делаем канвас на всю ширину окна
+canvas.height = window.innerHeight * 0.5; // Устанавливаем высоту канваса на 50% от высоты окна
 
-  // Слушатели событий для кисточек
-  const kistochka = document.querySelector('.kistochka');
-  const musor = document.querySelector('.musor');
-  const zelenoe = document.querySelector('.zelenoe');
-  const krasnoe = document.querySelector('.krasnoe');
-  const rozovoe = document.querySelector('.rozovoe');
-  const seroe = document.querySelector('.seroe');
+// Функция для получения позиции мыши на канвасе
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: evt.clientX - rect.left,
+    y: evt.clientY - rect.top,
+  };
+}
 
-  // Включаем рисование при клике на кисточку
-  kistochka.addEventListener('click', function () {
-    canvas.isDrawingMode = !canvas.isDrawingMode;
-    if (canvas.isDrawingMode) {
-      canvas.freeDrawingBrush = brush;
-      kistochka.classList.add('kistochka-active');
-    } else {
-      kistochka.classList.remove('kistochka-active');
-    }
-  });
+// Функция для рисования на канвасе
+function mouseMove(evt) {
+  if (!drawing) return; // Если не рисуем, ничего не делаем
+  var mousePos = getMousePos(canvas, evt);
+  ctx.lineTo(mousePos.x, mousePos.y); // Рисуем линию до новой точки
+  ctx.stroke(); // Наносим линию на канвас
+  console.log('Рисуем: ', mousePos); // Логируем координаты мыши
+}
 
-  // Стираем все рисунки при клике на мусорку
-  musor.addEventListener('click', function () {
-    canvas.clear();
-  });
+// Начало рисования (mousedown)
+canvas.addEventListener('mousedown', function (evt) {
+  var mousePos = getMousePos(canvas, evt);
+  ctx.beginPath(); // Начинаем новый путь
+  ctx.moveTo(mousePos.x, mousePos.y); // Перемещаем "перо" в начальную точку
 
-  // Выбираем цвет кисти при клике на соответствующие изображения
-  zelenoe.addEventListener('click', function () {
-    brush.color = '#66A865'; // Зеленый цвет
-  });
+  drawing = true;
+  evt.preventDefault(); // Предотвращаем другие действия мыши (например, выделение текста)
+  canvas.addEventListener('mousemove', mouseMove, false); // Добавляем слушатель для движения мыши
+  console.log('Начинаем рисовать, позиция: ', mousePos); // Логируем начало рисования
+});
 
-  krasnoe.addEventListener('click', function () {
-    brush.color = '#963B50'; // Красный цвет
-  });
+// Завершение рисования (mouseup)
+canvas.addEventListener('mouseup', function () {
+  drawing = false;
+  canvas.removeEventListener('mousemove', mouseMove, false); // Убираем слушатель для движения мыши
+  console.log('Окончание рисования'); // Логируем завершение рисования
+});
 
-  rozovoe.addEventListener('click', function () {
-    brush.color = '#D37995'; // Розовый цвет
-  });
+// Очистка канваса
+document.getElementById('reset').addEventListener(
+  'click',
+  function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем весь канвас
+    console.log('Канвас очищен'); // Логируем очистку канваса
+  },
+  false
+);
 
-  seroe.addEventListener('click', function () {
-    brush.color = '#877177'; // Серый цвет
-  });
-};
+// Массив с цветами
+var colors = ['#877177', '#d37995', '#963b50', '#66a865'];
+
+// Обработчики для выбора цветов
+document.getElementById('seroe').addEventListener('click', function () {
+  currentColor = '#877177'; // Серый цвет
+  ctx.strokeStyle = currentColor; // Изменение цвета кисти
+  console.log('Цвет изменен на серый'); // Логируем изменение цвета
+});
+
+document.getElementById('rozovoe').addEventListener('click', function () {
+  currentColor = '#d37995'; // Розовый цвет
+  ctx.strokeStyle = currentColor;
+  console.log('Цвет изменен на розовый'); // Логируем изменение цвета
+});
+
+document.getElementById('krasnoe').addEventListener('click', function () {
+  currentColor = '#963b50'; // Красный цвет
+  ctx.strokeStyle = currentColor;
+  console.log('Цвет изменен на красный'); // Логируем изменение цвета
+});
+
+document.getElementById('zelenoe').addEventListener('click', function () {
+  currentColor = '#66a865'; // Зеленый цвет
+  ctx.strokeStyle = currentColor;
+  console.log('Цвет изменен на зеленый'); // Логируем изменение цвета
+});
+
+// Обработчик для кисточки
+document.querySelector('.kistochka').addEventListener('click', function () {
+  drawing = true;
+  ctx.lineWidth = lineWidth; // Устанавливаем стандартную ширину линии (5px)
+  ctx.strokeStyle = currentColor; // Устанавливаем текущий цвет
+  document.body.classList.add('kistochka-active'); // Добавляем класс для изменения курсора
+  console.log('Кисточка активирована, рисование начнется'); // Логируем активацию кисточки
+
+  // Меняем курсор на кисточку, но при этом делаем его "невидимым"
+  document.body.style.cursor = 'url("/images/kistochka.svg") 16 16, auto';
+});
+
+// Когда кисточка становится неактивной (клик вне канваса или после остановки рисования)
+canvas.addEventListener('mouseup', function () {
+  drawing = false;
+  document.body.classList.remove('kistochka-active'); // Убираем активный курсор
+  document.body.style.cursor = 'auto'; // Восстанавливаем обычный курсор
+  console.log('Кисточка деактивирована, обычный курсор'); // Логируем деактивацию кисточки
+});
+// Обработчик для стрелки (strelka3)
+document.querySelector('.strelka3').addEventListener('click', function () {
+  document.body.style.cursor = 'auto'; // Восстанавливаем обычный курсор
+  console.log('Курсор изменен на обычный (стрелка)'); // Логируем изменение курсора
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');
 // let scoreDisplay = document.createElement('div');

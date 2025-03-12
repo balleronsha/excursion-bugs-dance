@@ -333,12 +333,29 @@ canvas {
   position: absolute;
 }
 /* плееры */
+.play2Model {
+  /* width: 41.181vw;
+  height: 50.764vw; */
+  position: relative;
+  z-index: 10;
+  left: 0vw;
+}
+
+.play2Model canvas {
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+  /* left: 15vw;
+  top: -11vw; */
+}
+
 .player1 {
   width: 27.569vw;
   height: 16.667vw;
   position: absolute;
   top: 1.8vw;
   left: 2.5vw;
+  z-index: 10;
 }
 .player2 {
   width: 27.569vw;
@@ -346,6 +363,7 @@ canvas {
   position: absolute;
   top: 22.8vw;
   left: 2.5vw;
+  z-index: 10;
 }
 .player3 {
   width: 27.569vw;
@@ -353,6 +371,7 @@ canvas {
   position: absolute;
   top: 43.8vw;
   left: 2.5vw;
+  z-index: 10;
 }
 .knpl1 {
   width: 4.278vw;
@@ -360,6 +379,7 @@ canvas {
   position: absolute;
   top: 12.4vw;
   left: 24.7vw;
+  z-index: 10;
 }
 .knpl2 {
   width: 4.278vw;
@@ -367,6 +387,7 @@ canvas {
   position: absolute;
   top: 33.4vw;
   left: 24.7vw;
+  z-index: 10;
 }
 .knpl3 {
   width: 4.278vw;
@@ -374,6 +395,7 @@ canvas {
   position: absolute;
   top: 54.4vw;
   left: 24.7vw;
+  z-index: 10;
 }
 .knpa1 {
   width: 2.639vw;
@@ -381,6 +403,7 @@ canvas {
   position: absolute;
   top: 8.3vw;
   left: 26.6vw;
+  z-index: 10;
 }
 .knpa2 {
   width: 2.639vw;
@@ -388,6 +411,7 @@ canvas {
   position: absolute;
   top: 29.3vw;
   left: 26.6vw;
+  z-index: 10;
 }
 .knpa3 {
   width: 2.639vw;
@@ -395,6 +419,7 @@ canvas {
   position: absolute;
   top: 50.3vw;
   left: 26.6vw;
+  z-index: 10;
 }
 .strelka2 {
   width: 4.861vw;
@@ -402,44 +427,67 @@ canvas {
   position: absolute;
   top: 55.7vw;
   left: 91.597vw;
+  z-index: 15;
 }
 /*  */
 /*  */
 /*  */
 /*  */
 /* 3 ИГРА РИСОВАЛКА */
-#drawingCanvas {
-  border: 1px solid black;
-  margin-top: 20px;
+.zadnick {
+  z-index: -10;
+}
+#drawing {
+  position: absolute;
+  width: 100vw;
+  height: 51.25vw;
+  background-color: #fcf3f3;
   display: block;
 }
-.seroe {
+.button {
+  width: 4.792vw;
+  height: 5.362vw;
+  position: absolute;
+  top: 37.3vw;
+  left: 91.7vw;
+  background-image: url(../images/musor.svg);
+  z-index: 10;
+}
+#seroe {
   width: 4.375vw;
   height: 4.375vw;
   position: absolute;
   top: 13.9vw;
   left: 91.9vw;
+  border-radius: 50%;
+  background-color: #877177;
 }
-.rozovoe {
+#rozovoe {
   width: 4.375vw;
   height: 4.375vw;
   position: absolute;
   top: 19.9vw;
   left: 91.9vw;
+  border-radius: 50%;
+  background-color: #d37995;
 }
-.krasnoe {
+#krasnoe {
   width: 4.375vw;
   height: 4.375vw;
   position: absolute;
   top: 25.9vw;
   left: 91.9vw;
+  border-radius: 50%;
+  background-color: #963b50;
 }
-.zelenoe {
+#zelenoe {
   width: 4.375vw;
   height: 4.375vw;
   position: absolute;
   top: 31.9vw;
   left: 91.9vw;
+  border-radius: 50%;
+  background-color: #66a865;
 }
 .strelka3 {
   width: 4.861vw;
@@ -449,12 +497,17 @@ canvas {
   left: 91.597vw;
 }
 .musor {
+  background-image: url(../images/musor.svg);
+  background-repeat: no-repeat;
   width: 4.792vw;
   height: 5.362vw;
   position: absolute;
   top: 37.3vw;
-  left: 91.7vw;
+  left: 92vw;
+  z-index: 20;
+  justify-content: center;
 }
+
 .kistochka {
   width: 5.362vw;
   height: 5.003vw;
@@ -475,6 +528,7 @@ canvas {
   top: 2.5vw;
   left: 5vw;
   position: absolute;
+  display: none;
 }
 .r2 {
   font-family: 'SF Pro';
@@ -484,6 +538,7 @@ canvas {
   top: 4vw;
   left: 12vw;
   color: #fff6f9;
+  display: none;
 }
 .canvas {
   position: absolute;
@@ -496,10 +551,7 @@ canvas {
 .kistochka-active {
   cursor: url('/images/kistochka.svg') 16 16, auto;
 }
-.rech2,
-.r2 {
-  display: none;
-}
+
 /* ПОДВАЛ */
 .game {
   width: 80vw;

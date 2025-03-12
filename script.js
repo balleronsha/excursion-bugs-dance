@@ -326,116 +326,97 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 //
 //
 // рисовашка
-var canvas = document.getElementById('drawing');
-var ctx = canvas.getContext('2d');
+// Получаем элемент <canvas> из DOM по его ID
+const canvas = document.getElementById('drawing');
+const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
-var drawing = false; // Переменная для отслеживания рисования
-var currentColor = '#877177'; // Стартовый цвет (серый)
-var lineWidth = 2; // Стандартная ширина линии (5px)
+// Устанавливаем высоту и ширину канваса равными размерам окна браузера
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
-// Устанавливаем размер канваса
-canvas.width = window.innerWidth; // Делаем канвас на всю ширину окна
-canvas.height = window.innerHeight * 0.5; // Устанавливаем высоту канваса на 50% от высоты окна
+// Переменные для хранения текущего цвета, толщины линии и состояния рисования
+var lineW = 5; // Толщина линии (по умолчанию 5px)
+let prevX = null; // Предыдущие координаты X мыши
+let prevY = null; // Предыдущие координаты Y мыши
+let draw = false; // Флаг, указывающий, происходит ли рисование в данный момент
 
-// Функция для получения позиции мыши на канвасе
-function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect();
-  return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top,
-  };
-}
+// Устанавливаем начальную толщину линии
+ctx.lineWidth = lineW;
+ctx.strokeStyle = '#877177'; // Начальный цвет линии
 
-// Функция для рисования на канвасе
-function mouseMove(evt) {
-  if (!drawing) return; // Если не рисуем, ничего не делаем
-  var mousePos = getMousePos(canvas, evt);
-  ctx.lineTo(mousePos.x, mousePos.y); // Рисуем линию до новой точки
-  ctx.stroke(); // Наносим линию на канвас
-  console.log('Рисуем: ', mousePos); // Логируем координаты мыши
-}
+// Получаем все элементы с классом "clr" (кнопки выбора цвета)
+let clrs = document.querySelectorAll('.clr');
 
-// Начало рисования (mousedown)
-canvas.addEventListener('mousedown', function (evt) {
-  var mousePos = getMousePos(canvas, evt);
-  ctx.beginPath(); // Начинаем новый путь
-  ctx.moveTo(mousePos.x, mousePos.y); // Перемещаем "перо" в начальную точку
+// Преобразуем NodeList в массив для удобства работы
+clrs = Array.from(clrs);
 
-  drawing = true;
-  evt.preventDefault(); // Предотвращаем другие действия мыши (например, выделение текста)
-  canvas.addEventListener('mousemove', mouseMove, false); // Добавляем слушатель для движения мыши
-  console.log('Начинаем рисовать, позиция: ', mousePos); // Логируем начало рисования
-});
-
-// Завершение рисования (mouseup)
-canvas.addEventListener('mouseup', function () {
-  drawing = false;
-  canvas.removeEventListener('mousemove', mouseMove, false); // Убираем слушатель для движения мыши
-  console.log('Окончание рисования'); // Логируем завершение рисования
-});
-
-// Очистка канваса
-document.getElementById('reset').addEventListener(
-  'click',
-  function () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем весь канвас
-    console.log('Канвас очищен'); // Логируем очистку канваса
-  },
-  false
-);
-
-// Массив с цветами
-var colors = ['#877177', '#d37995', '#963b50', '#66a865'];
-
+// Для каждой кнопки цвета добавляем обработчик клика
 // Обработчики для выбора цветов
-document.getElementById('seroe').addEventListener('click', function () {
-  currentColor = '#877177'; // Серый цвет
-  ctx.strokeStyle = currentColor; // Изменение цвета кисти
-  console.log('Цвет изменен на серый'); // Логируем изменение цвета
-});
-
-document.getElementById('rozovoe').addEventListener('click', function () {
-  currentColor = '#d37995'; // Розовый цвет
+document.getElementById('seroe').addEventListener('click', () => {
+  const currentColor = '#877177';
   ctx.strokeStyle = currentColor;
-  console.log('Цвет изменен на розовый'); // Логируем изменение цвета
+  console.log(`Цвет изменен на: ${currentColor}`);
 });
 
-document.getElementById('krasnoe').addEventListener('click', function () {
-  currentColor = '#963b50'; // Красный цвет
+document.getElementById('rozovoe').addEventListener('click', () => {
+  const currentColor = '#d37995';
   ctx.strokeStyle = currentColor;
-  console.log('Цвет изменен на красный'); // Логируем изменение цвета
+  console.log(`Цвет изменен на: ${currentColor}`);
 });
 
-document.getElementById('zelenoe').addEventListener('click', function () {
-  currentColor = '#66a865'; // Зеленый цвет
+document.getElementById('krasnoe').addEventListener('click', () => {
+  const currentColor = '#963b50';
   ctx.strokeStyle = currentColor;
-  console.log('Цвет изменен на зеленый'); // Логируем изменение цвета
+  console.log(`Цвет изменен на: ${currentColor}`);
 });
 
-// Обработчик для кисточки
-document.querySelector('.kistochka').addEventListener('click', function () {
-  drawing = true;
-  ctx.lineWidth = lineWidth; // Устанавливаем стандартную ширину линии (5px)
-  ctx.strokeStyle = currentColor; // Устанавливаем текущий цвет
-  document.body.classList.add('kistochka-active'); // Добавляем класс для изменения курсора
-  console.log('Кисточка активирована, рисование начнется'); // Логируем активацию кисточки
+document.getElementById('zelenoe').addEventListener('click', () => {
+  const currentColor = '#66a865';
+  ctx.strokeStyle = currentColor;
+  console.log(`Цвет изменен на: ${currentColor}`);
+});
+// Находим кнопку очистки канваса
+let clearBtn = document.querySelector('.musor');
 
-  // Меняем курсор на кисточку, но при этом делаем его "невидимым"
-  document.body.style.cursor = 'url("/images/kistochka.svg") 16 16, auto';
+// Добавляем обработчик клика для очистки канваса
+clearBtn.addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем весь канвас
 });
 
-// Когда кисточка становится неактивной (клик вне канваса или после остановки рисования)
-canvas.addEventListener('mouseup', function () {
-  drawing = false;
-  document.body.classList.remove('kistochka-active'); // Убираем активный курсор
-  document.body.style.cursor = 'auto'; // Восстанавливаем обычный курсор
-  console.log('Кисточка деактивирована, обычный курсор'); // Логируем деактивацию кисточки
+// Добавляем обработчик события "mousedown" для начала рисования
+window.addEventListener('mousedown', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  prevX = e.clientX - rect.left; // Сохраняем начальные координаты X
+  prevY = e.clientY - rect.top; // Сохраняем начальные координаты Y
+  draw = true;
 });
-// Обработчик для стрелки (strelka3)
-document.querySelector('.strelka3').addEventListener('click', function () {
-  document.body.style.cursor = 'auto'; // Восстанавливаем обычный курсор
-  console.log('Курсор изменен на обычный (стрелка)'); // Логируем изменение курсора
+
+// Добавляем обработчик события "mouseup" для завершения рисования
+window.addEventListener('mouseup', () => {
+  draw = false;
+  prevX = null; // Сбрасываем предыдущие координаты после завершения рисования
+  prevY = null;
 });
+
+// Добавляем обработчик события "mousemove" для рисования линий
+window.addEventListener('mousemove', (e) => {
+  if (!draw) return; // Если рисование не активно, выходим
+
+  const rect = canvas.getBoundingClientRect();
+  let currentX = e.clientX - rect.left; // Текущие координаты X
+  let currentY = e.clientY - rect.top; // Текущие координаты Y
+
+  // Начинаем новый путь для рисования
+  ctx.beginPath();
+  ctx.moveTo(prevX, prevY); // Перемещаемся к предыдущей точке
+  ctx.lineTo(currentX, currentY); // Рисуем линию до текущей точки
+  ctx.stroke(); // Применяем рисование
+
+  // Обновляем предыдущие координаты
+  prevX = currentX;
+  prevY = currentY;
+});
+
 //
 //
 //

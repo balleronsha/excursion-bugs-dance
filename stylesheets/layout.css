@@ -434,6 +434,9 @@ canvas {
 /*  */
 /*  */
 /* 3 ИГРА РИСОВАЛКА */
+.play3 {
+  cursor: url('../images/kistochka.svg') 0 0, auto;
+}
 .zadnick {
   z-index: -10;
 }
@@ -508,13 +511,6 @@ canvas {
   justify-content: center;
 }
 
-.kistochka {
-  width: 5.362vw;
-  height: 5.003vw;
-  position: absolute;
-  top: 43.7vw;
-  left: 91.597vw;
-}
 .iconklava2 {
   height: 7.5vw;
   width: 7.5vw;
@@ -546,10 +542,6 @@ canvas {
   left: 0;
   width: 100vw;
   height: 51.25vw;
-}
-
-.kistochka-active {
-  cursor: url('/images/kistochka.svg') 16 16, auto;
 }
 
 /* ПОДВАЛ */

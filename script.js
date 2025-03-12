@@ -1,3 +1,8 @@
+window.onload = function () {
+  // После загрузки всего контента, скрыть экран загрузки
+  document.querySelector('.zagruzka').style.display = 'none';
+};
+
 // import * as THREE from 'three';
 // import { OrbitControls } from 'OrbitControls';
 // import { GLTFLoader } from 'GLTFLoader';
@@ -114,6 +119,11 @@ document.querySelector('.iconklava1').addEventListener('click', function () {
 //
 //
 //
+document.querySelector('.iconklava2').addEventListener('click', function () {
+  // Показать элементы rech1 и r1
+  document.querySelector('.rech2').style.display = 'block';
+  document.querySelector('.r2').style.display = 'block';
+});
 //
 // 🤪 ЙОУ ПЕРЕХОД 1
 document.querySelector('.play1').style.display = 'none';
@@ -311,61 +321,64 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 //
 //
 // рисовашка
-const canvas = document.getElementById('drawingCanvas');
-const ctx = canvas.getContext('2d');
-
-// Установка размеров canvas
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
-
-let drawing = false;
-let currentColor = '#000000';
-let brushActive = false;
-
-// Включение кисти
-document.querySelector('.kistochka').addEventListener('click', () => {
-  brushActive = true;
-  canvas.classList.add('kistochka-active');
-});
-
-// Очистка холста
-document.querySelector('.musor').addEventListener('click', () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-});
-
-// Выбор цвета
-document.querySelectorAll('.color-btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    currentColor = button.getAttribute('data-color');
+console.log(fabric);
+window.onload = function () {
+  // Инициализация холста Fabric.js
+  const canvas = new fabric.Canvas('drawingCanvas', {
+    width: window.innerWidth,
+    height: window.innerHeight * 0.82,
   });
-});
 
-// Рисование
-canvas.addEventListener('mousedown', (event) => {
-  if (!brushActive) return;
-  drawing = true;
-  ctx.beginPath();
-  ctx.moveTo(event.offsetX, event.offsetY);
-});
+  // Настройка кисти
+  let brush = new fabric.PencilBrush(canvas);
+  brush.width = 5; // Стандартная ширина кисти
+  brush.color = '#66A865'; // Цвет кисти по умолчанию
 
-canvas.addEventListener('mousemove', (event) => {
-  if (!drawing) return;
-  ctx.lineWidth = 5;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = currentColor;
+  // Устанавливаем кисточку на холст
+  canvas.freeDrawingBrush = brush;
+  canvas.isDrawingMode = false; // Изначально рисование отключено
 
-  ctx.lineTo(event.offsetX, event.offsetY);
-  ctx.stroke();
-});
+  // Слушатели событий для кисточек
+  const kistochka = document.querySelector('.kistochka');
+  const musor = document.querySelector('.musor');
+  const zelenoe = document.querySelector('.zelenoe');
+  const krasnoe = document.querySelector('.krasnoe');
+  const rozovoe = document.querySelector('.rozovoe');
+  const seroe = document.querySelector('.seroe');
 
-canvas.addEventListener('mouseup', () => {
-  drawing = false;
-  ctx.beginPath();
-});
+  // Включаем рисование при клике на кисточку
+  kistochka.addEventListener('click', function () {
+    canvas.isDrawingMode = !canvas.isDrawingMode;
+    if (canvas.isDrawingMode) {
+      canvas.freeDrawingBrush = brush;
+      kistochka.classList.add('kistochka-active');
+    } else {
+      kistochka.classList.remove('kistochka-active');
+    }
+  });
 
-canvas.addEventListener('mouseleave', () => {
-  drawing = false;
-});
+  // Стираем все рисунки при клике на мусорку
+  musor.addEventListener('click', function () {
+    canvas.clear();
+  });
+
+  // Выбираем цвет кисти при клике на соответствующие изображения
+  zelenoe.addEventListener('click', function () {
+    brush.color = '#66A865'; // Зеленый цвет
+  });
+
+  krasnoe.addEventListener('click', function () {
+    brush.color = '#963B50'; // Красный цвет
+  });
+
+  rozovoe.addEventListener('click', function () {
+    brush.color = '#D37995'; // Розовый цвет
+  });
+
+  seroe.addEventListener('click', function () {
+    brush.color = '#877177'; // Серый цвет
+  });
+};
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');
 // let scoreDisplay = document.createElement('div');

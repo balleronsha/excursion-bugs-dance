@@ -4,7 +4,7 @@ window.onload = function () {
     // Скрываем экран загрузки
     document.querySelector('.zagruzka').style.display = 'none';
     document.querySelector('.glavsvet').style.display = 'block';
-  }, 1000);
+  }, 5000);
 };
 //
 //

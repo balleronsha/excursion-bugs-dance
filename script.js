@@ -174,6 +174,22 @@ document.querySelector('.iconklava2').addEventListener('click', function () {
 //
 //
 //
+document.querySelector('.iconklava3').addEventListener('click', function () {
+  // Получаем элементы
+  const rech3 = document.querySelector('.rech3');
+  const r3 = document.querySelector('.r3');
+
+  // Проверяем текущее состояние элементов
+  if (rech3.style.display === 'none' || rech3.style.display === '') {
+    // Если элементы скрыты, показываем их
+    rech3.style.display = 'block';
+    r3.style.display = 'block';
+  } else {
+    // Если элементы видны, скрываем их
+    rech3.style.display = 'none';
+    r3.style.display = 'none';
+  }
+});
 //
 //
 //
@@ -496,7 +512,130 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 //
 //
+// ИГРА 4 ЕЕЕЕ ПОЧТИ КОНЕЦ
+document.querySelector('.play4').style.display = 'none';
+document.querySelector('.dver404svet').addEventListener('click', function () {
+  document.querySelector('.glavsvet').style.display = 'none';
+  document.querySelector('.play4').style.display = 'block';
+});
+document.querySelector('.strelka4').addEventListener('click', function () {
+  document.querySelector('.play4').style.display = 'none';
+  document.querySelector('.glavsvet').style.display = 'block';
+  document.querySelector('.dver404svet').src = 'images/dver404temnota.svg';
+});
 //
+//
+//
+//
+document.addEventListener('DOMContentLoaded', function () {
+  const banka = document.querySelector('.banka');
+  if (!banka) {
+    console.error('Элемент .banka не найден.');
+    return;
+  }
+
+  const images = ['.ris1', '.ris2', '.ris3', '.ris4', '.ris5', '.ris6'];
+  let currentIndex = 0;
+
+  function showNextImage() {
+    // Скрываем все рисунки
+    images.forEach((img) => {
+      const element = document.querySelector(img);
+      if (element) {
+        element.style.display = 'none';
+      } else {
+        console.error(`Элемент ${img} не найден.`);
+      }
+    });
+
+    // Показываем текущий рисунок
+    const currentImage = document.querySelector(images[currentIndex]);
+    if (currentImage) {
+      currentImage.style.display = 'block';
+    }
+
+    // Увеличиваем индекс или сбрасываем его, если достигнут конец массива
+    currentIndex = (currentIndex + 1) % images.length;
+  }
+
+  // Инициализация: скрываем все рисунки и показываем .ris0
+  images.forEach((img) => {
+    const element = document.querySelector(img);
+    if (element) {
+      element.style.display = 'none';
+    }
+  });
+  const ris0 = document.querySelector('.ris0');
+  if (ris0) {
+    ris0.style.display = 'block';
+  }
+
+  // При каждом клике вызываем функцию для показа следующего рисунка
+  banka.addEventListener('click', function () {
+    if (currentIndex === 0) {
+      // Если это первый клик, скрываем .ris0
+      const ris0 = document.querySelector('.ris0');
+      if (ris0) {
+        ris0.style.display = 'none';
+      }
+    }
+    showNextImage();
+  });
+});
+//
+// ❗️ ПЕРЕМЕЩЕНИЕ АНФИСА
+
+$(document).ready(function () {
+  $(
+    '.anf1, .anf2, .anf3, .anf4, .anf5, .anf6, .anf7, .anf8, .anf9, .anf10 '
+  ).draggable();
+  $('.allisonplate').droppable({
+    accept: '.draggable',
+    drop: function (event, ui) {
+      const dropZone = $(this);
+      const offset = dropZone.offset();
+      const width = dropZone.width();
+      const height = dropZone.height();
+      ui.helper.css({
+        left: offset.left + (width - ui.helper.width()) / 2,
+        top: offset.top + (height - ui.helper.height()) / 2,
+      });
+    },
+  });
+});
+//
+//
+//
+// ПОЯВЛЕНИЕ БЛОКА НОВОГО ПОДВАДА
+document.addEventListener('DOMContentLoaded', function () {
+  // Получаем все стрелки и div game
+  const strelki = document.querySelectorAll(
+    '.strelka1, .strelka2, .strelka3, .strelka4'
+  );
+  const gameDiv = document.querySelector('.game');
+
+  // Создаем массив для отслеживания состояния стрелок
+  const clickedStrelki = Array(strelki.length).fill(false);
+
+  // Функция для проверки, все ли стрелки нажаты
+  function checkStrelki() {
+    if (clickedStrelki.every((clicked) => clicked)) {
+      // Если все стрелки нажаты, показываем div game
+      gameDiv.style.display = 'block';
+    }
+  }
+
+  // Добавляем обработчики кликов на каждую стрелку
+  strelki.forEach((strelka, index) => {
+    strelka.addEventListener('click', function () {
+      // Отмечаем, что стрелка была нажата
+      clickedStrelki[index] = true;
+
+      // Проверяем состояние всех стрелок
+      checkStrelki();
+    });
+  });
+});
 //
 //
 //

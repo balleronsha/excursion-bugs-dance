@@ -569,7 +569,72 @@ canvas {
   display: none;
   z-index: 15;
 }
-
+/*  */
+/*  */
+/*  */
+/*  */
+/* ЭТО КОРОЧЕ ТАНЦЕВАЛЬНЫЙ ЗАЛ 404 */
+.ris0 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: block;
+}
+.banka {
+  position: absolute;
+  top: 42vw;
+  left: 92.5vw;
+  z-index: 20;
+}
+.strelka4 {
+  width: 4.861vw;
+  height: 4.167vw;
+  position: absolute;
+  top: 49.7vw;
+  left: 92.5vw;
+  z-index: 15;
+}
+.iconklava3 {
+  height: 7.5vw;
+  width: 7.5vw;
+  top: 32vw;
+  left: 91.3vw;
+  position: absolute;
+  z-index: 20;
+}
+.anf1,
+.anf2,
+.anf3,
+.anf4,
+.anf5,
+.anf6,
+.anf7,
+.anf8,
+.anf9,
+.anf10 {
+  width: 11.713vw;
+  height: 19vw;
+  top: 37.7vw;
+  left: 2.5vw;
+  position: absolute;
+  z-index: 25;
+}
+.ris1,
+.ris2,
+.ris3,
+.ris4,
+.ris5,
+.ris6 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 0;
+}
+/*  */
+/*  */
+/*  */
+/*  */
 /* ПОДВАЛ */
 .game {
   width: 80vw;
@@ -577,6 +642,7 @@ canvas {
   border-bottom: 0.5vw solid #861d38;
   background-color: #fcf3f3;
   margin: auto;
+  display: none;
 }
 
 #klava {
@@ -588,6 +654,7 @@ canvas {
   position: absolute;
   top: 8vw;
   left: 20vw;
+  display: none;
 }
 
 #kamen {
@@ -600,6 +667,7 @@ canvas {
   top: 16vw;
   left: 95vw;
   animation: kamenmove 1.5s infinite linear;
+  display: none;
 }
 
 @keyframes kamenmove {

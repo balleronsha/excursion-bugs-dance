@@ -1,13 +1,20 @@
 window.onload = function () {
-  // После загрузки всего контента, скрыть экран загрузки
-  document.querySelector('.zagruzka').style.display = 'none';
+  // Добавляем задержку в 5 секунд
+  setTimeout(() => {
+    // Скрываем экран загрузки
+    document.querySelector('.zagruzka').style.display = 'none';
+    document.querySelector('.glavsvet').style.display = 'block';
+  }, 1000);
 };
 //
 //
 //
 //
 //
-// 3D
+//
+//
+//
+// ЭТО ТЯЖЁЛЫЙ ЛЮКС 3D
 import * as THREE from 'three';
 import { OrbitControls } from 'OrbitControls';
 import { GLTFLoader } from 'GLTFLoader';
@@ -22,9 +29,6 @@ function initThree() {
   const height = container.clientHeight;
   // Создаем сцену
   const scene = new THREE.Scene();
-  // scene.background = new THREE.Color(0xffffff); // Белый фон
-  // scene.background = new THREE.Color(0x000000); // Белый фон
-
   // Камера
   const camera = new THREE.PerspectiveCamera(
     8,
@@ -32,8 +36,7 @@ function initThree() {
     0.1,
     100
   );
-  camera.position.set(100, 2, 6);
-
+  camera.position.set(8, 0, 0);
   // Рендерер
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   const play2Model = document.querySelector('.play2Model');
@@ -42,14 +45,12 @@ function initThree() {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.setClearColor(0x000000, 0);
   play2Model.appendChild(renderer.domElement);
-
   // Управление камерой
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
   controls.maxDistance = 10;
   controls.maxPolarAngle = Math.PI / 2.2;
-
   // --- Освещение ---
   const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
   scene.add(ambientLight);
@@ -90,10 +91,14 @@ function initThree() {
           node.material.roughness = 0.6; // Матовость
           node.material.metalness = 0.05; // Уменьшаем отражения
           node.material.envMapIntensity = 2; // Подчеркиваем объем
+          // Сбрасываем позицию, поворот и масштаб
         }
       });
+
+      // Добавляем модель на сцену
       scene.add(model);
     },
+
     undefined,
     (error) => {
       console.error('Ошибка загрузки модели:', error);
@@ -115,95 +120,126 @@ function initThree() {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 }
-
+//
+//
+//
+//
+//
+//
 document.querySelector('.iconklava1').addEventListener('click', function () {
-  // Показать элементы rech1 и r1
-  document.querySelector('.rech1').style.display = 'block';
-  document.querySelector('.r1').style.display = 'block';
+  // Получаем элементы
+  const rech1 = document.querySelector('.rech1');
+  const r1 = document.querySelector('.r1');
+
+  // Проверяем текущее состояние элементов
+  if (rech1.style.display === 'none' || rech1.style.display === '') {
+    // Если элементы скрыты, показываем их
+    rech1.style.display = 'block';
+    r1.style.display = 'block';
+  } else {
+    // Если элементы видны, скрываем их
+    rech1.style.display = 'none';
+    r1.style.display = 'none';
+  }
 });
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
 document.querySelector('.iconklava2').addEventListener('click', function () {
-  // Показать элементы rech1 и r1
-  document.querySelector('.rech2').style.display = 'block';
-  document.querySelector('.r2').style.display = 'block';
+  // Получаем элементы
+  const rech1 = document.querySelector('.rech2');
+  const r1 = document.querySelector('.r2');
+
+  // Проверяем текущее состояние элементов
+  if (rech1.style.display === 'none' || rech1.style.display === '') {
+    // Если элементы скрыты, показываем их
+    rech1.style.display = 'block';
+    r1.style.display = 'block';
+  } else {
+    // Если элементы видны, скрываем их
+    rech1.style.display = 'none';
+    r1.style.display = 'none';
+  }
 });
+//
+//
+//
+//
+//
+//
+//
 //
 // 🤪 ЙОУ ПЕРЕХОД 1
 document.querySelector('.play1').style.display = 'none';
 document.querySelector('.shkafsvet').addEventListener('click', function () {
-  // Скрыть главный экран
   document.querySelector('.glavsvet').style.display = 'none';
-
-  // Показать экран play1
   document.querySelector('.play1').style.display = 'block';
 });
 document.querySelector('.strelka1').addEventListener('click', function () {
-  // Скрыть экран play1
   document.querySelector('.play1').style.display = 'none';
-
-  // Показать главный экран
   document.querySelector('.glavsvet').style.display = 'block';
 });
-//
-//
-//
 // ИГРА 1 СО ШКАФЧИКАМИ
+// ❗️ КРАСНЫЙ ЗАМОК
+const dver2 = document.getElementById('dver2');
+const zamochek = document.getElementById('zamochek');
+dver2.addEventListener('click', () => {
+  if (zamochek.style.display === 'none' || zamochek.style.display === '') {
+    zamochek.style.display = 'flex';
+  } else {
+    zamochek.style.display = 'none';
+  }
+});
+//
+//
 // УДАЛЕНИЕ ДВЕРЕЙ
 document.querySelector('.dver1').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver1
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver3').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver3
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver4').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver4
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver5').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver5
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver6').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver6
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver7').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver7
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver8').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver8
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver9').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver9
+  this.style.display = 'none';
 });
-
 document.querySelector('.dver10').addEventListener('click', function () {
-  this.style.display = 'none'; // Скрыть dver10
+  this.style.display = 'none';
 });
 // ❗️ ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ
 $(document).ready(function () {
-  // Делаем предметы перетаскиваемыми
   $(
     '.iphone, .naush, .getri, .points, .giri, .roll, .stanley, .bag, .flowers, .instax'
   ).draggable();
-
-  // Делаем элемент с классом .allisonplate зоной для сброса
   $('.allisonplate').droppable({
-    accept: '.draggable', // Только перетаскиваемые предметы могут быть сброшены в эту зону
+    accept: '.draggable',
     drop: function (event, ui) {
-      // При сбросе предмета меняем его позицию на центр дроп-зоны
       const dropZone = $(this);
       const offset = dropZone.offset();
       const width = dropZone.width();
       const height = dropZone.height();
-
-      // Рассчитываем новую позицию для элемента
       ui.helper.css({
         left: offset.left + (width - ui.helper.width()) / 2,
         top: offset.top + (height - ui.helper.height()) / 2,
@@ -211,6 +247,11 @@ $(document).ready(function () {
     },
   });
 });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -238,7 +279,43 @@ document.querySelector('.strelka2').addEventListener('click', function () {
   // Меняем изображение на dver402temnota
   document.querySelector('.dver402svet').src = 'images/dver402temnota.svg';
 });
-
+//
+//
+// КНОПКА 1 ПАУЗА
+const knpl1 = document.querySelector('.knpl1');
+const knpa1 = document.querySelector('.knpa1');
+knpl1.addEventListener('click', () => {
+  knpl1.style.display = 'none';
+  knpa1.style.display = 'inline';
+});
+knpa1.addEventListener('click', () => {
+  knpa1.style.display = 'none';
+  knpl1.style.display = 'inline';
+});
+//
+// КНОПКА 2 ПАУЗА
+const knpl2 = document.querySelector('.knpl2');
+const knpa2 = document.querySelector('.knpa2');
+knpl2.addEventListener('click', () => {
+  knpl2.style.display = 'none';
+  knpa2.style.display = 'inline';
+});
+knpa2.addEventListener('click', () => {
+  knpa2.style.display = 'none';
+  knpl2.style.display = 'inline';
+});
+//
+// КНОПКА 3 ПАУЗА
+const knpl3 = document.querySelector('.knpl3');
+const knpa3 = document.querySelector('.knpa3');
+knpl3.addEventListener('click', () => {
+  knpl3.style.display = 'none';
+  knpa3.style.display = 'inline';
+});
+knpa3.addEventListener('click', () => {
+  knpa3.style.display = 'none';
+  knpl3.style.display = 'inline';
+});
 //
 //
 // ❗️ МУЗЫКААААААААА
@@ -326,95 +403,93 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 //
 //
 // рисовашка
-// Получаем элемент <canvas> из DOM по его ID
-const canvas = document.getElementById('drawing');
-const ctx = canvas.getContext('2d', { willReadFrequently: true });
+document.addEventListener('DOMContentLoaded', () => {
+  // Получаем элемент <canvas> из DOM по его ID
+  const canvas = document.getElementById('drawing');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
-// Устанавливаем высоту и ширину канваса равными размерам окна браузера
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+  // Устанавливаем высоту и ширину канваса равными размерам окна браузера
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
 
-// Переменные для хранения текущего цвета, толщины линии и состояния рисования
-var lineW = 5; // Толщина линии (по умолчанию 5px)
-let prevX = null; // Предыдущие координаты X мыши
-let prevY = null; // Предыдущие координаты Y мыши
-let draw = false; // Флаг, указывающий, происходит ли рисование в данный момент
+  // Переменные для хранения текущего цвета, толщины линии и состояния рисования
+  var lineW = 5; // Толщина линии (по умолчанию 5px)
+  let prevX = null; // Предыдущие координаты X мыши
+  let prevY = null; // Предыдущие координаты Y мыши
+  let draw = false; // Флаг, указывающий, происходит ли рисование в данный момент
 
-// Устанавливаем начальную толщину линии
-ctx.lineWidth = lineW;
-ctx.strokeStyle = '#877177'; // Начальный цвет линии
+  // Устанавливаем начальную толщину линии
+  ctx.lineWidth = lineW;
+  ctx.strokeStyle = '#877177'; // Начальный цвет линии
 
-// Получаем все элементы с классом "clr" (кнопки выбора цвета)
-let clrs = document.querySelectorAll('.clr');
+  // Функция для установки текущего цвета
+  function setCurrentColor(color) {
+    ctx.strokeStyle = color;
+    console.log(`Цвет изменен на: ${color}`);
+  }
 
-// Преобразуем NodeList в массив для удобства работы
-clrs = Array.from(clrs);
+  // Обработчики для выбора цветов
+  document.getElementById('seroe').addEventListener('click', () => {
+    setCurrentColor('#877177');
+  });
 
-// Для каждой кнопки цвета добавляем обработчик клика
-// Обработчики для выбора цветов
-document.getElementById('seroe').addEventListener('click', () => {
-  const currentColor = '#877177';
-  ctx.strokeStyle = currentColor;
-  console.log(`Цвет изменен на: ${currentColor}`);
-});
+  document.getElementById('rozovoe').addEventListener('click', () => {
+    setCurrentColor('#d37995');
+  });
 
-document.getElementById('rozovoe').addEventListener('click', () => {
-  const currentColor = '#d37995';
-  ctx.strokeStyle = currentColor;
-  console.log(`Цвет изменен на: ${currentColor}`);
-});
+  document.getElementById('krasnoe').addEventListener('click', () => {
+    setCurrentColor('#963b50');
+  });
 
-document.getElementById('krasnoe').addEventListener('click', () => {
-  const currentColor = '#963b50';
-  ctx.strokeStyle = currentColor;
-  console.log(`Цвет изменен на: ${currentColor}`);
-});
+  document.getElementById('zelenoe').addEventListener('click', () => {
+    setCurrentColor('#66a865');
+  });
 
-document.getElementById('zelenoe').addEventListener('click', () => {
-  const currentColor = '#66a865';
-  ctx.strokeStyle = currentColor;
-  console.log(`Цвет изменен на: ${currentColor}`);
-});
-// Находим кнопку очистки канваса
-let clearBtn = document.querySelector('.musor');
+  // Находим кнопку очистки канваса
+  let clearBtn = document.querySelector('.musor');
 
-// Добавляем обработчик клика для очистки канваса
-clearBtn.addEventListener('click', () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем весь канвас
-});
+  // Добавляем обработчик клика для очистки канваса
+  clearBtn.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем весь канвас
+  });
 
-// Добавляем обработчик события "mousedown" для начала рисования
-window.addEventListener('mousedown', (e) => {
-  const rect = canvas.getBoundingClientRect();
-  prevX = e.clientX - rect.left; // Сохраняем начальные координаты X
-  prevY = e.clientY - rect.top; // Сохраняем начальные координаты Y
-  draw = true;
-});
+  // Добавляем обработчик события "mousedown" для начала рисования
+  window.addEventListener('mousedown', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    prevX = e.clientX - rect.left;
+    prevY = e.clientY - rect.top;
 
-// Добавляем обработчик события "mouseup" для завершения рисования
-window.addEventListener('mouseup', () => {
-  draw = false;
-  prevX = null; // Сбрасываем предыдущие координаты после завершения рисования
-  prevY = null;
-});
+    // Убедимся, что цвет установлен перед началом рисования
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    draw = true;
+  });
 
-// Добавляем обработчик события "mousemove" для рисования линий
-window.addEventListener('mousemove', (e) => {
-  if (!draw) return; // Если рисование не активно, выходим
+  // Добавляем обработчик события "mouseup" для завершения рисования
+  window.addEventListener('mouseup', () => {
+    draw = false;
+    prevX = null;
+    prevY = null;
+  });
 
-  const rect = canvas.getBoundingClientRect();
-  let currentX = e.clientX - rect.left; // Текущие координаты X
-  let currentY = e.clientY - rect.top; // Текущие координаты Y
+  // Добавляем обработчик события "mousemove" для рисования линий
+  window.addEventListener('mousemove', (e) => {
+    if (!draw) return;
 
-  // Начинаем новый путь для рисования
-  ctx.beginPath();
-  ctx.moveTo(prevX, prevY); // Перемещаемся к предыдущей точке
-  ctx.lineTo(currentX, currentY); // Рисуем линию до текущей точки
-  ctx.stroke(); // Применяем рисование
+    const rect = canvas.getBoundingClientRect();
+    let currentX = e.clientX - rect.left;
+    let currentY = e.clientY - rect.top;
 
-  // Обновляем предыдущие координаты
-  prevX = currentX;
-  prevY = currentY;
+    // Начинаем новый путь для рисования
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    ctx.lineTo(currentX, currentY);
+    ctx.stroke();
+
+    // Обновляем предыдущие координаты
+    prevX = currentX;
+    prevY = currentY;
+  });
 });
 
 //

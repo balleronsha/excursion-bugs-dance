@@ -1,5 +1,6 @@
 body {
   background-color: #ffe4e4;
+  cursor: url(../images/cursor.svg) 0 0, auto;
 }
 /* ЗАГРУЗОЧНЫЙ ЭКРАН */
 .zagruzka,
@@ -10,92 +11,86 @@ body {
 .play3,
 .play4 {
   width: 100vw;
-  height: 62.5vw;
+  height: 56.223vw;
   position: relative;
 }
-.zagruzkafon {
-  width: 100vw;
-  height: 62.5vw;
-  position: absolute;
+.zagruzka {
+  background: radial-gradient(circle, #ff9bba, #ffbacf, #fff6f9, #ffffff);
+  background-size: 100vw 56.223vw;
+  animation: gradient 5s ease infinite;
 }
 
 .zagr {
   position: relative;
-  width: 59vw;
-  height: 59vw;
-  left: 20.139vw;
-  top: 1.389vw;
+  width: 52vw;
+  height: 52vw;
+  left: 23.646vw;
+  top: 1.757vw;
 }
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 44.444vw;
-  height: 54.861vw;
-  position: fixed;
-}
-/* ГЛАВНЫЙ ЭКРАН СО СВЕТОМ  */
 
+/* ГЛАВНЫЙ ЭКРАН СО СВЕТОМ  */
+.glavsvet {
+  display: none;
+}
 .glavekran {
   width: 100vw;
-  height: 62.5vw;
+  height: 56.223vw;
 }
 
 .iconklava1 {
   height: 7.5vw;
   width: 7.5vw;
-  top: 4.5vw;
+  top: 3.5vw;
   left: 1.5vw;
   position: absolute;
 }
 
-.shkafsvet,
-.glavsvet402 {
+.shkafsvet {
   width: 7.708vw;
   height: 32.5vw;
-  top: 25.6vw;
+  top: 20.6vw;
   left: -0.1vw;
   position: absolute;
 }
 .dver402svet {
   width: 19.236vw;
   height: 35.417vw;
-  top: 22.5vw;
+  top: 16.7vw;
   left: 17vw;
   position: absolute;
 }
 .dver402temnota {
   width: 19.236vw;
   height: 35.417vw;
-  top: 22.5vw;
+  top: 16.7vw;
   left: 17vw;
   position: absolute;
 }
 .dverconsvet {
   width: 27.847vw;
   height: 35.417vw;
-  top: 22.5vw;
+  top: 16.7vw;
   left: 42vw;
   position: absolute;
 }
 .dvercontemnota {
   width: 27.847vw;
   height: 35.417vw;
-  top: 22.5vw;
+  top: 16.7vw;
   left: 42vw;
   position: absolute;
 }
 .dver404svet {
   width: 19.236vw;
   height: 35.417vw;
-  top: 22.5vw;
+  top: 16.7vw;
   left: 76vw;
   position: absolute;
 }
 .dver404temnota {
   width: 19.236vw;
   height: 35.417vw;
-  top: 22.5vw;
+  top: 16.7vw;
   left: 76vw;
   position: absolute;
 }
@@ -109,21 +104,21 @@ canvas {
 .mini402 {
   width: 7.778vw;
   height: 2.778vw;
-  top: 19vw;
+  top: 12.5vw;
   left: 23vw;
   position: absolute;
 }
 .max {
   width: 20.903vw;
   height: 2.778vw;
-  top: 19vw;
+  top: 12.5vw;
   left: 45vw;
   position: absolute;
 }
 .mini404 {
   width: 7.778vw;
   height: 2.778vw;
-  top: 19vw;
+  top: 12.5vw;
   left: 82vw;
   position: absolute;
 }
@@ -145,8 +140,8 @@ canvas {
   font-size: 2.431vw;
   position: absolute;
   line-height: 120%;
-  top: 19vw;
-  left: 24.7vw;
+  top: 12.5vw;
+  left: 24.9vw;
   color: #fff6f9;
 }
 .t403 {
@@ -154,7 +149,7 @@ canvas {
   font-size: 2.431vw;
   position: absolute;
   line-height: 120%;
-  top: 18.8vw;
+  top: 12.3vw;
   left: 47vw;
   color: #fff6f9;
 }
@@ -163,270 +158,296 @@ canvas {
   font-size: 2.431vw;
   position: absolute;
   line-height: 120%;
-  top: 19vw;
-  left: 83.7vw;
+  top: 12.5vw;
+  left: 83.9vw;
   color: #fff6f9;
 }
 /* ИГРА 1 СО ШКАФЧИКАМИ */
 .pustota {
   width: 100vw;
-  height: 62.5vw;
+  height: 56.223vw;
   position: absolute;
 }
 .strelka1 {
   width: 4.861vw;
   height: 4.167vw;
   position: absolute;
-  top: 55.7vw;
-  left: 91.597vw;
+  top: 49.7vw;
+  left: 92.5vw;
+}
+#zamochek {
+  width: 2.8vw;
+  height: 4vw;
+  position: absolute;
+  top: 15vw;
+  left: 28vw;
+  z-index: 1;
+  display: none;
 }
 
 .iphone {
   position: absolute;
   width: 6.206vw;
   height: 11.23vw;
-  top: 19.5vw;
+  top: 16.5vw;
   left: 5.5vw;
+  z-index: 1;
 }
 .naush {
   position: absolute;
   width: 12.083vw;
   height: 12.083vw;
-  top: 18vw;
-  left: 0vw;
+  top: 16vw;
+  left: 0.5vw;
+  z-index: 1;
 }
 .getri {
   position: absolute;
-  width: 13.642vw;
-  height: 15.556vw;
-  top: 15vw;
-  left: 37vw;
+  width: 12.642vw;
+  height: 14.556vw;
+  top: 13vw;
+  left: 38vw;
+  z-index: 1;
 }
 .points {
   position: absolute;
   width: 11.897vw;
   height: 14.306vw;
-  top: 17vw;
+  top: 13.5vw;
   left: 57vw;
+  z-index: 1;
 }
 .giri {
   position: absolute;
   width: 12.9vw;
   height: 10.833vw;
-  top: 20vw;
+  top: 17vw;
   left: 76vw;
+  z-index: 1;
 }
 .roll {
   position: absolute;
   width: 13.167vw;
   height: 19.153vw;
-  top: 43vw;
+  top: 37vw;
   left: 0vw;
+  z-index: 1;
 }
 .stanley {
   position: absolute;
   width: 8.812vw;
   height: 19.028vw;
-  top: 42vw;
+  top: 36vw;
   left: 21vw;
+  z-index: 1;
 }
 .bag {
   position: absolute;
   width: 15.054vw;
   height: 16.806vw;
-  top: 44vw;
+  top: 38vw;
   left: 35.5vw;
+  z-index: 1;
 }
 .flowers {
   position: absolute;
-  width: 16.603vw;
-  height: 16.389vw;
-  top: 45vw;
-  left: 54vw;
+  width: 15.603vw;
+  height: 15.389vw;
+  top: 40vw;
+  left: 54.5vw;
+  z-index: 1;
 }
 .instax {
   position: absolute;
   width: 11.369vw;
   height: 11.736vw;
-  top: 49vw;
+  top: 43vw;
   left: 76vw;
+  z-index: 1;
 }
 
 /* двери */
 .dver1 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 3vw;
-  left: -2vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 2.7vw;
+  left: -5.1vw;
+}
+#dver2 {
+  position: absolute;
+  z-index: 0;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 2.7vw;
+  left: 14.2vw;
 }
 .dver3 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 3vw;
-  left: 34.5vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 2.7vw;
+  left: 33.3vw;
 }
 .dver4 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 3vw;
-  left: 53.8vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 2.7vw;
+  left: 52.6vw;
 }
 .dver5 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 3vw;
-  left: 72.9vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 2.7vw;
+  left: 71.7vw;
 }
 .dver6 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 33.1vw;
-  left: -2vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 29.8vw;
+  left: -5.1vw;
 }
 .dver7 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 33.1vw;
-  left: 15.3vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 29.8vw;
+  left: 14.2vw;
 }
 .dver8 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 33.1vw;
-  left: 34.5vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 29.8vw;
+  left: 33.3vw;
 }
 .dver9 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 33.1vw;
-  left: 53.8vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 29.8vw;
+  left: 52.6vw;
 }
 .dver10 {
   position: absolute;
   z-index: 2;
-  width: 17.083vw;
-  height: 28.472vw;
-  top: 33.1vw;
-  left: 72.9vw;
+  width: 19.5vw;
+  height: 25.6vw;
+  top: 29.8vw;
+  left: 71.7vw;
 }
 /* ИГРА 2 ДИКО */
 .gradient,
 .zadnick {
   width: 100vw;
-  height: 62.5vw;
+  height: 56.223vw;
   position: absolute;
 }
-/* плееры */
+/* моделька любимая клавдия */
 .play2Model {
-  /* width: 41.181vw;
-  height: 50.764vw; */
   position: relative;
   z-index: 10;
-  left: 0vw;
+  left: 10vw;
 }
 
 .play2Model canvas {
   width: 100vw;
   height: 100vw;
   position: absolute;
-  /* left: 15vw;
-  top: -11vw; */
 }
-
+/* плееры */
 .player1 {
-  width: 27.569vw;
-  height: 16.667vw;
+  width: 26vw;
+  height: 15vw;
   position: absolute;
   top: 1.8vw;
   left: 2.5vw;
   z-index: 10;
 }
 .player2 {
-  width: 27.569vw;
-  height: 16.667vw;
+  width: 26vw;
+  height: 15vw;
   position: absolute;
-  top: 22.8vw;
+  top: 20.3vw;
   left: 2.5vw;
   z-index: 10;
 }
 .player3 {
-  width: 27.569vw;
-  height: 16.667vw;
+  width: 26vw;
+  height: 15vw;
   position: absolute;
-  top: 43.8vw;
+  top: 39vw;
   left: 2.5vw;
   z-index: 10;
 }
 .knpl1 {
-  width: 4.278vw;
-  height: 5.042vw;
+  width: 4.5vw;
+  height: 5vw;
   position: absolute;
-  top: 12.4vw;
-  left: 24.7vw;
+  top: 10.4vw;
+  left: 22.5vw;
   z-index: 10;
 }
 .knpl2 {
-  width: 4.278vw;
-  height: 5.042vw;
+  width: 4.5vw;
+  height: 5vw;
   position: absolute;
-  top: 33.4vw;
-  left: 24.7vw;
+  top: 28.8vw;
+  left: 22.5vw;
   z-index: 10;
 }
 .knpl3 {
-  width: 4.278vw;
-  height: 5.042vw;
+  width: 4.5vw;
+  height: 5vw;
   position: absolute;
-  top: 54.4vw;
-  left: 24.7vw;
+  top: 47.8vw;
+  left: 22.5vw;
   z-index: 10;
 }
 .knpa1 {
-  width: 2.639vw;
-  height: 3.75vw;
+  width: 4vw;
+  height: 4.5vw;
   position: absolute;
-  top: 8.3vw;
-  left: 26.6vw;
+  top: 10.4vw;
+  left: 22.5vw;
   z-index: 10;
+  display: none;
 }
 .knpa2 {
-  width: 2.639vw;
-  height: 3.75vw;
+  width: 4vw;
+  height: 4.5vw;
   position: absolute;
-  top: 29.3vw;
-  left: 26.6vw;
+  top: 28.8vw;
+  left: 22.5vw;
   z-index: 10;
+  display: none;
 }
 .knpa3 {
-  width: 2.639vw;
-  height: 3.75vw;
+  width: 4vw;
+  height: 4.5vw;
   position: absolute;
-  top: 50.3vw;
-  left: 26.6vw;
+  top: 47.8vw;
+  left: 22.5vw;
   z-index: 10;
+  display: none;
 }
 .strelka2 {
   width: 4.861vw;
   height: 4.167vw;
   position: absolute;
-  top: 55.7vw;
-  left: 91.597vw;
+  top: 49.7vw;
+  left: 92.5vw;
   z-index: 15;
 }
 /*  */
@@ -434,11 +455,20 @@ canvas {
 /*  */
 /*  */
 /* 3 ИГРА РИСОВАЛКА */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44.444vw;
+  height: 54.861vw;
+  position: fixed;
+}
 .play3 {
-  cursor: url('../images/kistochka.svg') 0 0, auto;
+  cursor: url('../images/kistochka.svg') 20 60, auto;
 }
 .zadnick {
   z-index: -10;
+  position: absolute;
 }
 #drawing {
   position: absolute;
@@ -457,37 +487,37 @@ canvas {
   z-index: 10;
 }
 #seroe {
-  width: 4.375vw;
-  height: 4.375vw;
+  width: 6vw;
+  height: 6vw;
   position: absolute;
-  top: 13.9vw;
+  top: 10.9vw;
   left: 91.9vw;
   border-radius: 50%;
   background-color: #877177;
 }
 #rozovoe {
-  width: 4.375vw;
-  height: 4.375vw;
+  width: 6vw;
+  height: 6vw;
   position: absolute;
-  top: 19.9vw;
+  top: 20.9vw;
   left: 91.9vw;
   border-radius: 50%;
   background-color: #d37995;
 }
 #krasnoe {
-  width: 4.375vw;
-  height: 4.375vw;
+  width: 6vw;
+  height: 6vw;
   position: absolute;
-  top: 25.9vw;
+  top: 30.9vw;
   left: 91.9vw;
   border-radius: 50%;
   background-color: #963b50;
 }
 #zelenoe {
-  width: 4.375vw;
-  height: 4.375vw;
+  width: 6vw;
+  height: 6vw;
   position: absolute;
-  top: 31.9vw;
+  top: 40.9vw;
   left: 91.9vw;
   border-radius: 50%;
   background-color: #66a865;
@@ -505,7 +535,7 @@ canvas {
   width: 4.792vw;
   height: 5.362vw;
   position: absolute;
-  top: 37.3vw;
+  top: 47.3vw;
   left: 92vw;
   z-index: 20;
   justify-content: center;
@@ -537,7 +567,7 @@ canvas {
   display: none;
 }
 .canvas {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;

@@ -348,8 +348,7 @@ body {
   left: 71.7vw;
 }
 /* ИГРА 2 ДИКО */
-.gradient,
-.zadnick {
+.gradient {
   width: 100vw;
   height: 56.223vw;
   position: absolute;
@@ -459,94 +458,96 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 44.444vw;
-  height: 54.861vw;
+  width: 100vw;
+  height: 56.223vw;
   position: fixed;
 }
 .play3 {
-  cursor: url('../images/kistochka.svg') 20 60, auto;
+  cursor: url('../images/kistochka.svg') 20 40, auto;
 }
 .zadnick {
-  z-index: -10;
+  z-index: 2;
+  width: 100vw;
+  height: 56.223vw;
   position: absolute;
 }
 #drawing {
   position: absolute;
   width: 100vw;
-  height: 51.25vw;
+  height: 48.097vw;
   background-color: #fcf3f3;
   display: block;
+  z-index: 3;
 }
-.button {
-  width: 4.792vw;
-  height: 5.362vw;
-  position: absolute;
-  top: 37.3vw;
-  left: 91.7vw;
-  background-image: url(../images/musor.svg);
-  z-index: 10;
-}
+
 #seroe {
-  width: 6vw;
-  height: 6vw;
+  width: 5vw;
+  height: 5vw;
   position: absolute;
-  top: 10.9vw;
-  left: 91.9vw;
+  top: 7vw;
+  left: 92.5vw;
   border-radius: 50%;
   background-color: #877177;
+  z-index: 15;
 }
 #rozovoe {
-  width: 6vw;
-  height: 6vw;
+  width: 5vw;
+  height: 5vw;
   position: absolute;
-  top: 20.9vw;
-  left: 91.9vw;
+  top: 16vw;
+  left: 92.5vw;
   border-radius: 50%;
   background-color: #d37995;
+  z-index: 15;
 }
 #krasnoe {
-  width: 6vw;
-  height: 6vw;
+  width: 5vw;
+  height: 5vw;
   position: absolute;
-  top: 30.9vw;
-  left: 91.9vw;
+  top: 25vw;
+  left: 92.5vw;
   border-radius: 50%;
   background-color: #963b50;
+  z-index: 15;
 }
 #zelenoe {
-  width: 6vw;
-  height: 6vw;
+  width: 5vw;
+  height: 5vw;
   position: absolute;
-  top: 40.9vw;
-  left: 91.9vw;
+  top: 34vw;
+  left: 92.5vw;
   border-radius: 50%;
   background-color: #66a865;
+  z-index: 15;
 }
 .strelka3 {
   width: 4.861vw;
   height: 4.167vw;
   position: absolute;
-  top: 55.7vw;
-  left: 91.597vw;
+  top: 49.7vw;
+  left: 92.5vw;
+  z-index: 15;
+  cursor: auto;
 }
 .musor {
   background-image: url(../images/musor.svg);
   background-repeat: no-repeat;
-  width: 4.792vw;
-  height: 5.362vw;
+  width: 5vw;
+  height: 6vw;
   position: absolute;
-  top: 47.3vw;
-  left: 92vw;
-  z-index: 20;
-  justify-content: center;
+  top: 42vw;
+  left: 93vw;
+  z-index: 15;
 }
 
 .iconklava2 {
   height: 7.5vw;
   width: 7.5vw;
-  top: 4.5vw;
+  top: 3.5vw;
   left: 1.5vw;
   position: absolute;
+  z-index: 15;
+  cursor: auto;
 }
 .rech2 {
   width: 46.042vw;
@@ -555,6 +556,7 @@ canvas {
   left: 5vw;
   position: absolute;
   display: none;
+  z-index: 15;
 }
 .r2 {
   font-family: 'SF Pro';
@@ -565,13 +567,7 @@ canvas {
   left: 12vw;
   color: #fff6f9;
   display: none;
-}
-.canvas {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 51.25vw;
+  z-index: 15;
 }
 
 /* ПОДВАЛ */

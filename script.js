@@ -155,18 +155,18 @@ document.querySelector('.iconklava1').addEventListener('click', function () {
 //
 document.querySelector('.iconklava2').addEventListener('click', function () {
   // Получаем элементы
-  const rech1 = document.querySelector('.rech2');
-  const r1 = document.querySelector('.r2');
+  const rech2 = document.querySelector('.rech2');
+  const r2 = document.querySelector('.r2');
 
   // Проверяем текущее состояние элементов
-  if (rech1.style.display === 'none' || rech1.style.display === '') {
+  if (rech2.style.display === 'none' || rech2.style.display === '') {
     // Если элементы скрыты, показываем их
-    rech1.style.display = 'block';
-    r1.style.display = 'block';
+    rech2.style.display = 'block';
+    r2.style.display = 'block';
   } else {
     // Если элементы видны, скрываем их
-    rech1.style.display = 'none';
-    r1.style.display = 'none';
+    rech2.style.display = 'none';
+    r2.style.display = 'none';
   }
 });
 //

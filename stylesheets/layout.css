@@ -14,12 +14,7 @@ body {
   height: 56.223vw;
   position: relative;
 }
-.play1,
-.play2,
-.play3,
-.play4 {
-  display: none;
-}
+
 .zagruzka {
   background: radial-gradient(circle, #ff9bba, #ffbacf, #fff6f9, #ffffff);
   background-size: 100vw 56.223vw;
@@ -460,7 +455,7 @@ body {
 
 .play3 {
   position: relative;
-  cursor: url('../images/kistochka.svg') 20 40, auto;
+  cursor: url('../images/kistochka.svg') 16 32, auto;
 }
 .zadnick {
   z-index: 2;
@@ -578,6 +573,8 @@ body {
   display: block;
 }
 .banka {
+  width: 5.124vw;
+  height: 5.564vw;
   position: absolute;
   top: 42vw;
   left: 92.5vw;
@@ -616,17 +613,977 @@ body {
   position: absolute;
   z-index: 25;
 }
-.ris1,
-.ris2,
-.ris3,
-.ris4,
-.ris5,
+/* РИСУНОК 1 */
+.ris1 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+.ris11 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  opacity: 50%;
+  z-index: 50;
+}
+.vibe1 {
+  width: 120vw;
+  height: 120vw;
+  position: absolute;
+  animation: move1 12s infinite ease-in-out;
+  z-index: 50;
+}
+.vibe2 {
+  width: 150vw;
+  height: 140vw;
+  position: absolute;
+  animation: move2 14s infinite ease-in-out;
+  z-index: 50;
+}
+.vibe3 {
+  width: 150vw;
+  height: 150vw;
+  position: absolute;
+  animation: move3 16s infinite ease-in-out;
+  z-index: 50;
+}
+.vibe4 {
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  animation: move4 18s infinite ease-in-out;
+  z-index: 50;
+}
+.vibe5 {
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  animation: move5 20s infinite ease-in-out;
+  z-index: 50;
+}
+.vibe6 {
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  animation: move6 22s infinite ease-in-out;
+  z-index: 50;
+}
+.vibe7 {
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  animation: move7 24s infinite ease-in-out;
+  z-index: 50;
+}
+.krug1 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 5.7vw;
+  left: 47.8vw;
+  position: absolute;
+}
+.krug2 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 17.4vw;
+  left: 36vw;
+  position: absolute;
+}
+.krug3 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 17.4vw;
+  left: 59.5vw;
+  position: absolute;
+}
+.krug4 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 31.5vw;
+  left: 26.8vw;
+  position: absolute;
+}
+.krug5 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 31.5vw;
+  left: 47.8vw;
+  position: absolute;
+}
+.krug6 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 31.5vw;
+  left: 68.8vw;
+  position: absolute;
+}
+.krug7 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45vw;
+  left: 15.5vw;
+  position: absolute;
+}
+.krug8 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45vw;
+  left: 36vw;
+  position: absolute;
+}
+.krug9 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45vw;
+  left: 59.5vw;
+  position: absolute;
+}
+.krug10 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45vw;
+  left: 80vw;
+  position: absolute;
+}
+/* РИСУНОК 2 */
+.ris2 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  overflow: hidden;
+  background-color: #d9e4db;
+}
+.ris22 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  opacity: 50%;
+  z-index: 50;
+}
+.hype1 {
+  width: 120vw;
+  height: 120vw;
+  position: absolute;
+  animation: move12 12s infinite ease-in-out;
+  z-index: 50;
+}
+.hype2 {
+  width: 150vw;
+  height: 140vw;
+  position: absolute;
+  animation: move22 14s infinite ease-in-out;
+  z-index: 50;
+}
+.hype3 {
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  animation: move32 16s infinite ease-in-out;
+  z-index: 50;
+}
+.hype4 {
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+  animation: move42 18s infinite ease-in-out;
+  z-index: 50;
+}
+.hype5 {
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  animation: move52 20s infinite ease-in-out;
+  z-index: 52;
+}
+
+.bublick1 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 4.5vw;
+  left: 47.8vw;
+  position: absolute;
+}
+.bublick2 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 18.7vw;
+  left: 20vw;
+  position: absolute;
+}
+.bublick3 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 18.7vw;
+  left: 47.8vw;
+  position: absolute;
+}
+.bublick4 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 18.7vw;
+  left: 76.8vw;
+  position: absolute;
+}
+.bublick5 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 32.9vw;
+  left: 20vw;
+  position: absolute;
+}
+.bublick6 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 32.9vw;
+  left: 47.8vw;
+  position: absolute;
+}
+.bublick7 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 32.9vw;
+  left: 76.8vw;
+  position: absolute;
+}
+.bublick8 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 47.1vw;
+  left: 20vw;
+  position: absolute;
+}
+.bublick9 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 47.1vw;
+  left: 47.8vw;
+  position: absolute;
+}
+.bublick10 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 47.1vw;
+  left: 76.8vw;
+  position: absolute;
+}
+/* РИСУНОК 3 */
+.ris3 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+.ris33 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  opacity: 50%;
+  z-index: 50;
+}
+.sigma1 {
+  width: 130vw;
+  height: 130vw;
+  top: -30vw;
+  left: -5vw;
+  position: absolute;
+  animation: move13 12s infinite ease-in-out;
+  z-index: 50;
+}
+.sigma2 {
+  width: 150vw;
+  height: 140vw;
+  position: absolute;
+  animation: move23 14s infinite ease-in-out;
+  z-index: 50;
+}
+.sigma3 {
+  width: 150vw;
+  height: 150vw;
+  top: -50vw;
+  left: -20vw;
+  position: absolute;
+  animation: move33 16s infinite ease-in-out;
+  z-index: 50;
+}
+.sigma4 {
+  width: 150vw;
+  height: 150vw;
+  top: -30vw;
+  left: 20vw;
+  position: absolute;
+  animation: move43 18s infinite ease-in-out;
+  z-index: 50;
+}
+.sigma5 {
+  width: 140vw;
+  height: 140vw;
+  top: -20vw;
+  left: -50vw;
+  position: absolute;
+  animation: move53 20s infinite ease-in-out;
+  z-index: 50;
+}
+
+.lotos1 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 6.7vw;
+  left: 81vw;
+  position: absolute;
+}
+.lotos2 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 19.7vw;
+  left: 81vw;
+  position: absolute;
+}
+.lotos3 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 32.7vw;
+  left: 81vw;
+  position: absolute;
+}
+.lotos4 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45.7vw;
+  left: 81vw;
+  position: absolute;
+}
+.lotos5 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 19.7vw;
+  left: 59vw;
+  position: absolute;
+}
+.lotos6 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 32.7vw;
+  left: 59vw;
+  position: absolute;
+}
+.lotos7 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45.7vw;
+  left: 59vw;
+  position: absolute;
+}
+.lotos8 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 32.7vw;
+  left: 37vw;
+  position: absolute;
+}
+.lotos9 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  top: 45.7vw;
+  left: 37vw;
+  position: absolute;
+}
+.lotos10 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 45.7vw;
+  left: 15vw;
+  position: absolute;
+}
+/* РИСУНОК 4 */
+.ris4 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+.ris44 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  opacity: 50%;
+  z-index: 50;
+}
+.skuf1 {
+  width: 130vw;
+  height: 130vw;
+  top: -30vw;
+  left: -5vw;
+  position: absolute;
+  animation: move13 12s infinite ease-in-out;
+  z-index: 50;
+}
+.skuf2 {
+  width: 150vw;
+  height: 140vw;
+  position: absolute;
+  animation: move23 14s infinite ease-in-out;
+  z-index: 50;
+}
+.skuf3 {
+  width: 150vw;
+  height: 150vw;
+  top: -50vw;
+  left: -20vw;
+  position: absolute;
+  animation: move33 16s infinite ease-in-out;
+  z-index: 50;
+}
+.skuf4 {
+  width: 150vw;
+  height: 150vw;
+  top: -30vw;
+  left: 20vw;
+  position: absolute;
+  animation: move43 18s infinite ease-in-out;
+  z-index: 50;
+}
+.skuf5 {
+  width: 140vw;
+  height: 140vw;
+  top: -20vw;
+  left: -50vw;
+  position: absolute;
+  animation: move53 20s infinite ease-in-out;
+  z-index: 50;
+}
+
+.swag1 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 43.5vw;
+  left: 15vw;
+  position: absolute;
+}
+.swag2 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 33.5vw;
+  left: 18.7vw;
+  position: absolute;
+}
+.swag3 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 23.5vw;
+  left: 23.5vw;
+  position: absolute;
+}
+.swag4 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 13.9vw;
+  left: 31.4vw;
+  position: absolute;
+}
+.swag5 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 8.2vw;
+  left: 41.1vw;
+  position: absolute;
+}
+.swag6 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 8.2vw;
+  left: 54.1vw;
+  position: absolute;
+}
+.swag7 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 13.9vw;
+  left: 64.4vw;
+  position: absolute;
+}
+.swag8 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 23.5vw;
+  left: 72vw;
+  position: absolute;
+}
+.swag9 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  top: 33.5vw;
+  left: 76.7vw;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.swag10 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  top: 43.5vw;
+  left: 80.7vw;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.krugi4 {
+  position: absolute;
+  top: -2vw;
+  left: 2vw;
+}
+/* РИСУНОК 5 */
+.ris5 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  overflow: hidden;
+  background-color: rgb(255, 238, 238);
+}
+.ris55 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  opacity: 50%;
+  z-index: 50;
+}
+.cringe1 {
+  width: 130vw;
+  height: 130vw;
+  top: -30vw;
+  left: -5vw;
+  position: absolute;
+  animation: move13 12s infinite ease-in-out;
+  z-index: 50;
+}
+.cringe2 {
+  width: 150vw;
+  height: 140vw;
+  position: absolute;
+  animation: move23 14s infinite ease-in-out;
+  z-index: 50;
+}
+.cringe3 {
+  width: 150vw;
+  height: 150vw;
+  top: -50vw;
+  left: -20vw;
+  position: absolute;
+  animation: move33 16s infinite ease-in-out;
+  z-index: 50;
+}
+.cringe4 {
+  width: 150vw;
+  height: 150vw;
+  top: -50vw;
+  left: -10vw;
+  position: absolute;
+  animation: move43 18s infinite ease-in-out;
+  z-index: 50;
+}
+.cringe5 {
+  width: 140vw;
+  height: 140vw;
+  top: -20vw;
+  left: -50vw;
+  position: absolute;
+  animation: move53 20s infinite ease-in-out;
+  z-index: 50;
+}
+
+.rosa1 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 46vw;
+  left: 41.4vw;
+  position: absolute;
+}
+.rosa2 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 40vw;
+  left: 29vw;
+  position: absolute;
+}
+.rosa3 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 27vw;
+  left: 24.2vw;
+  position: absolute;
+}
+.rosa4 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.2vw;
+  left: 27vw;
+  position: absolute;
+}
+.rosa5 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 5.7vw;
+  left: 38.9vw;
+  position: absolute;
+}
+.rosa6 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 5.6vw;
+  left: 56.1vw;
+  position: absolute;
+}
+.rosa7 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.4vw;
+  left: 68.4vw;
+  position: absolute;
+}
+.rosa8 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 26.5vw;
+  left: 71.3vw;
+  position: absolute;
+}
+.rosa9 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  top: 39vw;
+  left: 67.7vw;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.rosa10 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  top: 46.5vw;
+  left: 56.2vw;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+/* РИСУНОК 6 */
 .ris6 {
   width: 100vw;
   height: 56.223vw;
   position: absolute;
   display: none;
-  z-index: 0;
+  z-index: 5;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+.ris66 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  opacity: 50%;
+  z-index: 50;
+}
+.toxic1 {
+  width: 130vw;
+  height: 130vw;
+  top: -30vw;
+  left: -5vw;
+  position: absolute;
+  animation: move13 12s infinite ease-in-out;
+  z-index: 50;
+}
+.toxic2 {
+  width: 150vw;
+  height: 140vw;
+  position: absolute;
+  animation: move23 14s infinite ease-in-out;
+  z-index: 50;
+}
+.toxic3 {
+  width: 150vw;
+  height: 150vw;
+  top: -50vw;
+  left: -20vw;
+  position: absolute;
+  animation: move33 16s infinite ease-in-out;
+  z-index: 50;
+}
+.toxic4 {
+  width: 150vw;
+  height: 150vw;
+  top: -50vw;
+  left: -10vw;
+  position: absolute;
+  animation: move43 18s infinite ease-in-out;
+  z-index: 50;
+}
+.toxic5 {
+  width: 140vw;
+  height: 140vw;
+  top: -20vw;
+  left: -50vw;
+  position: absolute;
+  animation: move53 20s infinite ease-in-out;
+  z-index: 50;
+}
+
+.sochno1 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.2vw;
+  left: 14.5vw;
+  position: absolute;
+}
+.sochno2 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.2vw;
+  left: 31.5vw;
+  position: absolute;
+}
+.sochno3 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.2vw;
+  left: 48.5vw;
+  position: absolute;
+}
+.sochno4 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.2vw;
+  left: 65.5vw;
+  position: absolute;
+}
+.sochno5 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 14.2vw;
+  left: 82.5vw;
+  position: absolute;
+}
+.sochno6 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 37.2vw;
+  left: 14.5vw;
+  position: absolute;
+}
+.sochno7 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 37.2vw;
+  left: 31.5vw;
+  position: absolute;
+}
+.sochno8 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  background-repeat: no-repeat;
+  top: 37.2vw;
+  left: 48.5vw;
+  position: absolute;
+}
+.sochno9 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  top: 37.2vw;
+  left: 65.5vw;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.sochno10 {
+  background-image: url(../images/KRUZHOCHEK.svg);
+  width: 5.49vw;
+  height: 5.49vw;
+  z-index: 100;
+  top: 37.2vw;
+  left: 82.5vw;
+  background-repeat: no-repeat;
+  position: absolute;
 }
 /*  */
 /*  */

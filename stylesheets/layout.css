@@ -14,6 +14,12 @@ body {
   height: 56.223vw;
   position: relative;
 }
+.play1,
+.play2,
+.play3,
+.play4 {
+  display: none;
+}
 .zagruzka {
   background: radial-gradient(circle, #ff9bba, #ffbacf, #fff6f9, #ffffff);
   background-size: 100vw 56.223vw;

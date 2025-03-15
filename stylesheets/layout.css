@@ -19,7 +19,6 @@ body {
   background-size: 100vw 56.223vw;
   animation: gradient 5s ease infinite;
 }
-
 .zagr {
   position: relative;
   width: 52vw;
@@ -27,7 +26,6 @@ body {
   left: 23.646vw;
   top: 1.757vw;
 }
-
 /* ГЛАВНЫЙ ЭКРАН СО СВЕТОМ  */
 .glavsvet {
   display: none;
@@ -36,7 +34,6 @@ body {
   width: 100vw;
   height: 56.223vw;
 }
-
 .iconklava1 {
   height: 7.5vw;
   width: 7.5vw;
@@ -44,7 +41,6 @@ body {
   left: 1.5vw;
   position: absolute;
 }
-
 .shkafsvet {
   width: 7.708vw;
   height: 32.5vw;
@@ -265,7 +261,6 @@ body {
   left: 76vw;
   z-index: 1;
 }
-
 /* двери */
 .dver1 {
   position: absolute;
@@ -354,13 +349,10 @@ body {
   position: absolute;
 }
 /* моделька любимая клавдия */
+
 .play2Model {
-  position: relative;
   z-index: 10;
   left: 10vw;
-}
-
-.play2Model canvas {
   width: 100vw;
   height: 100vw;
   position: absolute;
@@ -454,15 +446,9 @@ body {
 /*  */
 /*  */
 /* 3 ИГРА РИСОВАЛКА */
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 56.223vw;
-  position: fixed;
-}
+
 .play3 {
+  position: relative;
   cursor: url('../images/kistochka.svg') 20 40, auto;
 }
 .zadnick {
@@ -581,6 +567,8 @@ canvas {
   display: block;
 }
 .banka {
+  width: 5.124vw;
+  height: 5.564vw;
   position: absolute;
   top: 42vw;
   left: 92.5vw;
@@ -619,18 +607,47 @@ canvas {
   position: absolute;
   z-index: 25;
 }
-.ris1,
-.ris2,
-.ris3,
-.ris4,
-.ris5,
-.ris6 {
+/* РИСУНОК 1 */
+.ris1 {
   width: 100vw;
   height: 56.223vw;
   position: absolute;
   display: none;
-  z-index: 0;
+  z-index: 5;
+  opacity: 50%;
+  overflow: hidden;
 }
+.ris11 {
+  width: 100vw;
+  height: 56.223vw;
+  position: absolute;
+  display: none;
+  z-index: 10;
+  opacity: 50%;
+  z-index: 50;
+}
+.vibe1 {
+  animation: move1 12s infinite ease-in-out;
+}
+.vibe2 {
+  animation: move2 14s infinite ease-in-out;
+}
+.vibe3 {
+  animation: move3 16s infinite ease-in-out;
+}
+.vibe4 {
+  animation: move4 18s infinite ease-in-out;
+}
+.vibe5 {
+  animation: move5 20s infinite ease-in-out;
+}
+.vibe6 {
+  animation: move6 22s infinite ease-in-out;
+}
+.vibe7 {
+  animation: move7 24s infinite ease-in-out;
+}
+
 /*  */
 /*  */
 /*  */

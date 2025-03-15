@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  const images = ['.ris1', '.ris2', '.ris3', '.ris4', '.ris5', '.ris6'];
+  const images = ['.ris1'];
   let currentIndex = 0;
 
   function showNextImage() {
@@ -640,8 +640,36 @@ document.addEventListener('DOMContentLoaded', function () {
 //
 //
 //
-//
-
+// КОНФИТТИ
+document.addEventListener('DOMContentLoaded', function () {
+  const strelki = document.querySelectorAll(
+    '.strelka1, .strelka2, .strelka3, .strelka4'
+  );
+  const glavSvetDiv = document.querySelector('.glavsvet');
+  const clickedStrelki = Array(strelki.length).fill(false);
+  function checkStrelki() {
+    if (clickedStrelki.every((clicked) => clicked)) {
+      activateConfetti(glavSvetDiv);
+    }
+  }
+  strelki.forEach((strelka, index) => {
+    strelka.addEventListener('click', function () {
+      clickedStrelki[index] = true;
+      checkStrelki();
+    });
+  });
+  function activateConfetti(targetElement) {
+    targetElement.addEventListener('click', handleConfettiClick);
+  }
+  function handleConfettiClick(event) {
+    party.confetti(event, {
+      count: party.variation.range(50, 100), // Количество частиц
+      spread: 90, // Распространение (угол разброса)
+      size: party.variation.range(0.5, 1), // Размер частиц
+      speed: party.variation.range(200, 600), // Скорость падения
+    });
+  }
+});
 // const klava = document.getElementById('klava');
 // const kamen = document.getElementById('kamen');
 // let scoreDisplay = document.createElement('div');

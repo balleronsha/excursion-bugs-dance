@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  const images = ['.ris1'];
+  const images = ['.ris1', '.ris2', '.ris3', '.ris4', '.ris5', '.ris6'];
   let currentIndex = 0;
 
   function showNextImage() {

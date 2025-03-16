@@ -1593,7 +1593,7 @@ body {
 .game {
   width: 80vw;
   height: 21vw;
-  border-bottom: 0.5vw solid #861d38;
+  /* border-bottom: 0.5vw solid #861d38; */
   background-color: #fcf3f3;
   margin: auto;
   display: none;

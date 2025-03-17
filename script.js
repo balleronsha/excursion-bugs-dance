@@ -691,57 +691,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //
 //
-// // ПОДВАЛ;
-// const klava = document.getElementById('klava');
-// const kami = document.getElementById('kami');
-// // const tema = document.getElementById('tema');
-// // const anna = document.getElementById('anna');
-// let scoreDisplay = document.createElement('div');
-// document.body.appendChild(scoreDisplay);
-// scoreDisplay.id = 'score';
-// // scoreDisplay.innerText = 'Счёт: 0';
+// ПОДВАЛ;
+const klava = document.getElementById('klava');
+const kami = document.getElementById('kami');
+// const tema = document.getElementById('tema');
+// const anna = document.getElementById('anna');
+let scoreDisplay = document.createElement('div');
+document.body.appendChild(scoreDisplay);
+scoreDisplay.id = 'score';
+// scoreDisplay.innerText = 'Счёт: 0';
 
-// let isJumping = false;
-// let score = 0;
+let isJumping = false;
+let score = 0;
 
-// // Функция прыжка
-// function jump() {
-//   if (!isJumping) {
-//     isJumping = true;
-//     klava.classList.add('jump');
+// Функция прыжка
+function jump() {
+  if (!isJumping) {
+    isJumping = true;
+    klava.classList.add('jump');
 
-//     setTimeout(() => {
-//       klava.classList.remove('jump');
-//       isJumping = false;
-//     }, 500);
-//   }
-// }
+    setTimeout(() => {
+      klava.classList.remove('jump');
+      isJumping = false;
+    }, 500);
+  }
+}
 
-// document.addEventListener('keydown', (event) => {
-//   if (event.code === 'click') {
-//     jump();
-//   }
-// });
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'click') {
+    jump();
+  }
+});
 
-// // Проверка столкновения (ТОЛЬКО когда KLAVA и KAMEN пересекаются)
-// setInterval(() => {
-//   let klavaTop = parseInt(
-//     window.getComputedStyle(klava).getPropertyValue('top')
-//   );
-//   let kamiLeft = parseInt(
-//     window.getComputedStyle(kami).getPropertyValue('left')
-//   );
-//   // let temaLeft = parseInt(
-//   //   window.getComputedStyle(tema).getPropertyValue('left')
-//   // );
-//   // let annaLeft = parseInt(
-//   //   window.getComputedStyle(anna).getPropertyValue('left')
-//   // );
+// Проверка столкновения (ТОЛЬКО когда KLAVA и KAMEN пересекаются)
+setInterval(() => {
+  let klavaTop = parseInt(
+    window.getComputedStyle(klava).getPropertyValue('top')
+  );
+  let kamiLeft = parseInt(
+    window.getComputedStyle(kami).getPropertyValue('left')
+  );
+  // let temaLeft = parseInt(
+  //   window.getComputedStyle(tema).getPropertyValue('left')
+  // );
+  // let annaLeft = parseInt(
+  //   window.getComputedStyle(anna).getPropertyValue('left')
+  // );
 
-//   // Если камень в зоне Klava и Klava на земле - GAME OVER
-//   if (kamiLeft > 10 && kamiLeft < 35 && klavaTop >= 8) {
-//     alert(`GAME OVER!! Ваш счёт: ${score}`);
-//     score = 0; // Обнуление счёта
-//     scoreDisplay.innerText = `Счёт: ${score}`;
-//   }
-// }, 50);
+  // Если камень в зоне Klava и Klava на земле - GAME OVER
+  if (kamiLeft > 10 && kamiLeft < 35 && klavaTop >= 8) {
+    // alert(`GAME OVER!! Ваш счёт: ${score}`);
+    score = 0; // Обнуление счёта
+    scoreDisplay.innerText = `Счёт: ${score}`;
+  }
+}, 50);

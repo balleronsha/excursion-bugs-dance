@@ -1633,12 +1633,13 @@ body {
 /* ПОДВАЛ */
 .game {
   width: 80vw;
-  height: 21vw;
+  height: 22vw;
   /* border-bottom: 0.5vw solid #861d38; */
   background-color: #fcf3f3;
   margin: auto;
   display: none;
   position: relative;
+  overflow: visible;
 }
 
 #klava {
@@ -1648,22 +1649,36 @@ body {
   background-size: 10vw 13vw;
   background-repeat: no-repeat;
   position: absolute;
-  top: 8vw;
+
   left: 20vw;
+  bottom: -2vw;
 }
 
-#kami {
+#obstacle {
   width: 4vw;
   height: 4vw;
-  background-image: url(../images/kami.svg);
   background-size: 4vw 4vw;
   background-repeat: no-repeat;
   position: relative;
-  top: 16vw;
-  left: 95vw;
-  animation: kamenmove 1.5s infinite linear;
+  top: 17vw;
+}
+/* Стили для разных типов препятствий */
+.obstacle-type1 {
+  background-image: url(../images/sofi.svg);
 }
 
+.obstacle-type2 {
+  background-image: url(../images/kami.svg);
+}
+
+.obstacle-type3 {
+  background-image: url(../images/tema.svg);
+}
+
+.obstacle-type4 {
+  background-image: url(../images/anna.svg);
+}
+/* 
 @keyframes kamenmove {
   0% {
     left: 95vw;
@@ -1705,4 +1720,4 @@ body {
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
-}
+} */

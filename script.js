@@ -688,60 +688,297 @@ document.addEventListener('DOMContentLoaded', function () {
 //
 //
 //
-
-//
-//
-// ПОДВАЛ;
+// Переменные
 const klava = document.getElementById('klava');
-const kami = document.getElementById('kami');
-// const tema = document.getElementById('tema');
-// const anna = document.getElementById('anna');
-let scoreDisplay = document.createElement('div');
-document.body.appendChild(scoreDisplay);
-scoreDisplay.id = 'score';
-// scoreDisplay.innerText = 'Счёт: 0';
-
+const obstacle = document.getElementById('obstacle');
 let isJumping = false;
 let score = 0;
 
-// Функция прыжка
-function jump() {
-  if (!isJumping) {
-    isJumping = true;
-    klava.classList.add('jump');
-
-    setTimeout(() => {
-      klava.classList.remove('jump');
-      isJumping = false;
-    }, 500);
-  }
+// Функция для перевода vw в px
+function vwToPx(vw) {
+  return (window.innerWidth / 100) * vw;
 }
 
+// Поднимаем klava выше
+let newTop = 0.2; // Начальное значение top для klava (в vw)
+
+// Учитываем высоту контейнера .game и высоту klava
+const gameHeight = vwToPx(21); // Высота контейнера .game в пикселях
+const klavaHeight = vwToPx(13); // Высота klava в пикселях
+
+// Расчет позиции top для klava, чтобы её низ совпал с низом .game
+klava.style.top = `${gameHeight - klavaHeight}px`;
+
+// Функция для обработки прыжка
 document.addEventListener('keydown', (event) => {
-  if (event.code === 'click') {
+  if (event.code === 'Space' && !isJumping) {
     jump();
   }
 });
 
-// Проверка столкновения (ТОЛЬКО когда KLAVA и KAMEN пересекаются)
-setInterval(() => {
-  let klavaTop = parseInt(
-    window.getComputedStyle(klava).getPropertyValue('top')
-  );
-  let kamiLeft = parseInt(
-    window.getComputedStyle(kami).getPropertyValue('left')
-  );
-  // let temaLeft = parseInt(
-  //   window.getComputedStyle(tema).getPropertyValue('left')
-  // );
-  // let annaLeft = parseInt(
-  //   window.getComputedStyle(anna).getPropertyValue('left')
-  // );
-
-  // Если камень в зоне Klava и Klava на земле - GAME OVER
-  if (kamiLeft > 10 && kamiLeft < 35 && klavaTop >= 8) {
-    // alert(`GAME OVER!! Ваш счёт: ${score}`);
-    score = 0; // Обнуление счёта
-    scoreDisplay.innerText = `Счёт: ${score}`;
+// Добавляем обработчик клика на персонажа
+klava.addEventListener('click', () => {
+  if (!isJumping) {
+    jump();
   }
-}, 50);
+});
+
+function jump() {
+  console.log('Прыжок начат'); // Лог: начало прыжка
+  isJumping = true;
+  let jumpHeight = 0;
+  const maxJumpHeight = vwToPx(8); // 8vw высота прыжка
+
+  // Подъём
+  const upInterval = setInterval(() => {
+    if (jumpHeight >= maxJumpHeight) {
+      clearInterval(upInterval);
+      console.log('Подъём завершён'); // Лог: завершение подъёма
+
+      // Спуск
+      const downInterval = setInterval(() => {
+        if (jumpHeight <= 0) {
+          clearInterval(downInterval);
+          isJumping = false;
+          console.log('Спуск завершён'); // Лог: завершение спуска
+        }
+        jumpHeight -= vwToPx(0.5); // Спуск на 0.5vw
+        klava.style.top = `${gameHeight - klavaHeight - jumpHeight}px`; // Используем top для перемещения
+        console.log(`Спуск: ${jumpHeight}px`); // Лог: текущая высота спуска
+      }, 20);
+    }
+    jumpHeight += vwToPx(0.5); // Подъём на 0.5vw
+    klava.style.top = `${gameHeight - klavaHeight - jumpHeight}px`; // Используем top для подъёма
+    console.log(`Подъём: ${jumpHeight}px`); // Лог: текущая высота подъёма
+  }, 20);
+}
+
+// Функция для движения препятствий
+function moveObstacle() {
+  let obstaclePosition = vwToPx(90); // Начальная позиция препятствия (90vw)
+  const speed = vwToPx(0.5); // Скорость движения 0.5vw
+
+  const obstacleInterval = setInterval(() => {
+    if (obstaclePosition < vwToPx(-5)) {
+      // Если ушло за границу экрана
+      // Смена типа препятствия
+      const obstacleTypes = [
+        'obstacle-type1',
+        'obstacle-type2',
+        'obstacle-type3',
+        'obstacle-type4',
+      ];
+      const randomType =
+        obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+      obstacle.className = randomType;
+
+      obstaclePosition = vwToPx(90); // Возвращаем препятствие в начальную позицию
+      score++;
+      console.log(`Score: ${score}`);
+    }
+
+    obstaclePosition -= speed; // Движение препятствия
+    obstacle.style.left = `${obstaclePosition}px`;
+  }, 20);
+}
+
+// Запуск игры
+moveObstacle();
+
+// Обновляем размеры при изменении окна
+window.addEventListener('resize', () => {
+  moveObstacle(); // Пересчитываем позиции
+});
+//
+//
+//
+//
+//
+//
+//
+//
+// // Переменные
+// const klava = document.getElementById('klava');
+// const obstacle = document.getElementById('obstacle');
+// let isJumping = false;
+// let score = 0;
+
+// // Функция для перевода vw в px
+// function vwToPx(vw) {
+//   return (window.innerWidth / 100) * vw;
+// }
+
+// // Поднимаем klava выше
+// let newTop = 0; // Значение в vw (можно менять)
+// klava.style.top = `${vwToPx(newTop)}px`; // Применяем значение в пикселях
+
+// // Функция для обработки прыжка
+// document.addEventListener('keydown', (event) => {
+//   if (event.code === 'Space' && !isJumping) {
+//     jump();
+//   }
+// });
+
+// // Добавляем обработчик клика на персонажа
+// klava.addEventListener('click', () => {
+//   if (!isJumping) {
+//     jump();
+//   }
+// });
+
+// function jump() {
+//   console.log('Прыжок начат'); // Лог: начало прыжка
+//   isJumping = true;
+//   let jumpHeight = 0;
+//   const maxJumpHeight = vwToPx(8); // 8vw высота прыжка
+
+//   // Подъём
+//   const upInterval = setInterval(() => {
+//     if (jumpHeight >= maxJumpHeight) {
+//       clearInterval(upInterval);
+//       console.log('Подъём завершён'); // Лог: завершение подъёма
+
+//       // Спуск
+//       const downInterval = setInterval(() => {
+//         if (jumpHeight <= 0) {
+//           clearInterval(downInterval);
+//           isJumping = false;
+//           console.log('Спуск завершён'); // Лог: завершение спуска
+//         }
+//         jumpHeight -= vwToPx(0.5); // Спуск на 0.5vw
+//         klava.style.top = `${vwToPx(2) + jumpHeight}px`; // Используем top для перемещения
+//         console.log(`Спуск: ${jumpHeight}px`); // Лог: текущая высота спуска
+//       }, 20);
+//     }
+//     jumpHeight += vwToPx(0.5); // Подъём на 0.5vw
+//     klava.style.top = `${vwToPx(2) + jumpHeight}px`; // Используем top для подъёма
+//     console.log(`Подъём: ${jumpHeight}px`); // Лог: текущая высота подъёма
+//   }, 20);
+// }
+
+// // Функция для движения препятствий
+// function moveObstacle() {
+//   let obstaclePosition = vwToPx(90); // Начальная позиция препятствия (90vw)
+//   const speed = vwToPx(0.5); // Скорость движения 0.5vw
+
+//   const obstacleInterval = setInterval(() => {
+//     if (obstaclePosition < vwToPx(-5)) {
+//       // Если ушло за границу экрана
+//       // Смена типа препятствия
+//       const obstacleTypes = [
+//         'obstacle-type1',
+//         'obstacle-type2',
+//         'obstacle-type3',
+//         'obstacle-type4',
+//       ];
+//       const randomType =
+//         obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+//       obstacle.className = randomType;
+
+//       obstaclePosition = vwToPx(90); // Возвращаем препятствие в начальную позицию
+//       score++;
+//       console.log(`Score: ${score}`);
+//     }
+
+//     obstaclePosition -= speed; // Движение препятствия
+//     obstacle.style.left = `${obstaclePosition}px`;
+//   }, 20);
+// }
+
+// // Запуск игры
+// moveObstacle();
+
+// // Обновляем размеры при изменении окна
+// window.addEventListener('resize', () => {
+//   moveObstacle(); // Пересчитываем позиции
+// });
+//
+//
+//
+// // Переменные
+// const klava = document.getElementById('klava');
+// const obstacle = document.getElementById('obstacle');
+// let isJumping = false;
+// let score = 0;
+// // Функция для перевода vw в px
+// function vwToPx(vw) {
+//   return (window.innerWidth / 100) * vw;
+// }
+// // Поднимаем klava выше
+// let newTop = 2; // Значение в vw (можно менять)
+// klava.style.top = `${vwToPx(newTop)}px`; // Применяем значение в пикселях
+// // Функция для обработки прыжка
+// document.addEventListener('keydown', (event) => {
+//   if (event.code === 'Space' && !isJumping) {
+//     jump();
+//   }
+// });
+// // Добавляем обработчик клика на персонажа
+// klava.addEventListener('click', () => {
+//   if (!isJumping) {
+//     jump();
+//   }
+// });
+// function jump() {
+//   console.log('Прыжок начат'); // Лог: начало прыжка
+//   isJumping = true;
+//   let jumpHeight = 0;
+//   const maxJumpHeight = vwToPx(8); // 8vw высота прыжка
+//   // Подъём
+//   const upInterval = setInterval(() => {
+//     if (jumpHeight >= maxJumpHeight) {
+//       clearInterval(upInterval);
+//       console.log('Подъём завершён'); // Лог: завершение подъёма
+//       // Спуск
+//       const downInterval = setInterval(() => {
+//         if (jumpHeight <= 0) {
+//           clearInterval(downInterval);
+//           isJumping = false;
+//           console.log('Спуск завершён'); // Лог: завершение спуска
+//         }
+//         jumpHeight -= vwToPx(0.5); // Спуск на 0.5vw
+//         klava.style.bottom = `${jumpHeight}px`;
+//         console.log(`Спуск: ${jumpHeight}px`); // Лог: текущая высота спуска
+//       }, 20);
+//     }
+//     jumpHeight += vwToPx(0.5); // Подъём на 0.5vw
+//     klava.style.bottom = `${jumpHeight}px`;
+//     console.log(`Подъём: ${jumpHeight}px`); // Лог: текущая высота подъёма
+//   }, 20);
+// }
+
+// // Функция для движения препятствий
+// function moveObstacle() {
+//   let obstaclePosition = vwToPx(90); // Начальная позиция препятствия (90vw)
+//   const speed = vwToPx(0.5); // Скорость движения 0.5vw
+
+//   const obstacleInterval = setInterval(() => {
+//     if (obstaclePosition < vwToPx(-5)) {
+//       // Если ушло за границу экрана
+//       // Смена типа препятствия
+//       const obstacleTypes = [
+//         'obstacle-type1',
+//         'obstacle-type2',
+//         'obstacle-type3',
+//         'obstacle-type4',
+//       ];
+//       const randomType =
+//         obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+//       obstacle.className = randomType;
+
+//       obstaclePosition = vwToPx(90); // Возвращаем препятствие в начальную позицию
+//       score++;
+//       console.log(`Score: ${score}`);
+//     }
+
+//     obstaclePosition -= speed; // Движение препятствия
+//     obstacle.style.left = `${obstaclePosition}px`;
+//   }, 20);
+// }
+
+// // Запуск игры
+// moveObstacle();
+// // Обновляем размеры при изменении окна
+// window.addEventListener('resize', () => {
+//   moveObstacle(); // Пересчитываем позиции
+// });

@@ -56,7 +56,7 @@ function initThree() {
   scene.add(ambientLight);
 
   const dirLight = new THREE.DirectionalLight(0xffffff, 2.5);
-  dirLight.position.set(3, 6, 5);
+  dirLight.position.set(3, 6, 4);
   dirLight.castShadow = true;
   dirLight.shadow.mapSize.width = 2048;
   dirLight.shadow.mapSize.height = 2048;
@@ -418,91 +418,91 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 //
 //
 //
-// рисовашка
 document.addEventListener('DOMContentLoaded', () => {
-  // Получаем элемент <canvas> из DOM по его ID
   const canvas = document.getElementById('drawing');
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
-  // Устанавливаем высоту и ширину канваса равными размерам окна браузера
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
+  // Устанавливаем размеры канваса
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
-  // Переменные для хранения текущего цвета, толщины линии и состояния рисования
-  var lineW = 5; // Толщина линии (по умолчанию 5px)
-  let prevX = null; // Предыдущие координаты X мыши
-  let prevY = null; // Предыдущие координаты Y мыши
-  let draw = false; // Флаг, указывающий, происходит ли рисование в данный момент
+  // Переменные для рисования
+  let lineW = 5;
+  let prevX = null;
+  let prevY = null;
+  let draw = false;
 
-  // Устанавливаем начальную толщину линии
+  // Начальные настройки
   ctx.lineWidth = lineW;
-  ctx.strokeStyle = '#877177'; // Начальный цвет линии
+  ctx.strokeStyle = '#877177';
 
-  // Функция для установки текущего цвета
+  // Функция для выбора цвета
   function setCurrentColor(color) {
     ctx.strokeStyle = color;
-    console.log(`Цвет изменен на: ${color}`);
   }
 
-  // Обработчики для выбора цветов
-  document.getElementById('seroe').addEventListener('click', () => {
-    setCurrentColor('#877177');
-  });
+  // Обработчики выбора цвета
+  document
+    .getElementById('seroe')
+    .addEventListener('click', () => setCurrentColor('#877177'));
+  document
+    .getElementById('rozovoe')
+    .addEventListener('click', () => setCurrentColor('#d37995'));
+  document
+    .getElementById('krasnoe')
+    .addEventListener('click', () => setCurrentColor('#963b50'));
+  document
+    .getElementById('zelenoe')
+    .addEventListener('click', () => setCurrentColor('#66a865'));
 
-  document.getElementById('rozovoe').addEventListener('click', () => {
-    setCurrentColor('#d37995');
-  });
+  // Кнопка очистки
+  const clearBtn = document.querySelector('.musor');
+  clearBtn.addEventListener('click', () =>
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  );
 
-  document.getElementById('krasnoe').addEventListener('click', () => {
-    setCurrentColor('#963b50');
-  });
+  // Проверка, активен ли экран play3
+  function isPlay3Active() {
+    return document.querySelector('.play3').style.display === 'block';
+  }
 
-  document.getElementById('zelenoe').addEventListener('click', () => {
-    setCurrentColor('#66a865');
-  });
-
-  // Находим кнопку очистки канваса
-  let clearBtn = document.querySelector('.musor');
-
-  // Добавляем обработчик клика для очистки канваса
-  clearBtn.addEventListener('click', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем весь канвас
-  });
-
-  // Добавляем обработчик события "mousedown" для начала рисования
+  // Обработчики событий мыши
   window.addEventListener('mousedown', (e) => {
+    if (!isPlay3Active()) return; // Рисуем только на экране play3
+
     const rect = canvas.getBoundingClientRect();
     prevX = e.clientX - rect.left;
     prevY = e.clientY - rect.top;
 
-    // Убедимся, что цвет установлен перед началом рисования
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     draw = true;
   });
 
-  // Добавляем обработчик события "mouseup" для завершения рисования
   window.addEventListener('mouseup', () => {
+    if (!isPlay3Active()) return; // Рисуем только на экране play3
+
     draw = false;
     prevX = null;
     prevY = null;
   });
 
-  // Добавляем обработчик события "mousemove" для рисования линий
   window.addEventListener('mousemove', (e) => {
-    if (!draw) return;
+    if (!isPlay3Active() || !draw) return; // Рисуем только на экране play3
 
     const rect = canvas.getBoundingClientRect();
     let currentX = e.clientX - rect.left;
     let currentY = e.clientY - rect.top;
 
-    // Начинаем новый путь для рисования
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currentX, currentY);
     ctx.stroke();
 
-    // Обновляем предыдущие координаты
     prevX = currentX;
     prevY = currentY;
   });
@@ -606,7 +606,6 @@ $(document).ready(function () {
 //
 //
 //
-// ПОЯВЛЕНИЕ БЛОКА НОВОГО ПОДВАДА
 document.addEventListener('DOMContentLoaded', function () {
   // Получаем все стрелки и div game
   const strelki = document.querySelectorAll(
@@ -617,11 +616,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // Создаем массив для отслеживания состояния стрелок
   const clickedStrelki = Array(strelki.length).fill(false);
 
+  // Функция для проверки, находится ли пользователь на главном экране
+  function isGlavSvetActive() {
+    return document.querySelector('.glavsvet').style.display === 'block';
+  }
+
   // Функция для проверки, все ли стрелки нажаты
   function checkStrelki() {
     if (clickedStrelki.every((clicked) => clicked)) {
-      // Если все стрелки нажаты, показываем div game
-      gameDiv.style.display = 'block';
+      // Если все стрелки нажаты И пользователь на главном экране, показываем div game
+      if (isGlavSvetActive()) {
+        gameDiv.style.display = 'block';
+      } else {
+        gameDiv.style.display = 'none'; // Скрываем подвал, если не на главном экране
+      }
     }
   }
 
@@ -635,8 +643,15 @@ document.addEventListener('DOMContentLoaded', function () {
       checkStrelki();
     });
   });
+
+  // Добавляем обработчик события, чтобы скрывать подвал при переходе на другие экраны
+  document.addEventListener('click', function (e) {
+    if (!isGlavSvetActive()) {
+      gameDiv.style.display = 'none';
+    }
+  });
 });
-//
+
 //
 //
 //
@@ -673,11 +688,14 @@ document.addEventListener('DOMContentLoaded', function () {
 //
 //
 //
+
 //
 //
-// ПОДВАЛ
+// ПОДВАЛ;
 const klava = document.getElementById('klava');
-const kamen = document.getElementById('kamen');
+const kami = document.getElementById('kami');
+// const tema = document.getElementById('tema');
+// const anna = document.getElementById('anna');
 let scoreDisplay = document.createElement('div');
 document.body.appendChild(scoreDisplay);
 scoreDisplay.id = 'score';
@@ -700,7 +718,7 @@ function jump() {
 }
 
 document.addEventListener('keydown', (event) => {
-  if (event.code === 'Space') {
+  if (event.code === 'click') {
     jump();
   }
 });
@@ -710,14 +728,20 @@ setInterval(() => {
   let klavaTop = parseInt(
     window.getComputedStyle(klava).getPropertyValue('top')
   );
-  let kamenLeft = parseInt(
-    window.getComputedStyle(kamen).getPropertyValue('left')
+  let kamiLeft = parseInt(
+    window.getComputedStyle(kami).getPropertyValue('left')
   );
+  // let temaLeft = parseInt(
+  //   window.getComputedStyle(tema).getPropertyValue('left')
+  // );
+  // let annaLeft = parseInt(
+  //   window.getComputedStyle(anna).getPropertyValue('left')
+  // );
 
   // Если камень в зоне Klava и Klava на земле - GAME OVER
-  if (kamenLeft > 10 && kamenLeft < 35 && klavaTop >= 8) {
+  if (kamiLeft > 10 && kamiLeft < 35 && klavaTop >= 8) {
     alert(`GAME OVER!! Ваш счёт: ${score}`);
     score = 0; // Обнуление счёта
-    scoreDisplay.innerText = `Счёт: ${score}`;
+    // scoreDisplay.innerText = `Счёт: ${score}`;
   }
 }, 50);

@@ -360,7 +360,9 @@ body {
   z-index: 10;
   left: 10vw;
   width: 100vw;
-  height: 100vw;
+  /* ИСПРАВИТЬ ВЫСОТУ */
+  /* height: 100vw; */
+  height: 48.097vw;
   position: absolute;
 }
 /* плееры */
@@ -452,10 +454,17 @@ body {
 /*  */
 /*  */
 /* 3 ИГРА РИСОВАЛКА */
-
+.canvas {
+  position: absolute;
+  width: 100vw;
+  height: 48.097vw;
+  background-color: #fcf3f3;
+  display: block;
+  z-index: 3;
+}
 .play3 {
   position: relative;
-  cursor: url('../images/kistochka.svg') 16 32, auto;
+  cursor: url('../images/kistochka.svg') 0 55, auto;
 }
 .zadnick {
   z-index: 2;
@@ -521,6 +530,16 @@ body {
   z-index: 15;
   cursor: auto;
 }
+#reset {
+  background-image: url(../images/musor.svg);
+  background-repeat: no-repeat;
+  width: 5vw;
+  height: 6vw;
+  position: absolute;
+  top: 42vw;
+  left: 93vw;
+  z-index: 15;
+}
 .musor {
   background-image: url(../images/musor.svg);
   background-repeat: no-repeat;
@@ -566,6 +585,7 @@ body {
 /*  */
 /*  */
 /* ЭТО КОРОЧЕ ТАНЦЕВАЛЬНЫЙ ЗАЛ 404 */
+
 .ris0 {
   width: 100vw;
   height: 56.223vw;
@@ -595,6 +615,26 @@ body {
   left: 91.3vw;
   position: absolute;
   z-index: 20;
+}
+.rech3 {
+  position: absolute;
+  width: 33.187vw;
+  height: 9.663vw;
+  top: 29vw;
+  left: 57.8vw;
+  display: none;
+  z-index: 15;
+}
+.r3 {
+  font-family: 'SF Pro';
+  font-size: 2.083vw;
+  position: absolute;
+  line-height: 120%;
+  top: 29.7vw;
+  left: 59.6vw;
+  color: #fff6f9;
+  display: none;
+  z-index: 15;
 }
 .anf1,
 .anf2,
@@ -933,6 +973,7 @@ body {
   position: absolute;
 }
 /* РИСУНОК 3 */
+
 .ris3 {
   width: 100vw;
   height: 56.223vw;
@@ -1597,6 +1638,7 @@ body {
   background-color: #fcf3f3;
   margin: auto;
   display: none;
+  position: relative;
 }
 
 #klava {
@@ -1608,20 +1650,18 @@ body {
   position: absolute;
   top: 8vw;
   left: 20vw;
-  display: none;
 }
 
-#kamen {
+#kami {
   width: 4vw;
   height: 4vw;
-  background-image: url(../images/kamen.png);
+  background-image: url(../images/kami.svg);
   background-size: 4vw 4vw;
   background-repeat: no-repeat;
   position: relative;
   top: 16vw;
   left: 95vw;
   animation: kamenmove 1.5s infinite linear;
-  display: none;
 }
 
 @keyframes kamenmove {

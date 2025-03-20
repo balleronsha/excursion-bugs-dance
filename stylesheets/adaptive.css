@@ -219,4 +219,78 @@
     z-index: 5;
     display: none;
   }
+  /* ИГРА 2 ДИКО */
+  .gradient {
+    height: 75vw;
+  }
+  /* моделька любимая клавдия */
+
+  .play2Model {
+    z-index: 10;
+    left: 10vw;
+    width: 100vw;
+    /* ИСПРАВИТЬ ВЫСОТУ */
+    /* height: 100vw; */
+    height: 48.097vw;
+    position: absolute;
+  }
+  /* плееры */
+  .player1 {
+    width: 28vw;
+    height: 17vw;
+    top: 5vw;
+  }
+  .player2 {
+    width: 28vw;
+    height: 17vw;
+    top: 30vw;
+  }
+  .player3 {
+    width: 28vw;
+    height: 17vw;
+    top: 55vw;
+  }
+  .knpl1 {
+    width: 5.5vw;
+    height: 6vw;
+    top: 15vw;
+    left: 23.5vw;
+  }
+  .knpl2 {
+    width: 5.5vw;
+    height: 6vw;
+    top: 40vw;
+    left: 23.5vw;
+  }
+  .knpl3 {
+    width: 5.5vw;
+    height: 6vw;
+    top: 65.3vw;
+    left: 23.5vw;
+  }
+  .knpa1 {
+    width: 5.5vw;
+    height: 6vw;
+    top: 15vw;
+    left: 23.5vw;
+  }
+  .knpa2 {
+    width: 5.5vw;
+    height: 6vw;
+    top: 40vw;
+    left: 23.5vw;
+  }
+  .knpa3 {
+    width: 5.5vw;
+    height: 6vw;
+    top: 65.3vw;
+    left: 23.5vw;
+  }
+  .strelka2 {
+    top: 69vw;
+  }
+  /*  */
+  /*  */
+  /*  */
+  /*  */
 }

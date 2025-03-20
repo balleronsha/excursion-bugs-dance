@@ -78,7 +78,6 @@ function initThree() {
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
-
   // Загрузка 3D-модели
   const loader = new GLTFLoader();
   loader.load(
@@ -94,17 +93,14 @@ function initThree() {
           // Сбрасываем позицию, поворот и масштаб
         }
       });
-
       // Добавляем модель на сцену
       scene.add(model);
     },
-
     undefined,
     (error) => {
       console.error('Ошибка загрузки модели:', error);
     }
   );
-
   // Анимация
   function animate() {
     requestAnimationFrame(animate);
@@ -112,7 +108,6 @@ function initThree() {
     renderer.render(scene, camera);
   }
   animate();
-
   // Адаптация под размер экрана
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -120,72 +115,39 @@ function initThree() {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 }
-
 //
 //
 //
-//
-//
+// КЛАВА-БАЛОБОЛКА 😁😁😁😁😁М😁
 document.querySelector('.iconklava1').addEventListener('click', function () {
-  // Получаем элементы
   const rech1 = document.querySelector('.rech1');
   const r1 = document.querySelector('.r1');
-
-  // Проверяем текущее состояние элементов
   if (rech1.style.display === 'none' || rech1.style.display === '') {
-    // Если элементы скрыты, показываем их
     rech1.style.display = 'block';
     r1.style.display = 'block';
   } else {
-    // Если элементы видны, скрываем их
     rech1.style.display = 'none';
     r1.style.display = 'none';
   }
 });
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 document.querySelector('.iconklava2').addEventListener('click', function () {
-  // Получаем элементы
   const rech2 = document.querySelector('.rech2');
   const r2 = document.querySelector('.r2');
-
-  // Проверяем текущее состояние элементов
   if (rech2.style.display === 'none' || rech2.style.display === '') {
-    // Если элементы скрыты, показываем их
     rech2.style.display = 'block';
     r2.style.display = 'block';
   } else {
-    // Если элементы видны, скрываем их
     rech2.style.display = 'none';
     r2.style.display = 'none';
   }
 });
-//
-//
-//
-//
-//
 document.querySelector('.iconklava3').addEventListener('click', function () {
-  // Получаем элементы
   const rech3 = document.querySelector('.rech3');
   const r3 = document.querySelector('.r3');
-
-  // Проверяем текущее состояние элементов
   if (rech3.style.display === 'none' || rech3.style.display === '') {
-    // Если элементы скрыты, показываем их
     rech3.style.display = 'block';
     r3.style.display = 'block';
   } else {
-    // Если элементы видны, скрываем их
     rech3.style.display = 'none';
     r3.style.display = 'none';
   }
@@ -242,6 +204,48 @@ document.querySelector('.dver9').addEventListener('click', function () {
   this.style.display = 'none';
 });
 document.querySelector('.dver10').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+// ИГРА 1 СО ШКАФЧИКАМИ 1024
+// ❗️ КРАСНЫЙ ЗАМОК
+const dver21024 = document.getElementById('dver21024');
+const zamochek1024 = document.getElementById('zamochek1024');
+dver21024.addEventListener('click', () => {
+  if (
+    zamochek1024.style.display === 'none' ||
+    zamochek1024.style.display === ''
+  ) {
+    zamochek1024.style.display = 'flex';
+  } else {
+    zamochek1024.style.display = 'none';
+  }
+});
+// УДАЛЕНИЕ ДВЕРЕЙ 1024
+document.querySelector('.dver1-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver3-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver4-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver5-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver6-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver7-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver8-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver9-1024').addEventListener('click', function () {
+  this.style.display = 'none';
+});
+document.querySelector('.dver10-1024').addEventListener('click', function () {
   this.style.display = 'none';
 });
 // ❗️ ПЕРЕМЕЩЕНИЕ ПРЕДМЕТОВ В ЯЩИКАХ

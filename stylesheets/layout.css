@@ -169,6 +169,7 @@ body {
   height: 56.223vw;
   position: absolute;
 }
+
 .strelka1 {
   width: 4.861vw;
   height: 4.167vw;
@@ -533,21 +534,12 @@ body {
 #reset {
   background-image: url(../images/musor.svg);
   background-repeat: no-repeat;
-  width: 5vw;
+  background-size: 4.8vw 6vw;
+  width: 4.8vw;
   height: 6vw;
   position: absolute;
-  top: 42vw;
-  left: 93vw;
-  z-index: 15;
-}
-.musor {
-  background-image: url(../images/musor.svg);
-  background-repeat: no-repeat;
-  width: 5vw;
-  height: 6vw;
-  position: absolute;
-  top: 42vw;
-  left: 93vw;
+  top: 41vw;
+  left: 92.69vw;
   z-index: 15;
 }
 
@@ -1644,8 +1636,10 @@ body {
 }
 .surprise {
   width: 80vw;
-  height: 23vw;
+  height: 26vw;
   background-image: url(../images/surprise.svg);
+  background-repeat: no-repeat;
+  background-size: 84vw 23vw;
   z-index: 20;
   position: absolute;
 }

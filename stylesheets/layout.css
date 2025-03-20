@@ -1630,18 +1630,25 @@ body {
 /*  */
 /*  */
 /*  */
-/* ПОДВАЛ */
+/* ПОДВАЛ  */
 .game {
   width: 80vw;
-  height: 22vw;
-  /* border-bottom: 0.5vw solid #861d38; */
-  background-color: #fcf3f3;
-  margin: auto;
+  height: 23vw;
+  background-color: #837277;
+  top: 5vw;
+  left: 10vw;
+  right: 10vw;
   display: none;
   position: relative;
   overflow: visible;
 }
-
+.surprise {
+  width: 80vw;
+  height: 23vw;
+  background-image: url(../images/surprise.svg);
+  z-index: 20;
+  position: absolute;
+}
 #klava {
   width: 10vw;
   height: 13vw;
@@ -1649,75 +1656,20 @@ body {
   background-size: 10vw 13vw;
   background-repeat: no-repeat;
   position: absolute;
-
   left: 20vw;
-  bottom: -2vw;
+  bottom: 0.7vw;
 }
 
-#obstacle {
-  width: 4vw;
-  height: 4vw;
-  background-size: 4vw 4vw;
-  background-repeat: no-repeat;
-  position: relative;
-  top: 17vw;
-}
-/* Стили для разных типов препятствий */
-.obstacle-type1 {
-  background-image: url(../images/sofi.svg);
-}
-
-.obstacle-type2 {
-  background-image: url(../images/kami.svg);
-}
-
-.obstacle-type3 {
-  background-image: url(../images/tema.svg);
-}
-
-.obstacle-type4 {
-  background-image: url(../images/anna.svg);
-}
-/* 
-@keyframes kamenmove {
-  0% {
-    left: 95vw;
-  }
-  100% {
-    left: -5vw;
-  }
-}
-
-.jump {
-  animation: jump 0.5s linear;
-}
-
-@keyframes jump {
-  0% {
-    top: 8vw;
-  }
-  30% {
-    top: 5vw;
-  }
-  50% {
-    top: 3vw;
-  }
-  80% {
-    top: 5vw;
-  }
-  100% {
-    top: 8vw;
-  }
-}
-
-#score {
+#obstacle-type1,
+#obstacle-type2,
+#obstacle-type3,
+#obstacle-type4 {
+  top: 19.1vw;
+  left: 72vw;
+  font-family: 'SF Pro';
+  font-size: 1.8vw;
   position: absolute;
-  top: 0vw;
-  left: 10vw;
-  font-size: 6vw;
-  font-family: Arial, sans-serif;
-  color: #861d38;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-} */
+  line-height: 120%;
+  color: #fff6f9;
+  z-index: 15;
+}

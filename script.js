@@ -386,6 +386,30 @@ document.addEventListener('DOMContentLoaded', function () {
     .querySelector('.knpa3')
     .addEventListener('click', () => pauseTrack(2));
 });
+document.querySelector('.knpl1').addEventListener('click', () => {
+  document.querySelector('.knpa2').style.display = 'none';
+  document.querySelector('.knpl2').style.display = 'inline';
+});
+document.querySelector('.knpl1').addEventListener('click', () => {
+  document.querySelector('.knpa3').style.display = 'none';
+  document.querySelector('.knpl3').style.display = 'inline';
+});
+document.querySelector('.knpl2').addEventListener('click', () => {
+  document.querySelector('.knpa1').style.display = 'none';
+  document.querySelector('.knpl1').style.display = 'inline';
+});
+document.querySelector('.knpl2').addEventListener('click', () => {
+  document.querySelector('.knpa3').style.display = 'none';
+  document.querySelector('.knpl3').style.display = 'inline';
+});
+document.querySelector('.knpl3').addEventListener('click', () => {
+  document.querySelector('.knpa1').style.display = 'none';
+  document.querySelector('.knpl1').style.display = 'inline';
+});
+document.querySelector('.knpl3').addEventListener('click', () => {
+  document.querySelector('.knpa2').style.display = 'none';
+  document.querySelector('.knpl2').style.display = 'inline';
+});
 //
 //
 //
@@ -396,7 +420,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // 🫣 УРАААА 3 ИГРААА
 // Скрыть экран play2 изначально
 document.querySelector('.play3').style.display = 'none';
-
 // Обработчик для первого клика по dver402svet
 document.querySelector('.dverconsvet').addEventListener('click', function () {
   // Скрыть главный экран
@@ -406,7 +429,6 @@ document.querySelector('.dverconsvet').addEventListener('click', function () {
 // Обработчик для клика по strelka2
 document.querySelector('.strelka3').addEventListener('click', function () {
   document.querySelector('.play3').style.display = 'none';
-
   document.querySelector('.glavsvet').style.display = 'block';
 
   // Меняем изображение на dver402temnota
@@ -417,7 +439,7 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 //
 //
 //
-//
+//РИСОВАЛОЧКА МОЯ КРИВАЯ ЛЮБИМАЯ 😇
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('drawing');
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -472,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Обработчики событий мыши
   window.addEventListener('mousedown', (e) => {
-    if (!isPlay3Active()) return; // Рисуем только на экране play3
+    if (!isPlay3Active()) return; // Рисую только на экране play3
 
     const rect = canvas.getBoundingClientRect();
     prevX = e.clientX - rect.left;
@@ -484,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('mouseup', () => {
-    if (!isPlay3Active()) return; // Рисуем только на экране play3
+    if (!isPlay3Active()) return; // Рисую только на экране play3
 
     draw = false;
     prevX = null;
@@ -492,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('mousemove', (e) => {
-    if (!isPlay3Active() || !draw) return; // Рисуем только на экране play3
+    if (!isPlay3Active() || !draw) return; // Рисую только на экране play3
 
     const rect = canvas.getBoundingClientRect();
     let currentX = e.clientX - rect.left;
@@ -584,7 +606,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //
 // ❗️ ПЕРЕМЕЩЕНИЕ АНФИСА
-
 $(document).ready(function () {
   $(
     '.anf1, .anf2, .anf3, .anf4, .anf5, .anf6, .anf7, .anf8, .anf9, .anf10 '
@@ -607,15 +628,12 @@ $(document).ready(function () {
 //
 //
 document.addEventListener('DOMContentLoaded', function () {
-  // Получаем все стрелки и div game
   const strelki = document.querySelectorAll(
     '.strelka1, .strelka2, .strelka3, .strelka4'
   );
   const gameDiv = document.querySelector('.game');
-
   // Создаем массив для отслеживания состояния стрелок
   const clickedStrelki = Array(strelki.length).fill(false);
-
   // Функция для проверки, находится ли пользователь на главном экране
   function isGlavSvetActive() {
     return document.querySelector('.glavsvet').style.display === 'block';
@@ -655,7 +673,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //
 //
 //
-// КОНФИТТИ
+// КОНФИТТИ, это если что библиотека
 document.addEventListener('DOMContentLoaded', function () {
   const strelki = document.querySelectorAll(
     '.strelka1, .strelka2, .strelka3, .strelka4'
@@ -686,108 +704,95 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 //
+// МЯЯУ ПОДВАЛ 🤪
+// Обработчик клика на .surprise
+document.addEventListener('DOMContentLoaded', () => {
+  const surprise = document.querySelector('.surprise');
+  const game = document.querySelector('.game');
+  surprise.addEventListener('click', () => {
+    surprise.style.display = 'none';
+    game.style.display = 'block';
+  });
+});
 //
 //
-// Переменные
-const klava = document.getElementById('klava');
-const obstacle = document.getElementById('obstacle');
-let isJumping = false;
-let score = 0;
+//
+//
+//
+//
+document.addEventListener('DOMContentLoaded', () => {
+  const klava = document.getElementById('klava');
+  const obstacles = [
+    document.getElementById('obstacle-type1'),
+    document.getElementById('obstacle-type2'),
+    document.getElementById('obstacle-type3'),
+    document.getElementById('obstacle-type4'),
+  ];
 
-// Функция для перевода vw в px
-function vwToPx(vw) {
-  return (window.innerWidth / 100) * vw;
-}
+  let isJumping = false;
+  let currentObstacleIndex = 0;
 
-// Поднимаем klava выше
-let newTop = 0.2; // Начальное значение top для klava (в vw)
+  // Функция для прыжка
+  function jump() {
+    if (isJumping) return;
+    isJumping = true;
 
-// Учитываем высоту контейнера .game и высоту klava
-const gameHeight = vwToPx(21); // Высота контейнера .game в пикселях
-const klavaHeight = vwToPx(13); // Высота klava в пикселях
+    let jumpHeight = 0;
+    const maxJump = 100; // Максимальная высота прыжка
+    const jumpSpeed = 5; // Скорость прыжка
 
-// Расчет позиции top для klava, чтобы её низ совпал с низом .game
-klava.style.top = `${gameHeight - klavaHeight}px`;
+    const upInterval = setInterval(() => {
+      if (jumpHeight >= maxJump) {
+        clearInterval(upInterval);
 
-// Функция для обработки прыжка
-document.addEventListener('keydown', (event) => {
-  if (event.code === 'Space' && !isJumping) {
-    jump();
+        const downInterval = setInterval(() => {
+          if (jumpHeight <= 0) {
+            clearInterval(downInterval);
+            isJumping = false;
+          }
+          jumpHeight -= jumpSpeed;
+          klava.style.top = `${9.5 - jumpHeight / 10}vw`;
+        }, 20);
+      }
+      jumpHeight += jumpSpeed;
+      klava.style.top = `${9.5 - jumpHeight / 10}vw`;
+    }, 20);
   }
-});
 
-// Добавляем обработчик клика на персонажа
-klava.addEventListener('click', () => {
-  if (!isJumping) {
-    jump();
-  }
-});
+  // Устанавливаем начальную позицию
+  let position = 72; // Начальная позиция в vw
 
-function jump() {
-  console.log('Прыжок начат'); // Лог: начало прыжка
-  isJumping = true;
-  let jumpHeight = 0;
-  const maxJumpHeight = vwToPx(8); // 8vw высота прыжка
+  // Функция для анимации препятствий
+  function moveObstacle() {
+    // Уменьшаем позицию (движение влево)
+    position -= 0.8; // Скорость движения
 
-  // Подъём
-  const upInterval = setInterval(() => {
-    if (jumpHeight >= maxJumpHeight) {
-      clearInterval(upInterval);
-      console.log('Подъём завершён'); // Лог: завершение подъёма
+    // Обновляем CSS-свойство left для текущего препятствия
+    obstacles[currentObstacleIndex].style.left = `${position}vw`;
 
-      // Спуск
-      const downInterval = setInterval(() => {
-        if (jumpHeight <= 0) {
-          clearInterval(downInterval);
-          isJumping = false;
-          console.log('Спуск завершён'); // Лог: завершение спуска
-        }
-        jumpHeight -= vwToPx(0.5); // Спуск на 0.5vw
-        klava.style.top = `${gameHeight - klavaHeight - jumpHeight}px`; // Используем top для перемещения
-        console.log(`Спуск: ${jumpHeight}px`); // Лог: текущая высота спуска
-      }, 20);
-    }
-    jumpHeight += vwToPx(0.5); // Подъём на 0.5vw
-    klava.style.top = `${gameHeight - klavaHeight - jumpHeight}px`; // Используем top для подъёма
-    console.log(`Подъём: ${jumpHeight}px`); // Лог: текущая высота подъёма
-  }, 20);
-}
+    // Проверяем, не вышло ли препятствие за пределы экрана
+    if (position <= 0.2) {
+      // Скрываем текущее препятствие
+      obstacles[currentObstacleIndex].style.display = 'none';
 
-// Функция для движения препятствий
-function moveObstacle() {
-  let obstaclePosition = vwToPx(90); // Начальная позиция препятствия (90vw)
-  const speed = vwToPx(0.5); // Скорость движения 0.5vw
+      // Переходим к следующему препятствию
+      currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
 
-  const obstacleInterval = setInterval(() => {
-    if (obstaclePosition < vwToPx(-5)) {
-      // Если ушло за границу экрана
-      // Смена типа препятствия
-      const obstacleTypes = [
-        'obstacle-type1',
-        'obstacle-type2',
-        'obstacle-type3',
-        'obstacle-type4',
-      ];
-      const randomType =
-        obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
-      obstacle.className = randomType;
+      // Показываем следующее препятствие
+      obstacles[currentObstacleIndex].style.display = 'block';
+      obstacles[currentObstacleIndex].style.left = '72vw'; // Начальная позиция
 
-      obstaclePosition = vwToPx(90); // Возвращаем препятствие в начальную позицию
-      score++;
-      console.log(`Score: ${score}`);
+      // Сбрасываем позицию для нового препятствия
+      position = 72;
     }
 
-    obstaclePosition -= speed; // Движение препятствия
-    obstacle.style.left = `${obstaclePosition}px`;
-  }, 20);
-}
+    // Продолжаем анимацию
+    requestAnimationFrame(moveObstacle);
+  }
 
-// Запуск игры
-moveObstacle();
-
-// Обновляем размеры при изменении окна
-window.addEventListener('resize', () => {
-  moveObstacle(); // Пересчитываем позиции
+  // Запуск событий
+  klava.addEventListener('click', jump);
+  moveObstacle();
 });
 //
 //
@@ -797,188 +802,94 @@ window.addEventListener('resize', () => {
 //
 //
 //
-// // Переменные
-// const klava = document.getElementById('klava');
-// const obstacle = document.getElementById('obstacle');
-// let isJumping = false;
-// let score = 0;
+//
+// document.addEventListener('DOMContentLoaded', () => {
+//   const klava = document.getElementById('klava');
+//   const obstacles = [
+//     document.getElementById('obstacle-type1'),
+//     document.getElementById('obstacle-type2'),
+//     document.getElementById('obstacle-type3'),
+//     document.getElementById('obstacle-type4'),
+//   ];
 
-// // Функция для перевода vw в px
-// function vwToPx(vw) {
-//   return (window.innerWidth / 100) * vw;
-// }
+//   let isJumping = false;
+//   let currentObstacleIndex = 0;
 
-// // Поднимаем klava выше
-// let newTop = 0; // Значение в vw (можно менять)
-// klava.style.top = `${vwToPx(newTop)}px`; // Применяем значение в пикселях
+//   // Функция для прыжка
+//   function jump() {
+//     if (isJumping) return;
+//     isJumping = true;
 
-// // Функция для обработки прыжка
-// document.addEventListener('keydown', (event) => {
-//   if (event.code === 'Space' && !isJumping) {
-//     jump();
+//     let jumpHeight = 0;
+//     const maxJump = 100; // Максимальная высота прыжка
+//     const jumpSpeed = 5; // Скорость прыжка
+
+//     const upInterval = setInterval(() => {
+//       if (jumpHeight >= maxJump) {
+//         clearInterval(upInterval);
+
+//         const downInterval = setInterval(() => {
+//           if (jumpHeight <= 0) {
+//             clearInterval(downInterval);
+//             isJumping = false;
+//           }
+//           jumpHeight -= jumpSpeed;
+//           klava.style.top = `${9.5 - jumpHeight / 10}vw`;
+//         }, 20);
+//       }
+//       jumpHeight += jumpSpeed;
+//       klava.style.top = `${9.5 - jumpHeight / 10}vw`;
+//     }, 20);
 //   }
-// });
+//   // ТАААААК тут про препятсвия
+//   // Получаем элемент препятствия
+//   const obstacle = document.getElementById('obstacle-type1');
 
-// // Добавляем обработчик клика на персонажа
-// klava.addEventListener('click', () => {
-//   if (!isJumping) {
-//     jump();
+//   // Устанавливаем начальную позицию
+//   let position = 72; // 100vw
+
+//   // Функция для анимации
+//   function moveObstacle() {
+//     // Уменьшаем позицию (движение влево)
+//     position -= 0.8; // Скорость движения
+
+//     // Обновляем CSS-свойство left
+//     obstacle.style.left = `${position}vw`;
+
+//     // Проверяем, не вышло ли препятствие за пределы экрана
+//     if (position > 0.3) {
+//       // Если нет, продолжаем анимацию
+//       requestAnimationFrame(moveObstacle);
+//     } else {
+//       // Если вышло, сбрасываем позицию для повторения
+//       position = 72;
+//       requestAnimationFrame(moveObstacle);
+//     }
 //   }
-// });
 
-// function jump() {
-//   console.log('Прыжок начат'); // Лог: начало прыжка
-//   isJumping = true;
-//   let jumpHeight = 0;
-//   const maxJumpHeight = vwToPx(8); // 8vw высота прыжка
-
-//   // Подъём
-//   const upInterval = setInterval(() => {
-//     if (jumpHeight >= maxJumpHeight) {
-//       clearInterval(upInterval);
-//       console.log('Подъём завершён'); // Лог: завершение подъёма
-
-//       // Спуск
-//       const downInterval = setInterval(() => {
-//         if (jumpHeight <= 0) {
-//           clearInterval(downInterval);
-//           isJumping = false;
-//           console.log('Спуск завершён'); // Лог: завершение спуска
-//         }
-//         jumpHeight -= vwToPx(0.5); // Спуск на 0.5vw
-//         klava.style.top = `${vwToPx(2) + jumpHeight}px`; // Используем top для перемещения
-//         console.log(`Спуск: ${jumpHeight}px`); // Лог: текущая высота спуска
-//       }, 20);
-//     }
-//     jumpHeight += vwToPx(0.5); // Подъём на 0.5vw
-//     klava.style.top = `${vwToPx(2) + jumpHeight}px`; // Используем top для подъёма
-//     console.log(`Подъём: ${jumpHeight}px`); // Лог: текущая высота подъёма
-//   }, 20);
-// }
-
-// // Функция для движения препятствий
-// function moveObstacle() {
-//   let obstaclePosition = vwToPx(90); // Начальная позиция препятствия (90vw)
-//   const speed = vwToPx(0.5); // Скорость движения 0.5vw
-
-//   const obstacleInterval = setInterval(() => {
-//     if (obstaclePosition < vwToPx(-5)) {
-//       // Если ушло за границу экрана
-//       // Смена типа препятствия
-//       const obstacleTypes = [
-//         'obstacle-type1',
-//         'obstacle-type2',
-//         'obstacle-type3',
-//         'obstacle-type4',
-//       ];
-//       const randomType =
-//         obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
-//       obstacle.className = randomType;
-
-//       obstaclePosition = vwToPx(90); // Возвращаем препятствие в начальную позицию
-//       score++;
-//       console.log(`Score: ${score}`);
-//     }
-
-//     obstaclePosition -= speed; // Движение препятствия
-//     obstacle.style.left = `${obstaclePosition}px`;
-//   }, 20);
-// }
-
-// // Запуск игры
-// moveObstacle();
-
-// // Обновляем размеры при изменении окна
-// window.addEventListener('resize', () => {
-//   moveObstacle(); // Пересчитываем позиции
+//   // Запуск событий
+//   klava.addEventListener('click', jump);
+//   moveObstacle();
 // });
 //
 //
 //
-// // Переменные
-// const klava = document.getElementById('klava');
-// const obstacle = document.getElementById('obstacle');
-// let isJumping = false;
-// let score = 0;
-// // Функция для перевода vw в px
-// function vwToPx(vw) {
-//   return (window.innerWidth / 100) * vw;
-// }
-// // Поднимаем klava выше
-// let newTop = 2; // Значение в vw (можно менять)
-// klava.style.top = `${vwToPx(newTop)}px`; // Применяем значение в пикселях
-// // Функция для обработки прыжка
-// document.addEventListener('keydown', (event) => {
-//   if (event.code === 'Space' && !isJumping) {
-//     jump();
-//   }
-// });
-// // Добавляем обработчик клика на персонажа
-// klava.addEventListener('click', () => {
-//   if (!isJumping) {
-//     jump();
-//   }
-// });
-// function jump() {
-//   console.log('Прыжок начат'); // Лог: начало прыжка
-//   isJumping = true;
-//   let jumpHeight = 0;
-//   const maxJumpHeight = vwToPx(8); // 8vw высота прыжка
-//   // Подъём
-//   const upInterval = setInterval(() => {
-//     if (jumpHeight >= maxJumpHeight) {
-//       clearInterval(upInterval);
-//       console.log('Подъём завершён'); // Лог: завершение подъёма
-//       // Спуск
-//       const downInterval = setInterval(() => {
-//         if (jumpHeight <= 0) {
-//           clearInterval(downInterval);
-//           isJumping = false;
-//           console.log('Спуск завершён'); // Лог: завершение спуска
-//         }
-//         jumpHeight -= vwToPx(0.5); // Спуск на 0.5vw
-//         klava.style.bottom = `${jumpHeight}px`;
-//         console.log(`Спуск: ${jumpHeight}px`); // Лог: текущая высота спуска
-//       }, 20);
-//     }
-//     jumpHeight += vwToPx(0.5); // Подъём на 0.5vw
-//     klava.style.bottom = `${jumpHeight}px`;
-//     console.log(`Подъём: ${jumpHeight}px`); // Лог: текущая высота подъёма
-//   }, 20);
-// }
-
-// // Функция для движения препятствий
-// function moveObstacle() {
-//   let obstaclePosition = vwToPx(90); // Начальная позиция препятствия (90vw)
-//   const speed = vwToPx(0.5); // Скорость движения 0.5vw
-
-//   const obstacleInterval = setInterval(() => {
-//     if (obstaclePosition < vwToPx(-5)) {
-//       // Если ушло за границу экрана
-//       // Смена типа препятствия
-//       const obstacleTypes = [
-//         'obstacle-type1',
-//         'obstacle-type2',
-//         'obstacle-type3',
-//         'obstacle-type4',
-//       ];
-//       const randomType =
-//         obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
-//       obstacle.className = randomType;
-
-//       obstaclePosition = vwToPx(90); // Возвращаем препятствие в начальную позицию
-//       score++;
-//       console.log(`Score: ${score}`);
-//     }
-
-//     obstaclePosition -= speed; // Движение препятствия
-//     obstacle.style.left = `${obstaclePosition}px`;
-//   }, 20);
-// }
-
-// // Запуск игры
-// moveObstacle();
-// // Обновляем размеры при изменении окна
-// window.addEventListener('resize', () => {
-//   moveObstacle(); // Пересчитываем позиции
-// });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// КУРАТОРЫ, СПАСИБО ВАМ БОЛЬШОЕ ЗА ЭТОТ МОДУЛЬ ! ВЫ СУПЕР! 🥰❤️
+// я выжила почти

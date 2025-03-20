@@ -28,7 +28,6 @@
   .play4 {
     width: 100vw;
     height: 75vw;
-    position: relative;
   }
   .zagruzka {
     background-size: 100vw 75vw;
@@ -289,8 +288,100 @@
   .strelka2 {
     top: 69vw;
   }
-  /*  */
-  /*  */
-  /*  */
-  /*  */
+  /* 3 ИГРА РИСОВАЛКА */
+  .canvas {
+    width: 100vw;
+    height: 64.16vw;
+  }
+  .zadnick {
+    height: 75vw;
+  }
+  #drawing {
+    height: 64.16vw;
+  }
+
+  #seroe {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    top: 7vw;
+    left: 92.5vw;
+    border-radius: 50%;
+    background-color: #877177;
+    z-index: 15;
+  }
+  #rozovoe {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    top: 16vw;
+    left: 92.5vw;
+    border-radius: 50%;
+    background-color: #d37995;
+    z-index: 15;
+  }
+  #krasnoe {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    top: 25vw;
+    left: 92.5vw;
+    border-radius: 50%;
+    background-color: #963b50;
+    z-index: 15;
+  }
+  #zelenoe {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    top: 34vw;
+    left: 92.5vw;
+    border-radius: 50%;
+    background-color: #66a865;
+    z-index: 15;
+  }
+  .strelka3 {
+    top: 69vw;
+  }
+  #reset {
+    background-image: url(../images/musor.svg);
+    background-repeat: no-repeat;
+    background-size: 4.8vw 6vw;
+    width: 4.8vw;
+    height: 6vw;
+    position: absolute;
+    top: 41vw;
+    left: 92.69vw;
+    z-index: 15;
+  }
+
+  .iconklava2 {
+    height: 7.5vw;
+    width: 7.5vw;
+    top: 3.5vw;
+    left: 1.5vw;
+    position: absolute;
+    z-index: 15;
+    cursor: auto;
+  }
+  .rech2 {
+    width: 46.042vw;
+    height: 8.653vw;
+    top: 2.5vw;
+    left: 5vw;
+    position: absolute;
+    display: none;
+    z-index: 15;
+  }
+  .r2 {
+    font-family: 'SF Pro';
+    font-size: 2.083vw;
+    position: absolute;
+    line-height: 120%;
+    top: 4vw;
+    left: 12vw;
+    color: #fff6f9;
+    display: none;
+    z-index: 15;
+  }
 }

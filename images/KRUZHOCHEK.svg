@@ -1,3 +1,10 @@
 <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="37.5" cy="37.5" r="37.5" transform="matrix(-0.173648 -0.984808 -0.984808 0.173648 80.9922 68.3984)" fill="white"/>
+<g clip-path="url(#clip0_3525_3998)">
+<path d="M0.619785 44.4917C-2.97658 24.0957 10.6422 4.646 31.0383 1.04964C51.4343 -2.54673 70.884 11.0721 74.4804 31.4681C78.0768 51.8642 64.4579 71.3139 44.0619 74.9102C23.6658 78.5066 4.21615 64.8878 0.619785 44.4917Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_3525_3998">
+<rect width="76" height="76" fill="white"/>
+</clipPath>
+</defs>
 </svg>

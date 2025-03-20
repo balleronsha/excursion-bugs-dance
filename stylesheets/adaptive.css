@@ -301,87 +301,391 @@
   }
 
   #seroe {
-    width: 5vw;
-    height: 5vw;
-    position: absolute;
-    top: 7vw;
-    left: 92.5vw;
-    border-radius: 50%;
-    background-color: #877177;
-    z-index: 15;
+    top: 20vw;
   }
   #rozovoe {
-    width: 5vw;
-    height: 5vw;
-    position: absolute;
-    top: 16vw;
-    left: 92.5vw;
-    border-radius: 50%;
-    background-color: #d37995;
-    z-index: 15;
+    top: 30vw;
   }
   #krasnoe {
-    width: 5vw;
-    height: 5vw;
-    position: absolute;
-    top: 25vw;
-    left: 92.5vw;
-    border-radius: 50%;
-    background-color: #963b50;
-    z-index: 15;
+    top: 40vw;
   }
   #zelenoe {
-    width: 5vw;
-    height: 5vw;
-    position: absolute;
-    top: 34vw;
-    left: 92.5vw;
-    border-radius: 50%;
-    background-color: #66a865;
-    z-index: 15;
+    top: 50vw;
   }
   .strelka3 {
     top: 69vw;
   }
   #reset {
-    background-image: url(../images/musor.svg);
-    background-repeat: no-repeat;
-    background-size: 4.8vw 6vw;
-    width: 4.8vw;
-    height: 6vw;
-    position: absolute;
-    top: 41vw;
-    left: 92.69vw;
-    z-index: 15;
+    top: 57vw;
   }
 
-  .iconklava2 {
-    height: 7.5vw;
-    width: 7.5vw;
-    top: 3.5vw;
-    left: 1.5vw;
-    position: absolute;
-    z-index: 15;
-    cursor: auto;
+  .r2 {
+    top: 7.5vw;
   }
   .rech2 {
-    width: 46.042vw;
-    height: 8.653vw;
-    top: 2.5vw;
-    left: 5vw;
-    position: absolute;
-    display: none;
-    z-index: 15;
+    top: 6vw;
   }
-  .r2 {
-    font-family: 'SF Pro';
-    font-size: 2.083vw;
-    position: absolute;
-    line-height: 120%;
+  .iconklava2 {
+    top: 7.5vw;
+  }
+  /* ЭТО КОРОЧЕ ТАНЦЕВАЛЬНЫЙ ЗАЛ 404 */
+
+  .ris0 {
+    height: 75vw;
+  }
+  .banka {
+    top: 60vw;
+  }
+  .strelka4 {
+    top: 69vw;
+  }
+  .iconklava3 {
+    top: 49vw;
+  }
+  .rech3 {
+    top: 45vw;
+  }
+  .r3 {
+    top: 45.7vw;
+  }
+  .anf1,
+  .anf2,
+  .anf3,
+  .anf4,
+  .anf5,
+  .anf6,
+  .anf7,
+  .anf8,
+  .anf9,
+  .anf10 {
+    width: 13.713vw;
+    height: 23vw;
+    top: 53.7vw;
+  }
+  /* РИСУНОК 1 */
+  .ris1,
+  .ris2,
+  .ris3,
+  .ris4,
+  .ris5,
+  .ris6 {
+    height: 75vw;
+  }
+  .krug1,
+  .krug2,
+  .krug3,
+  .krug4,
+  .krug5,
+  .krug6,
+  .krug7,
+  .krug8,
+  .krug9,
+  .krug10,
+  .bublick1,
+  .bublick2,
+  .bublick3,
+  .bublick4,
+  .bublick5,
+  .bublick6,
+  .bublick7,
+  .bublick8,
+  .bublick9,
+  .bublick10,
+  .lotos1,
+  .lotos2,
+  .lotos3,
+  .lotos4,
+  .lotos5,
+  .lotos6,
+  .lotos7,
+  .lotos8,
+  .lotos9,
+  .lotos10,
+  .swag1,
+  .swag2,
+  .swag3,
+  .swag4,
+  .swag5,
+  .swag6,
+  .swag7,
+  .swag8,
+  .swag9,
+  .swag10,
+  .rosa1,
+  .rosa2,
+  .rosa3,
+  .rosa4,
+  .rosa5,
+  .rosa6,
+  .rosa7,
+  .rosa8,
+  .rosa9,
+  .rosa10,
+  .sochno1,
+  .sochno2,
+  .sochno3,
+  .sochno4,
+  .sochno5,
+  .sochno6,
+  .sochno7,
+  .sochno8,
+  .sochno9,
+  .sochno10 {
+    background-image: url(../images/KRUZHOCHEK1024.svg);
+    width: 15vw;
+    height: 15vw;
+  }
+  .krug1 {
+    top: 5.7vw;
+    left: 49.8vw;
+  }
+  .krug2 {
+    top: 23vw;
+    left: 38vw;
+  }
+  .krug3 {
+    top: 23vw;
+    left: 61.5vw;
+  }
+  .krug4 {
+    top: 43vw;
+    left: 28.8vw;
+  }
+  .krug5 {
+    top: 43vw;
+    left: 49.8vw;
+  }
+  .krug6 {
+    top: 43vw;
+    left: 70.8vw;
+  }
+  .krug7 {
+    top: 63vw;
+    left: 17.5vw;
+  }
+  .krug8 {
+    top: 63vw;
+    left: 38vw;
+  }
+  .krug9 {
+    top: 63vw;
+    left: 61.5vw;
+  }
+  .krug10 {
+    top: 63vw;
+    left: 82vw;
+  }
+  /* РИСУНОК 2 */
+
+  .bublick1 {
+    top: 4.5vw;
+    left: 48.8vw;
+  }
+  .bublick2 {
+    top: 22.7vw;
+    left: 21vw;
+  }
+  .bublick3 {
+    top: 22.7vw;
+    left: 48.8vw;
+  }
+  .bublick4 {
+    top: 22.7vw;
+    left: 77.8vw;
+  }
+  .bublick5 {
+    top: 42.9vw;
+    left: 21vw;
+  }
+  .bublick6 {
+    top: 42.9vw;
+    left: 48.8vw;
+  }
+  .bublick7 {
+    top: 42.9vw;
+    left: 77.8vw;
+  }
+  .bublick8 {
+    top: 62.1vw;
+    left: 21vw;
+  }
+  .bublick9 {
+    top: 62.1vw;
+    left: 48.8vw;
+  }
+  .bublick10 {
+    top: 62.1vw;
+    left: 77.8vw;
+  }
+  /* РИСУНОК 3 */
+
+  .lotos1 {
     top: 4vw;
-    left: 12vw;
-    color: #fff6f9;
-    display: none;
-    z-index: 15;
+    left: 82vw;
+  }
+  .lotos2 {
+    top: 24.7vw;
+    left: 82vw;
+  }
+  .lotos3 {
+    top: 44.7vw;
+    left: 82vw;
+  }
+  .lotos4 {
+    top: 64.7vw;
+    left: 82vw;
+  }
+  .lotos5 {
+    top: 24.7vw;
+    left: 60vw;
+  }
+  .lotos6 {
+    top: 44.7vw;
+    left: 60vw;
+  }
+  .lotos7 {
+    top: 64.7vw;
+    left: 60vw;
+  }
+  .lotos8 {
+    top: 44.7vw;
+    left: 38vw;
+  }
+  .lotos9 {
+    top: 64.7vw;
+    left: 38vw;
+  }
+  .lotos10 {
+    top: 64.7vw;
+    left: 16vw;
+  }
+  /* РИСУНОК 4 */
+  .swag1 {
+    top: 67.5vw;
+    left: 15vw;
+  }
+  .swag2 {
+    top: 50.5vw;
+    left: 18.7vw;
+  }
+  .swag3 {
+    top: 34.5vw;
+    left: 23.5vw;
+  }
+  .swag4 {
+    top: 18.9vw;
+    left: 31.4vw;
+  }
+  .swag5 {
+    top: 5.2vw;
+    left: 41.1vw;
+  }
+  .swag6 {
+    top: 5.2vw;
+    left: 54.1vw;
+  }
+  .swag7 {
+    top: 18.9vw;
+    left: 64.4vw;
+  }
+  .swag8 {
+    top: 34.5vw;
+    left: 72vw;
+  }
+  .swag9 {
+    top: 50.5vw;
+    left: 76.7vw;
+  }
+  .swag10 {
+    top: 67.5vw;
+    left: 80.7vw;
+  }
+  .krugi4 {
+    top: -2vw;
+    left: 1vw;
+  }
+  /* РИСУНОК 5 */
+
+  .rosa1 {
+    top: 64.5vw;
+    left: 38.3vw;
+  }
+  .rosa2 {
+    top: 55.2vw;
+    left: 22vw;
+  }
+  .rosa3 {
+    top: 35.7vw;
+    left: 15.3vw;
+  }
+  .rosa4 {
+    top: 17.2vw;
+    left: 19.2vw;
+  }
+  .rosa5 {
+    top: 4.3vw;
+    left: 35.1vw;
+  }
+  .rosa6 {
+    top: 4.306vw;
+    left: 57.8vw;
+  }
+  .rosa7 {
+    top: 17.2vw;
+    left: 74.4vw;
+  }
+  .rosa8 {
+    top: 35.4vw;
+    left: 78.3vw;
+  }
+  .rosa9 {
+    top: 53.8vw;
+    left: 73.457vw;
+  }
+  .rosa10 {
+    top: 64.7vw;
+    left: 57.9vw;
+  }
+  /* РИСУНОК 6 */
+
+  .sochno1 {
+    top: 14.2vw;
+    left: 14.5vw;
+  }
+  .sochno2 {
+    top: 14.2vw;
+    left: 31.5vw;
+  }
+  .sochno3 {
+    top: 14.2vw;
+    left: 48.5vw;
+  }
+  .sochno4 {
+    top: 14.2vw;
+    left: 65.5vw;
+  }
+  .sochno5 {
+    top: 14.2vw;
+    left: 82.5vw;
+  }
+  .sochno6 {
+    top: 50.2vw;
+    left: 14.5vw;
+  }
+  .sochno7 {
+    top: 50.2vw;
+    left: 31.5vw;
+  }
+  .sochno8 {
+    top: 50.2vw;
+    left: 48.5vw;
+  }
+  .sochno9 {
+    top: 50.2vw;
+    left: 65.5vw;
+  }
+  .sochno10 {
+    top: 50.2vw;
+    left: 82.5vw;
   }
 }

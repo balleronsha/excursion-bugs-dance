@@ -169,7 +169,19 @@ body {
   height: 56.223vw;
   position: absolute;
 }
-
+.dver1-1024,
+#dver21024,
+.dver3-1024,
+.dver4-1024,
+.dver5-1024,
+.dver6-1024,
+.dver7-1024,
+.dver8-1024,
+.dver9-1024,
+.dver10-1024,
+.pustota1024 {
+  visibility: hidden;
+}
 .strelka1 {
   width: 4.861vw;
   height: 4.167vw;

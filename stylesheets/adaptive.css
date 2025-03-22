@@ -23,6 +23,13 @@
     width: 100vw;
     height: 75vw;
   }
+  .buba {
+    background-size: 42vw 52vw;
+    width: 42vw;
+    height: 52vw;
+    top: 9vw;
+    left: 32vw;
+  }
   .zagruzka {
     background-size: 100vw 75vw;
   }
@@ -30,6 +37,7 @@
     left: 26.646vw;
     top: 10vw;
   }
+  /* ГЛАВНЫЙ ЭКРАН ДВЕРИ */
   .glavekran {
     width: 100vw;
     height: 75vw;
@@ -85,14 +93,20 @@
     top: 7.5vw;
   }
   /* ИГРА 1 СО ШКАФЧИКАМИ */
-
+  .pustota {
+    display: none;
+  }
   .strelka1 {
     top: 69vw;
+    z-index: 50;
   }
   .pustota1024 {
     width: 100vw;
     height: 75vw;
     position: absolute;
+    display: block;
+    z-index: 1;
+    visibility: visible;
   }
   .iphone {
     top: 23.5vw;
@@ -148,7 +162,8 @@
     width: 16.895vw;
     height: 30.078vw;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
+    visibility: visible;
   }
   .dver1,
   #dver2,
@@ -683,6 +698,116 @@
   }
 }
 @media screen and (max-width: 800px) {
+  .zagruzka,
+  .glavsvet,
+  .glavsvet402,
+  .play1,
+  .play2,
+  .play3,
+  .play4 {
+    width: 100vw;
+    height: 133.856vw;
+  }
+  .buba {
+    background-size: 52vw 62vw;
+    width: 52vw;
+    height: 62vw;
+    top: 34vw;
+    left: 25vw;
+  }
+  .zagruzka {
+    background-size: 100vw 133.856vw;
+  }
+  .zagr {
+    width: 65vw;
+    height: 65vw;
+    left: 18.646vw;
+    top: 33vw;
+  }
+  /* ГЛАВНЫЙ ЭКРАН ДВЕРИ */
+  .glavsvet {
+    display: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .glavekran {
+    width: 155.99vw;
+    height: 133vw;
+  }
+  .shkafsvet {
+    width: 23.27vw;
+    height: 52.854vw;
+    top: 71.875vw;
+    left: -5.557vw;
+  }
+  .dver402svet {
+    width: 30.767vw;
+    height: 53.51vw;
+    top: 69.7vw;
+    left: 28.125vw;
+  }
+  .dver402temnota {
+    width: 30.767vw;
+    height: 53.51vw;
+    top: 69.7vw;
+    left: 28.125vw;
+  }
+  .dverconsvet {
+    width: 42vw;
+    height: 59.51vw;
+    left: 67.451vw;
+    top: 66.7vw;
+  }
+  .dvercontemnota {
+    width: 42vw;
+    height: 59.51vw;
+    left: 67.451vw;
+    top: 66.7vw;
+  }
+  .dver404svet {
+    width: 30.767vw;
+    height: 53.51vw;
+    top: 69.7vw;
+    left: 119.085vw;
+  }
+  .dver404temnota {
+    width: 30.767vw;
+    height: 53.51vw;
+    top: 69.7vw;
+    left: 119.085vw;
+  }
+
+  .mini402 {
+    top: 30.5vw;
+  }
+  .max {
+    top: 30.5vw;
+  }
+  .mini404 {
+    top: 30.5vw;
+  }
+
+  .t402 {
+    top: 30.5vw;
+  }
+  .t403 {
+    top: 30.3vw;
+  }
+  .t404 {
+    top: 30.5vw;
+  }
+  .r1 {
+    top: 7.7vw;
+  }
+  .rech1 {
+    top: 6.7vw;
+  }
+  .iconklava1 {
+    width: 14.063vw;
+    height: 14.063vw;
+    left: 2.734vw;
+    top: 3.516vw;
+  }
 }
 @media screen and (max-width: 500px) {
 }

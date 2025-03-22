@@ -19,6 +19,7 @@ body {
   background: radial-gradient(circle, #ff9bba, #ffbacf, #fff6f9, #ffffff);
   background-size: 100vw 56.223vw;
   animation: gradient 5s ease infinite;
+  position: relative;
 }
 
 .zagr {
@@ -27,6 +28,16 @@ body {
   height: 52vw;
   left: 23.646vw;
   top: 1.757vw;
+  position: absolute;
+}
+.buba {
+  background-image: url(../images/image407.png);
+  background-size: 38vw 48vw;
+  width: 38vw;
+  height: 48vw;
+  top: 4vw;
+  left: 31vw;
+  position: absolute;
 }
 
 /* ГЛАВНЫЙ ЭКРАН СО СВЕТОМ  */
@@ -167,7 +178,11 @@ body {
 .pustota {
   width: 100vw;
   height: 56.223vw;
+  overflow: clip;
   position: absolute;
+}
+.pustota1024 {
+  display: none;
 }
 .dver1-1024,
 #dver21024,
@@ -1670,12 +1685,12 @@ body {
 #obstacle-type2,
 #obstacle-type3,
 #obstacle-type4 {
-  top: 19.1vw;
+  top: 20vw;
   left: 72vw;
   font-family: 'SF Pro';
   font-size: 1.8vw;
   position: absolute;
-  line-height: 120%;
+  line-height: 80%;
   color: #fff6f9;
   z-index: 15;
 }

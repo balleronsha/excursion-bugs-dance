@@ -316,3 +316,130 @@
     transform: translate(0, 6vw);
   }
 }
+/* АНИМАЦИЯ ДЛЯ АДАПТИВОВ АЙПАДА 768 */
+/* ЭКРАН ПЕРВЫЙ */
+@keyframes move1768 {
+  0% {
+    transform: translate(0vw, 3vw);
+  }
+  25% {
+    transform: translate(10vw, 10vw);
+  }
+  50% {
+    transform: translate(-2vw, -2vw);
+  }
+  75% {
+    transform: translate(-3vw, 2vw);
+  }
+  100% {
+    transform: translate(9vw, 0vw);
+  }
+}
+
+@keyframes move2768 {
+  0% {
+    transform: translate(50vw, -3vw);
+  }
+  25% {
+    transform: translate(-20vw, -2vw);
+  }
+  50% {
+    transform: translate(15vw, -2vw);
+  }
+  75% {
+    transform: translate(-30vw, 0vw);
+  }
+  100% {
+    transform: translate(50vw, -4vw);
+  }
+}
+
+@keyframes move3768 {
+  0% {
+    transform: translate(-15vw, 10vw);
+  }
+  25% {
+    transform: translate(25vw, 5vw);
+  }
+  50% {
+    transform: translate(-10vw, -3vw);
+  }
+  75% {
+    transform: translate(35vw, 0vw);
+  }
+  100% {
+    transform: translate(-25vw, 0vw);
+  }
+}
+
+@keyframes move4768 {
+  0% {
+    transform: translate(5vw, -7vw);
+  }
+  25% {
+    transform: translate(-25vw, 5vw);
+  }
+  50% {
+    transform: translate(10vw, -35vw);
+  }
+  75% {
+    transform: translate(-35vw, -20vw);
+  }
+  100% {
+    transform: translate(50vw, -2vw);
+  }
+}
+
+@keyframes move5768 {
+  0% {
+    transform: translate(0, 6vw);
+  }
+  25% {
+    transform: translate(40vw, 0vw);
+  }
+  50% {
+    transform: translate(4vw, 10vw);
+  }
+  75% {
+    transform: translate(-10vw, 0vw);
+  }
+  100% {
+    transform: translate(0, 4vw);
+  }
+}
+
+@keyframes move6768 {
+  0% {
+    transform: translate(0, 40vw);
+  }
+  25% {
+    transform: translate(40vw, -20vw);
+  }
+  50% {
+    transform: translate(-40vw, 10vw);
+  }
+  75% {
+    transform: translate(10vw, -40vw);
+  }
+  100% {
+    transform: translate(0, 0vw);
+  }
+}
+
+@keyframes move7768 {
+  0% {
+    transform: translate(50vw, -10vw);
+  }
+  25% {
+    transform: translate(20vw, 0vw);
+  }
+  50% {
+    transform: translate(40vw, 0vw);
+  }
+  75% {
+    transform: translate(20vw, -20vw);
+  }
+  100% {
+    transform: translate(30vw, -10vw);
+  }
+}

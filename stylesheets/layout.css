@@ -184,6 +184,12 @@ body {
 .pustota1024 {
   display: none;
 }
+.pustota765 {
+  display: none;
+}
+.pustota414 {
+  display: none;
+}
 .dver1-1024,
 #dver21024,
 .dver3-1024,
@@ -393,6 +399,9 @@ body {
   height: 48.097vw;
   position: absolute;
 }
+.uspeh {
+  position: absolute;
+}
 /* плееры */
 .player1 {
   width: 26vw;
@@ -477,6 +486,11 @@ body {
   left: 92.5vw;
   z-index: 15;
 }
+.vpered,
+.nazad {
+  display: none;
+  visibility: hidden;
+}
 /*  */
 /*  */
 /*  */
@@ -499,6 +513,9 @@ body {
   width: 100vw;
   height: 56.223vw;
   position: absolute;
+}
+.zadnick768 {
+  visibility: hidden;
 }
 #drawing {
   position: absolute;

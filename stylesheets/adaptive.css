@@ -1017,11 +1017,11 @@
     -ms-overflow-style: none;
   }
   .vpered {
-    top: 110.5vw;
+    top: 115vw;
     left: 90vw;
   }
   .nazad {
-    top: 110.5vw;
+    top: 115vw;
     left: 4vw;
   }
   .vpered,
@@ -1034,14 +1034,6 @@
     visibility: visible;
   }
 
-  .knpl1,
-  .knpl2,
-  .knpl3,
-  .knpa1,
-  .knpa2,
-  .knpa3 {
-    visibility: hidden;
-  }
   /* плееры */
   .player1 {
     width: 36vw;
@@ -1056,7 +1048,7 @@
     height: 25vw;
     position: absolute;
     top: 0vw;
-    left: 45vw;
+    left: 43vw;
     z-index: 20;
   }
   .player3 {
@@ -1064,64 +1056,58 @@
     height: 25vw;
     position: absolute;
     top: 0vw;
-    left: 89vw;
+    left: 86vw;
     right: 2vw;
     z-index: 20;
   }
-  /* .knpl1 {
+  .knpl1 {
     width: 6.5vw;
     height: 7vw;
     position: absolute;
-    top: 114vw;
-    left: 40vw;
-    z-index: 10;
-    display: none;
+    top: 13vw;
+    left: 27.5vw;
+    z-index: 35;
   }
   .knpl2 {
     width: 6.5vw;
     height: 7vw;
     position: absolute;
-    top: 114vw;
-    left: 77.7vw;
-    z-index: 10;
-    display: none;
+    top: 13vw;
+    left: 70.6vw;
+    z-index: 35;
   }
   .knpl3 {
     width: 6.5vw;
     height: 7vw;
     position: absolute;
-    top: 114vw;
-    left: 77.7vw;
-    z-index: 10;
-    display: none;
+    top: 13vw;
+    left: 113.7vw;
+    z-index: 35;
   }
   .knpa1 {
     width: 6vw;
     height: 7.5vw;
     position: absolute;
-    top: 114vw;
-    left: 40vw;
-    z-index: 10;
-    display: none;
+    top: 13vw;
+    left: 27.5vw;
+    z-index: 35;
   }
   .knpa2 {
     width: 6vw;
     height: 7.5vw;
     position: absolute;
-    top: 114vw;
-    left: 77.7vw;
-    z-index: 10;
-    display: none;
+    top: 13vw;
+    left: 70.6vw;
+    z-index: 35;
   }
   .knpa3 {
     width: 6vw;
     height: 7.5vw;
     position: absolute;
-    top: 114vw;
-    left: 77.7vw;
-    z-index: 10;
-    display: none;
-  } */
+    top: 13vw;
+    left: 113.7vw;
+    z-index: 35;
+  }
   .strelka2 {
     width: 7.861vw;
     height: 7.167vw;
@@ -1237,15 +1223,23 @@
     top: 4.516vw;
   }
   .rech3 {
-    width: 81.667vw;
-    height: 15.4vw;
-    top: 3vw;
-    left: 8vw;
+    visibility: hidden;
+  }
+  .rech3768 {
+    width: 60.167vw;
+    height: 17.016vw;
+    top: 3.7vw;
+    left: 16vw;
+    position: absolute;
+    display: none;
+    visibility: visible;
+    z-index: 60;
   }
   .r3 {
     font-size: 3.922vw;
-    top: 5vw;
-    left: 21vw;
+    top: 4vw;
+    left: 21.3vw;
+    z-index: 61;
   }
   .ris1,
   .ris2,
@@ -1625,4 +1619,137 @@
   }
 }
 @media screen and (max-width: 500px) {
+  .zagruzka,
+  .glavsvet,
+  .glavsvet402,
+  .play1,
+  .play2,
+  .play3,
+  .play4 {
+    width: 100vw;
+    height: 220vw;
+  }
+  .buba {
+    background-size: 80vw 90vw;
+    width: 80vw;
+    height: 90vw;
+    top: 58vw;
+    left: 9vw;
+    background-repeat: no-repeat;
+  }
+  .zagruzka {
+    background-size: 100vw 220vw;
+  }
+  .zagr {
+    width: 90vw;
+    height: 90vw;
+    left: 4.646vw;
+    top: 60vw;
+  }
+  /* ГЛАВНЫЙ ЭКРАН ДВЕРИ */
+  .glavsvet {
+    display: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .glavekran {
+    width: 287.44vw;
+    height: 220vw;
+  }
+  .shkafsvet {
+    width: 42.995vw;
+    height: 97.826vw;
+    top: 106.875vw;
+    left: -10.557vw;
+  }
+  .dver402svet {
+    width: 57.005vw;
+    height: 104.831vw;
+    top: 99.1vw;
+    left: 43.125vw;
+  }
+  .dver402temnota {
+    width: 57.005vw;
+    height: 104.831vw;
+    top: 99.1vw;
+    left: 43.125vw;
+  }
+  .dverconsvet {
+    width: 82.502vw;
+    height: 104.831vw;
+    top: 99.1vw;
+    left: 120.7vw;
+  }
+  .dvercontemnota {
+    width: 78.502vw;
+    height: 104.831vw;
+    top: 99.1vw;
+    left: 66.7vw;
+  }
+  .dver404svet {
+    width: 57.005vw;
+    height: 104.831vw;
+    top: 99.1vw;
+    left: 224.085vw;
+  }
+  .dver404temnota {
+    width: 57.005vw;
+    height: 104.831vw;
+    top: 99.1vw;
+    left: 224.085vw;
+  }
+
+  .mini402 {
+    width: 27.053vw;
+    height: 9.662vw;
+    top: 85.699vw;
+    left: 57.209vw;
+  }
+  .max {
+    width: 72.705vw;
+    height: 9.662vw;
+    top: 85.699vw;
+    left: 124.889vw;
+  }
+  .mini404 {
+    width: 27.053vw;
+    height: 9.662vw;
+    top: 85.699vw;
+    left: 238.667vw;
+  }
+
+  .t402 {
+    font-size: 4.575vw;
+    top: 61.614vw;
+    left: 39.869vw;
+  }
+  .t403 {
+    font-size: 4.575vw;
+    top: 61.2vw;
+    left: 72.6vw;
+    white-space: nowrap;
+  }
+  .t404 {
+    font-size: 4.575vw;
+    top: 61.614vw;
+    left: 130.3vw;
+    white-space: nowrap;
+  }
+  .r1 {
+    font-size: 3.922vw;
+    top: 5vw;
+    left: 23vw;
+  }
+  .rech1 {
+    width: 86.667vw;
+    height: 16.288vw;
+    top: 3vw;
+    left: 15vw;
+  }
+  .iconklava1 {
+    width: 26.087vw;
+    height: 26.087vw;
+    left: 4.831vw;
+    top: 19.324vw;
+  }
 }

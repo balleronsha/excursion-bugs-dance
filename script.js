@@ -142,6 +142,20 @@ document.querySelector('.iconklava3').addEventListener('click', function () {
   }
 });
 //
+// адаптивка речь 768
+if (window.innerWidth < 800) {
+  document.querySelector('.iconklava3').addEventListener('click', function () {
+    const rech3 = document.querySelector('.rech3768');
+    const r3 = document.querySelector('.r3');
+    if (rech3.style.display === 'none' || rech3.style.display === '') {
+      rech3.style.display = 'block';
+      r3.style.display = 'block';
+    } else {
+      rech3.style.display = 'none';
+      r3.style.display = 'none';
+    }
+  });
+}
 //
 //
 // 🤪 ЙОУ ПЕРЕХОД 1
@@ -781,7 +795,6 @@ const vperedButton = document.querySelector('.vpered');
 const nazadButton = document.querySelector('.nazad');
 
 vperedButton.addEventListener('click', () => {
-  console.log('Нажата кнопка "Вперёд"');
   uspeh.scrollBy({
     left: 100,
     behavior: 'smooth',

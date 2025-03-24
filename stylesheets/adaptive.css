@@ -1619,6 +1619,11 @@
   }
 }
 @media screen and (max-width: 500px) {
+  /* ЧТО СКРЫВАЕТ АДАПТИВКА 414???? */
+  .rech1,
+  .r1 {
+    visibility: hidden;
+  }
   .zagruzka,
   .glavsvet,
   .glavsvet402,
@@ -1647,6 +1652,7 @@
     top: 60vw;
   }
   /* ГЛАВНЫЙ ЭКРАН ДВЕРИ */
+
   .glavsvet {
     display: none;
     overflow-x: auto;
@@ -1719,37 +1725,489 @@
   }
 
   .t402 {
-    font-size: 4.575vw;
-    top: 61.614vw;
-    left: 39.869vw;
+    font-size: 9vw;
+    top: 85.3vw;
+    left: 63.5vw;
   }
   .t403 {
-    font-size: 4.575vw;
-    top: 61.2vw;
-    left: 72.6vw;
+    font-size: 9vw;
+    top: 84.7vw;
+    left: 130.4vw;
     white-space: nowrap;
   }
   .t404 {
-    font-size: 4.575vw;
-    top: 61.614vw;
-    left: 130.3vw;
+    font-size: 9vw;
+    top: 85.3vw;
+    left: 244.7vw;
     white-space: nowrap;
   }
-  .r1 {
-    font-size: 3.922vw;
-    top: 5vw;
-    left: 23vw;
+
+  .rech1414,
+  .r1414 {
+    display: none;
+    visibility: visible;
   }
-  .rech1 {
-    width: 86.667vw;
-    height: 16.288vw;
-    top: 3vw;
-    left: 15vw;
+  .r1414 {
+    font-family: 'SF Pro';
+    font-size: 4.348vw;
+    position: absolute;
+    line-height: 120%;
+    top: 22vw;
+    left: 37.5vw;
+    color: #fff6f9;
+  }
+  .rech1414 {
+    width: 73.188vw;
+    height: 25.845vw;
+    top: 18.5vw;
+    left: 27.5vw;
+    position: absolute;
   }
   .iconklava1 {
     width: 26.087vw;
     height: 26.087vw;
     left: 4.831vw;
     top: 19.324vw;
+  }
+  /* ИГРА 1 СО ШКАФЧИКАМИ */
+  .pustota,
+  .pustota1024,
+  .pustota765 {
+    display: none;
+    overflow: hidden;
+  }
+  .strelka1 {
+    width: 16.908vw;
+    height: 16.908vw;
+    top: 13.7vw;
+    left: 78.5vw;
+  }
+
+  .pustota414 {
+    width: 100vw;
+    height: 408.213vw;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    visibility: visible;
+  }
+  .iphone {
+    width: 18vw;
+    height: 26vw;
+    top: 77.5vw;
+    left: 19.5vw;
+  }
+  .naush {
+    width: 28vw;
+    height: 29vw;
+    top: 74vw;
+    left: 5.5vw;
+  }
+  .getri {
+    width: 28vw;
+    height: 34vw;
+    top: 143vw;
+    left: 8vw;
+  }
+  .giri {
+    width: 31.9vw;
+    height: 25.833vw;
+    top: 225vw;
+    left: 6vw;
+    visibility: visible;
+  }
+  .points {
+    width: 27vw;
+    height: 35vw;
+    top: 142.5vw;
+    left: 50vw;
+  }
+  .roll {
+    width: 31vw;
+    height: 47vw;
+    top: 207vw;
+    left: 48vw;
+  }
+  .stanley {
+    width: 23vw;
+    height: 43vw;
+    top: 282vw;
+    left: 11vw;
+  }
+  .bag {
+    width: 30vw;
+    height: 30vw;
+    top: 295vw;
+    left: 50.5vw;
+  }
+  .flowers {
+    width: 35vw;
+    height: 36vw;
+    top: 362vw;
+    left: 3.2vw;
+  }
+  .instax {
+    width: 22vw;
+    height: 21vw;
+    top: 376vw;
+    left: 58.2vw;
+  }
+  /* двери */
+  .dver1-1024,
+  #dver21024,
+  .dver3-1024,
+  .dver4-1024,
+  .dver5-1024,
+  .dver6-1024,
+  .dver7-1024,
+  .dver8-1024,
+  .dver9-1024,
+  .dver10-1024 {
+    width: 36.957vw;
+    height: 65.942vw;
+    position: absolute;
+    z-index: 3;
+    visibility: visible;
+  }
+
+  .dver1,
+  #dver2,
+  .dver3,
+  .dver4,
+  .dver5,
+  .dver6,
+  .dver7,
+  .dver8,
+  .dver9,
+  .dver10 {
+    visibility: hidden;
+  }
+  .dver1-1024 {
+    top: 39.5vw;
+    left: 2.2vw;
+  }
+  #dver21024 {
+    top: 39.5vw;
+    left: 45.9vw;
+  }
+  .dver3-1024 {
+    top: 112.8vw;
+    left: 2.2vw;
+  }
+  .dver4-1024 {
+    top: 112.8vw;
+    left: 45.9vw;
+  }
+  .dver5-1024 {
+    top: 186.5vw;
+    left: 2.2vw;
+  }
+  .dver6-1024 {
+    top: 186.5vw;
+    left: 45.9vw;
+  }
+  .dver7-1024 {
+    top: 260.1vw;
+    left: 2.2vw;
+  }
+  .dver8-1024 {
+    top: 260.1vw;
+    left: 45.9vw;
+  }
+  .dver9-1024 {
+    top: 333.1vw;
+    left: 2.2vw;
+  }
+  .dver10-1024 {
+    top: 333.1vw;
+    left: 45.9vw;
+  }
+  #zamochek1024 {
+    width: 24.8vw;
+    height: 12vw;
+    top: 70.5vw;
+    left: 62vw;
+  }
+  /* ИГРА 2 ДИКО */
+  .play2 {
+    overflow: hidden;
+  }
+  .gradient {
+    width: 100vw;
+    height: 220vw;
+    position: absolute;
+  }
+  /* моделька любимая клавдия */
+
+  .play2Model {
+    z-index: 10;
+    top: -31vw;
+    left: -6vw;
+    width: 100vw;
+    height: 100vw;
+    position: absolute;
+  }
+
+  .uspeh {
+    position: absolute;
+    /* background-color: coral; */
+    width: 80vw;
+    height: 44.444vw;
+    top: 162vw;
+    left: 10vw;
+    right: 10vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .uspeh {
+    -ms-overflow-style: none;
+  }
+  .vpered {
+    top: 180vw;
+    left: 88vw;
+  }
+  .nazad {
+    top: 180vw;
+    left: 2vw;
+  }
+  .vpered,
+  .nazad {
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+    display: block;
+    z-index: 500;
+    visibility: visible;
+  }
+
+  /* плееры */
+  .player1 {
+    width: 74vw;
+    height: 44.444vw;
+    position: absolute;
+    top: 0vw;
+    left: 3vw;
+    z-index: 20;
+  }
+  .player2 {
+    width: 74vw;
+    height: 44.444vw;
+    position: absolute;
+    top: 0vw;
+    left: 84vw;
+    z-index: 20;
+  }
+  .player3 {
+    width: 74vw;
+    height: 44.444vw;
+    position: absolute;
+    top: 0vw;
+    left: 166vw;
+    right: 8vw;
+    z-index: 20;
+  }
+  .knpl1 {
+    width: 13.5vw;
+    height: 14vw;
+    position: absolute;
+    top: 25vw;
+    left: 59.5vw;
+    z-index: 35;
+  }
+  .knpl2 {
+    width: 13.5vw;
+    height: 14vw;
+    position: absolute;
+    top: 25vw;
+    left: 140.5vw;
+    z-index: 35;
+  }
+  .knpl3 {
+    width: 13.5vw;
+    height: 14vw;
+    position: absolute;
+    top: 25vw;
+    left: 222.5vw;
+    z-index: 35;
+  }
+  .knpa1 {
+    width: 13.5vw;
+    height: 14vw;
+    position: absolute;
+    top: 25vw;
+    left: 59.5vw;
+    z-index: 35;
+  }
+  .knpa2 {
+    width: 13.5vw;
+    height: 14vw;
+    position: absolute;
+    top: 25vw;
+    left: 140.5vw;
+    z-index: 35;
+  }
+  .knpa3 {
+    width: 13.5vw;
+    height: 14vw;
+    position: absolute;
+    top: 25vw;
+    left: 222.5vw;
+    z-index: 35;
+  }
+  .strelka2 {
+    width: 16.908vw;
+    height: 16.908vw;
+    top: 13.7vw;
+    left: 78.5vw;
+  }
+  /*  */
+  /* 3 ИГРА РИСОВАЛКА */
+
+  .canvas {
+    width: 100vw;
+    height: 301.449vw;
+    background-color: #fcf3f3;
+  }
+  .zadnick,
+  .zadnick768 {
+    display: none;
+  }
+  .zadnick414 {
+    width: 100vw;
+    height: 301.449vw;
+    visibility: visible;
+    overflow: hidden;
+  }
+  #drawing {
+    position: absolute;
+    width: 100vw;
+    height: 285vw;
+    background-color: #fcf3f3;
+    display: block;
+    z-index: 3;
+  }
+
+  #seroe {
+    width: 15.217vw;
+    height: 15.217vw;
+    top: 61vw;
+    left: 79vw;
+  }
+  #rozovoe {
+    width: 15.217vw;
+    height: 15.217vw;
+    top: 79vw;
+    left: 79vw;
+  }
+  #krasnoe {
+    width: 15.217vw;
+    height: 15.217vw;
+    top: 97vw;
+    left: 79vw;
+  }
+  #zelenoe {
+    width: 15.217vw;
+    height: 15.217vw;
+    top: 115vw;
+    left: 79vw;
+  }
+  .strelka3 {
+    width: 16.908vw;
+    height: 16.908vw;
+    top: 18.7vw;
+    left: 78.5vw;
+    z-index: 50;
+  }
+  #reset {
+    background-size: 13vw 15vw;
+    width: 13vw;
+    height: 15vw;
+    top: 41vw;
+    left: 80.7vw;
+  }
+
+  .iconklava2 {
+    width: 26.087vw;
+    height: 26.087vw;
+    left: 4.831vw;
+    top: 19.324vw;
+    z-index: 50;
+  }
+  .r2 {
+    font-size: 3.922vw;
+    top: 5vw;
+    left: 21vw;
+  }
+  .rech2 {
+    width: 81.667vw;
+    height: 15.4vw;
+    top: 3vw;
+    left: 8vw;
+  }
+  /* последняя штука-дрюка */
+  .ris0 {
+    height: 357.488vw;
+  }
+  .banka {
+    left: 80.1vw;
+    top: 41.8vw;
+    width: 15vw;
+    height: 15vw;
+  }
+  .strelka4 {
+    width: 16.908vw;
+    height: 16.908vw;
+    top: 18.7vw;
+    left: 78.5vw;
+    z-index: 50;
+  }
+  .iconklava3 {
+    width: 26.087vw;
+    height: 26.087vw;
+    left: 4.831vw;
+    top: 19.324vw;
+    z-index: 50;
+  }
+  .rech3 {
+    visibility: hidden;
+  }
+  .rech3768 {
+    width: 60.167vw;
+    height: 17.016vw;
+    top: 3.7vw;
+    left: 16vw;
+    position: absolute;
+    display: none;
+    visibility: visible;
+    z-index: 60;
+  }
+  .r3 {
+    font-size: 3.922vw;
+    top: 4vw;
+    left: 21.3vw;
+    z-index: 61;
+  }
+  .ris1,
+  .ris2,
+  .ris3,
+  .ris4,
+  .ris5,
+  .ris6 {
+    height: 357.488vw;
+  }
+  .anf1,
+  .anf2,
+  .anf3,
+  .anf4,
+  .anf5,
+  .anf6,
+  .anf7,
+  .anf8,
+  .anf9,
+  .anf10 {
+    width: 30.713vw;
+    height: 47vw;
+    top: 313.7vw;
   }
 }

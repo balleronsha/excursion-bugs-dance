@@ -32,6 +32,9 @@ function initThree() {
   if (window.innerWidth < 800) {
     camera.position.set(9.5, 0, 0);
   }
+  if (window.innerWidth < 500) {
+    camera.position.set(14, 0, 0);
+  }
   // Рендерер
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   const play2Model = document.querySelector('.play2Model');
@@ -44,7 +47,7 @@ function initThree() {
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
-  controls.maxDistance = 10;
+  controls.maxDistance = 15;
   controls.maxPolarAngle = Math.PI / 2.2;
   // Освещение
   const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
@@ -142,7 +145,7 @@ document.querySelector('.iconklava3').addEventListener('click', function () {
   }
 });
 //
-// адаптивка речь 768
+// адаптивка речь 3 768
 if (window.innerWidth < 800) {
   document.querySelector('.iconklava3').addEventListener('click', function () {
     const rech3 = document.querySelector('.rech3768');
@@ -153,6 +156,20 @@ if (window.innerWidth < 800) {
     } else {
       rech3.style.display = 'none';
       r3.style.display = 'none';
+    }
+  });
+}
+// адаптивка речь 1 414
+if (window.innerWidth < 500) {
+  document.querySelector('.iconklava1').addEventListener('click', function () {
+    const rech1414 = document.querySelector('.rech1414');
+    const r1414 = document.querySelector('.r1414');
+    if (rech1414.style.display === 'none' || rech1414.style.display === '') {
+      rech1414.style.display = 'block';
+      r1414.style.display = 'block';
+    } else {
+      rech1414.style.display = 'none';
+      r1414.style.display = 'none';
     }
   });
 }

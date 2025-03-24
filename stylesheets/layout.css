@@ -190,6 +190,7 @@ body {
 .pustota414 {
   display: none;
 }
+/* эту фигню скрываем в основных блоках, жто для адаптивок всё */
 .dver1-1024,
 #dver21024,
 .dver3-1024,
@@ -201,7 +202,10 @@ body {
 .dver9-1024,
 .dver10-1024,
 .pustota1024,
-.rech3768 {
+.rech3768,
+.rech1414,
+.r1414,
+.pustota414 {
   visibility: hidden;
 }
 .strelka1 {
@@ -395,8 +399,6 @@ body {
   z-index: 10;
   left: 10vw;
   width: 100vw;
-  /* ИСПРАВИТЬ ВЫСОТУ */
-  /* height: 100vw; */
   height: 48.097vw;
   position: absolute;
 }
@@ -515,7 +517,8 @@ body {
   height: 56.223vw;
   position: absolute;
 }
-.zadnick768 {
+.zadnick768,
+.zadnick414 {
   visibility: hidden;
 }
 #drawing {

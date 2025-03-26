@@ -181,15 +181,7 @@ body {
   overflow: clip;
   position: absolute;
 }
-.pustota1024 {
-  display: none;
-}
-.pustota765 {
-  display: none;
-}
-.pustota414 {
-  display: none;
-}
+
 /* эту фигню скрываем в основных блоках, жто для адаптивок всё */
 .dver1-1024,
 #dver21024,
@@ -202,11 +194,18 @@ body {
 .dver9-1024,
 .dver10-1024,
 .pustota1024,
+.pustota414,
+.pustota765,
 .rech3768,
+.rech3414,
+.rech2414,
 .rech1414,
 .r1414,
+.zadnick768,
+.zadnick414,
 .pustota414 {
   visibility: hidden;
+  display: none;
 }
 .strelka1 {
   width: 4.861vw;
@@ -305,7 +304,19 @@ body {
   left: 76vw;
   z-index: 1;
 }
-
+.dver1,
+#dver2,
+.dver3,
+.dver4,
+.dver5,
+.dver6,
+.dver7,
+.dver8,
+.dver9,
+.dver10 {
+  visibility: visible;
+  display: block;
+}
 /* двери */
 .dver1 {
   position: absolute;
@@ -1343,6 +1354,10 @@ body {
   left: 2vw;
 }
 /* РИСУНОК 5 */
+.ris6,
+.ris5 {
+  display: block;
+}
 .ris5 {
   width: 100vw;
   height: 56.223vw;

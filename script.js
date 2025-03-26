@@ -22,18 +22,24 @@ function initThree() {
   const scene = new THREE.Scene();
   // Камера
   const camera = new THREE.PerspectiveCamera(
-    8,
+    15,
     window.innerWidth / window.innerHeight,
     0.1,
     100
   );
-  camera.position.set(8, 0, 0);
+  camera.position.set(4, 0, 0);
 
   if (window.innerWidth < 800) {
-    camera.position.set(9.5, 0, 0);
+    camera.position.set(5, 0, 0);
   }
   if (window.innerWidth < 500) {
-    camera.position.set(14, 0, 0);
+    camera.position.set(7, 0, 0);
+  }
+  if (window.innerWidth > 1600) {
+    camera.position.set(4, 0, 0);
+  }
+  if (window.innerWidth < 400) {
+    camera.position.set(6, 0, 0);
   }
   // Рендерер
   const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -160,7 +166,7 @@ if (window.innerWidth < 800) {
   });
 }
 // адаптивка речь 1 414
-if (window.innerWidth < 500) {
+if (window.innerWidth < 580) {
   document.querySelector('.iconklava1').addEventListener('click', function () {
     const rech1414 = document.querySelector('.rech1414');
     const r1414 = document.querySelector('.r1414');
@@ -170,6 +176,34 @@ if (window.innerWidth < 500) {
     } else {
       rech1414.style.display = 'none';
       r1414.style.display = 'none';
+    }
+  });
+}
+// адаптивка речь 2 414
+if (window.innerWidth < 580) {
+  document.querySelector('.iconklava2').addEventListener('click', function () {
+    const rech2 = document.querySelector('.rech2414');
+    const r2 = document.querySelector('.r2');
+    if (rech2.style.display === 'none' || rech2.style.display === '') {
+      rech2.style.display = 'block';
+      r2.style.display = 'block';
+    } else {
+      rech2.style.display = 'none';
+      r2.style.display = 'none';
+    }
+  });
+}
+// адаптивка речь 3 414
+if (window.innerWidth < 580) {
+  document.querySelector('.iconklava3').addEventListener('click', function () {
+    const rech3 = document.querySelector('.rech3414');
+    const r3 = document.querySelector('.r3');
+    if (rech3.style.display === 'none' || rech3.style.display === '') {
+      rech3.style.display = 'block';
+      r3.style.display = 'block';
+    } else {
+      rech3.style.display = 'none';
+      r3.style.display = 'none';
     }
   });
 }
@@ -767,28 +801,39 @@ document.addEventListener('DOMContentLoaded', () => {
       jumpHeight += jumpSpeed;
       klava.style.top = `${9.5 - jumpHeight / 10}vw`;
     }, 20);
+    if (window.innerWidth < 500) {
+      let jumpHeight = 0;
+      const maxJump = 100; // Максимальная высота прыжка
+      const jumpSpeed = 10;
+      const upInterval = setInterval(() => {
+        if (jumpHeight >= maxJump) {
+          clearInterval(upInterval);
+
+          const downInterval = setInterval(() => {
+            if (jumpHeight <= 0) {
+              clearInterval(downInterval);
+              isJumping = false;
+            }
+            jumpHeight -= jumpSpeed;
+            klava.style.top = `${55 - jumpHeight / 10}vw`;
+          }, 20);
+        }
+        jumpHeight += jumpSpeed;
+        klava.style.top = `${55 - jumpHeight / 10}vw`;
+      }, 20);
+    }
   }
 
   // Устанавливаем начальную позицию
-  let position = 72; // Начальная позиция в vw
+  let position = 72;
 
   // Функция для анимации препятствий
   function moveObstacle() {
-    // Уменьшаем позицию (движение влево)
     position -= 0.8; // Скорость движения
-
-    // Обновляем CSS-свойство left для текущего препятствия
     obstacles[currentObstacleIndex].style.left = `${position}vw`;
-
-    // Проверяем, не вышло ли препятствие за пределы экрана
     if (position <= 0.2) {
-      // Скрываем текущее препятствие
       obstacles[currentObstacleIndex].style.display = 'none';
-
-      // Переходим к следующему препятствию
       currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
-
-      // Показываем следующее препятствие
       obstacles[currentObstacleIndex].style.display = 'block';
       obstacles[currentObstacleIndex].style.left = '72vw'; // Начальная позиция
 
@@ -799,7 +844,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Продолжаем анимацию
     requestAnimationFrame(moveObstacle);
   }
-
   // Запуск событий
   klava.addEventListener('click', jump);
   moveObstacle();

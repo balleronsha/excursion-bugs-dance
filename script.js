@@ -454,6 +454,24 @@ document.querySelector('.knpl3').addEventListener('click', () => {
   document.querySelector('.knpa2').style.display = 'none';
   document.querySelector('.knpl2').style.display = 'inline';
 });
+// обработчик кнопок экран с клавой вперед назад планшет 768
+const uspeh = document.querySelector('.uspeh');
+const vperedButton = document.querySelector('.vpered');
+const nazadButton = document.querySelector('.nazad');
+
+vperedButton.addEventListener('click', () => {
+  uspeh.scrollBy({
+    left: 340,
+    behavior: 'smooth',
+  });
+});
+
+nazadButton.addEventListener('click', () => {
+  uspeh.scrollBy({
+    left: -350,
+    behavior: 'smooth',
+  });
+});
 //
 //
 //
@@ -938,189 +956,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 //
 //
-// document.addEventListener('DOMContentLoaded', () => {
-//   const klava = document.getElementById('klava');
-//   const obstacles = [
-//     document.getElementById('obstacle-type1'),
-//     document.getElementById('obstacle-type2'),
-//     document.getElementById('obstacle-type3'),
-//     document.getElementById('obstacle-type4'),
-//   ];
 
-//   let isJumping = false;
-//   let currentObstacleIndex = 0;
-//   let startPosition = parseFloat(getComputedStyle(klava).bottom) || 0.7;
-
-//   // Функция для прыжка (для ПК)
-//   function jump() {
-//     if (isJumping) return;
-//     isJumping = true;
-
-//     let jumpHeight = 0;
-//     const maxJump = 90;
-//     const jumpSpeed = 5;
-
-//     function moveUp() {
-//       if (jumpHeight >= maxJump) {
-//         return moveDown();
-//       }
-//       jumpHeight += jumpSpeed;
-//       klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
-//       requestAnimationFrame(moveUp);
-//     }
-
-//     function moveDown() {
-//       if (jumpHeight <= 0) {
-//         klava.style.bottom = `${startPosition}vw`;
-//         isJumping = false;
-//         return;
-//       }
-//       jumpHeight -= jumpSpeed;
-//       klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
-//       requestAnimationFrame(moveDown);
-//     }
-
-//     moveUp();
-//   }
-
-//   // Адаптивный прыжок для мобилок
-//   if (window.innerWidth < 580) {
-//     function jump() {
-//       if (isJumping) return;
-//       isJumping = true;
-
-//       let jumpHeight = 0;
-//       const maxJump = 15;
-//       const jumpSpeed = 1;
-
-//       function moveUp() {
-//         if (jumpHeight >= maxJump) {
-//           return moveDown();
-//         }
-//         jumpHeight += jumpSpeed;
-//         klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
-//         requestAnimationFrame(moveUp);
-//       }
-
-//       function moveDown() {
-//         if (jumpHeight <= 0) {
-//           klava.style.bottom = `${startPosition}vw`;
-//           isJumping = false;
-//           return;
-//         }
-//         jumpHeight -= jumpSpeed;
-//         klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
-//         requestAnimationFrame(moveDown);
-//       }
-
-//       moveUp();
-//     }
-//   }
-
-//   // Функция для анимации препятствий
-//   function moveObstacle() {
-//     let position = 72;
-//     function animate() {
-//       position -= 0.8;
-//       obstacles[currentObstacleIndex].style.left = `${position}vw`;
-
-//       if (position <= 0.2) {
-//         obstacles[currentObstacleIndex].style.display = 'none';
-//         currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
-//         obstacles[currentObstacleIndex].style.display = 'block';
-//         obstacles[currentObstacleIndex].style.left = '72vw';
-//         position = 72;
-//       }
-
-//       requestAnimationFrame(animate);
-//     }
-//     animate();
-//   }
-
-//   // Запуск событий
-//   klava.addEventListener('click', jump);
-//   moveObstacle();
-// });
-//
-//
-//
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//   const klava = document.getElementById('klava');
-//   const obstacles = [
-//     document.getElementById('obstacle-type1'),
-//     document.getElementById('obstacle-type2'),
-//     document.getElementById('obstacle-type3'),
-//     document.getElementById('obstacle-type4'),
-//   ];
-
-//   let isJumping = false;
-//   let currentObstacleIndex = 0;
-
-//   // Функция для прыжка
-//   function jump() {
-//     if (isJumping) return;
-//     isJumping = true;
-
-//     let jumpHeight = 0;
-//     const maxJump = 90; // Максимальная высота прыжка
-//     const jumpSpeed = 5; // Скорость прыжка
-
-//     const upInterval = setInterval(() => {
-//       if (jumpHeight >= maxJump) {
-//         clearInterval(upInterval);
-
-//         const downInterval = setInterval(() => {
-//           if (jumpHeight <= 0) {
-//             clearInterval(downInterval);
-//             isJumping = false;
-//           }
-//           jumpHeight -= jumpSpeed;
-//           klava.style.top = `${9.5 - jumpHeight / 10}vw`;
-//         }, 20);
-//       }
-//       jumpHeight += jumpSpeed;
-//       klava.style.top = `${9.5 - jumpHeight / 10}vw`;
-//     }, 20);
-//   }
-
-//   // Устанавливаем начальную позицию
-//   let position = 72;
-
-//   // Функция для анимации препятствий
-//   function moveObstacle() {
-//     position -= 0.8; // Скорость движения
-//     obstacles[currentObstacleIndex].style.left = `${position}vw`;
-//     if (position <= 0.2) {
-//       obstacles[currentObstacleIndex].style.display = 'none';
-//       currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
-//       obstacles[currentObstacleIndex].style.display = 'block';
-//       obstacles[currentObstacleIndex].style.left = '72vw'; // Начальная позиция
-
-//       // Сбрасываем позицию для нового препятствия
-//       position = 72;
-//     }
-
-//     // Продолжаем анимацию
-//     requestAnimationFrame(moveObstacle);
-//   }
-//   // Запуск событий
-//   klava.addEventListener('click', jump);
-//   moveObstacle();
-// });
-//
-//
-//
-//
-//
-
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //

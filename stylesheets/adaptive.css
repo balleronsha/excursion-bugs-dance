@@ -1104,6 +1104,7 @@
 
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width: none;
   }
 
   .uspeh {
@@ -1845,23 +1846,23 @@
   }
   .r1414 {
     font-family: 'SF Pro';
-    font-size: 4.348vw;
+    font-size: 4.6vw;
     position: absolute;
     line-height: 120%;
-    top: 22vw;
-    left: 37.5vw;
+    top: 19vw;
+    left: 29.5vw;
     color: #fff6f9;
   }
   .rech1414 {
     width: 73.188vw;
     height: 25.845vw;
-    top: 18.5vw;
-    left: 27.5vw;
+    top: 16.5vw;
+    left: 21.5vw;
     position: absolute;
   }
   .iconklava1 {
-    width: 26.087vw;
-    height: 26.087vw;
+    width: 19.807vw;
+    height: 19.807vw;
     left: 4.831vw;
     top: 19.324vw;
   }
@@ -2054,6 +2055,7 @@
     right: 10vw;
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width: none;
   }
 
   .uspeh {
@@ -2225,8 +2227,8 @@
   }
 
   .iconklava2 {
-    width: 26.087vw;
-    height: 26.087vw;
+    width: 19.807vw;
+    height: 19.807vw;
     left: 4.831vw;
     top: 19.324vw;
     z-index: 50;
@@ -2238,17 +2240,18 @@
   .rech2414 {
     width: 73.188vw;
     height: 19.807vw;
-    top: 22.464vw;
-    left: 25.845vw;
+    top: 40.464vw;
+    left: 5.845vw;
     position: absolute;
     display: none;
     visibility: visible;
     z-index: 60;
+    transform: scale(1, -1);
   }
   .r2 {
-    font-size: 3.922vw;
-    top: 26vw;
-    left: 35.3vw;
+    font-size: 4.3vw;
+    top: 46vw;
+    left: 13vw;
     z-index: 61;
   }
 
@@ -2270,8 +2273,8 @@
     z-index: 50;
   }
   .iconklava3 {
-    width: 26.087vw;
-    height: 26.087vw;
+    width: 19.807vw;
+    height: 19.807vw;
     left: 4.831vw;
     top: 19.324vw;
     z-index: 50;
@@ -2281,19 +2284,20 @@
     visibility: hidden;
   }
   .rech3414 {
-    width: 73.188vw;
-    height: 19.807vw;
-    top: 22.464vw;
-    left: 25.845vw;
+    width: 75.188vw;
+    height: 21.807vw;
+    top: 40.464vw;
+    left: 4.845vw;
     position: absolute;
     display: none;
     visibility: visible;
     z-index: 60;
+    transform: scale(1, -1);
   }
   .r3 {
-    font-size: 3.922vw;
-    top: 24vw;
-    left: 35.3vw;
+    font-size: 4.4vw;
+    top: 45vw;
+    left: 12.3vw;
     z-index: 61;
   }
   .ris1,
@@ -2311,10 +2315,42 @@
   .anf7,
   .anf8,
   .anf9,
-  .anf10 {
-    width: 30.713vw;
-    height: 47vw;
-    top: 313.7vw;
+  .anf10,
+  .anf12,
+  .anf22,
+  .anf32,
+  .anf42,
+  .anf52,
+  .anf62,
+  .anf72,
+  .anf82,
+  .anf92,
+  .anf102,
+  .anf13,
+  .anf23,
+  .anf33,
+  .anf43,
+  .anf53,
+  .anf63,
+  .anf73,
+  .anf83,
+  .anf93,
+  .anf103,
+  .anf14,
+  .anf24,
+  .anf34,
+  .anf44,
+  .anf54,
+  .anf64,
+  .anf74,
+  .anf84,
+  .anf94,
+  .anf104 {
+    width: 25.713vw;
+    height: 42vw;
+    position: absolute;
+    z-index: 100;
+    display: none;
   }
   .krug1,
   .krug2,
@@ -2361,26 +2397,47 @@
     height: 10vw;
     z-index: 100;
   }
-  /* .rosa1,
-  .rosa2,
-  .rosa3,
-  .rosa4,
-  .rosa5,
-  .rosa6,
-  .rosa7,
-  .rosa8,
-  .rosa9,
-  .rosa10,
-  .sochno1,
-  .sochno2,
-  .sochno3,
-  .sochno4,
-  .sochno5,
-  .sochno6,
-  .sochno7,
-  .sochno8,
-  .sochno9,
-  .sochno10 */
+  /* Позиции для каждого .anf */
+  .anf1 {
+    top: 51.386vw;
+    left: 36.928vw;
+  }
+  .anf2 {
+    top: 103.072vw;
+    left: 13.807vw;
+  }
+  .anf3 {
+    top: 103.072vw;
+    left: 65.464vw;
+  }
+  .anf4 {
+    top: 156.763vw;
+    left: 1vw;
+  }
+  .anf5 {
+    top: 156.763vw;
+    left: 36.928vw;
+  }
+  .anf6 {
+    top: 156.763vw;
+    left: 75.3vw;
+  }
+  .anf7 {
+    top: 214.734vw;
+    left: 14.599vw;
+  }
+  .anf8 {
+    top: 214.734vw;
+    left: 65.256vw;
+  }
+  .anf9 {
+    top: 277.778vw;
+    left: 14.599vw;
+  }
+  .anf10 {
+    top: 277.778vw;
+    left: 65.256vw;
+  }
   .krug1 {
     top: 51.386vw;
     left: 44.928vw;
@@ -2463,9 +2520,50 @@
     top: 319.807vw;
     left: 44.928vw;
   }
+  .anf12 {
+    top: 38.386vw;
+    left: 39.928vw;
+  }
+  .anf22 {
+    top: 85.99vw;
+    left: 9.493vw;
+  }
+  .anf32 {
+    top: 85.99vw;
+    left: 69.638vw;
+  }
+  .anf42 {
+    top: 149.758vw;
+    left: 9.493vw;
+  }
+  .anf52 {
+    top: 149.758vw;
+    left: 69.638vw;
+  }
+  .anf62 {
+    top: 213.527vw;
+    left: 9.493vw;
+  }
+  .anf72 {
+    top: 213.527vw;
+    left: 69.638vw;
+  }
+  .anf82 {
+    top: 277.778vw;
+    left: 9.493vw;
+  }
+  .anf92 {
+    top: 277.778vw;
+    left: 69.638vw;
+  }
+  .anf102 {
+    top: 319.807vw;
+    left: 39.928vw;
+  }
+
   /* РИСУНОК 3 */
   .krugi3 {
-    left: -6vw;
+    left: -10vw;
     position: absolute;
   }
   .ris3 {
@@ -2510,6 +2608,46 @@
   .lotos10 {
     top: 333.816vw;
     left: 85.749vw;
+  }
+  .anf13 {
+    top: 65.459vw;
+    left: 75.749vw;
+  }
+  .anf23 {
+    top: 128.019vw;
+    left: 53.937vw;
+  }
+  .anf33 {
+    top: 128.019vw;
+    left: 75.749vw;
+  }
+  .anf43 {
+    top: 196.135vw;
+    left: 26.401vw;
+  }
+  .anf53 {
+    top: 196.135vw;
+    left: 53.937vw;
+  }
+  .anf63 {
+    top: 196.135vw;
+    left: 75.749vw;
+  }
+  .anf73 {
+    top: 270.531vw;
+    left: 26.401vw;
+  }
+  .anf83 {
+    top: 270.531vw;
+    left: 53.937vw;
+  }
+  .anf93 {
+    top: 270.531vw;
+    left: 75.749vw;
+  }
+  .anf103 {
+    top: 310.816vw;
+    left: 75.749vw;
   }
   /* РИСУНОК 4 */
   .ris4 {
@@ -2556,9 +2694,45 @@
     top: 294.203vw;
     left: 58.696vw;
   }
-  .krugi4 {
-    top: 0vw;
-    left: 0vw;
+  .anf14 {
+    top: 61.594vw;
+    left: 26.159vw;
+  }
+  .anf24 {
+    top: 61.594vw;
+    left: 53.696vw;
+  }
+  .anf34 {
+    top: 108.213vw;
+    left: 8.768vw;
+  }
+  .anf44 {
+    top: 108.213vw;
+    left: 68.913vw;
+  }
+  .anf54 {
+    top: 170.29vw;
+    left: 3.937vw;
+  }
+  .anf64 {
+    top: 170.29vw;
+    left: 75.918vw;
+  }
+  .anf74 {
+    top: 232.367vw;
+    left: 8.768vw;
+  }
+  .anf84 {
+    top: 232.367vw;
+    left: 68.913vw;
+  }
+  .anf94 {
+    top: 294.203vw;
+    left: 26.159vw;
+  }
+  .anf104 {
+    top: 294.203vw;
+    left: 53.696vw;
   }
   /* РИСУНОК 5 6 */
   .ris6,
@@ -2752,6 +2926,7 @@
     right: 10vw;
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width: none;
   }
 
   .vpered {

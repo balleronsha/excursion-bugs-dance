@@ -648,6 +648,186 @@ document.addEventListener('DOMContentLoaded', function () {
     showNextImage();
   });
 });
+// АДАПТИВКАААААААААААА УБРАТЬ 2 РИСУНКА
+if (window.innerWidth < 580) {
+  document.addEventListener('DOMContentLoaded', function () {
+    const banka = document.querySelector('.banka');
+    if (!banka) {
+      console.error('Элемент .banka не найден.');
+      return;
+    }
+
+    const images = ['.ris1', '.ris2', '.ris3', '.ris4'];
+    let currentIndex = 0;
+
+    function showNextImage() {
+      // Скрываем все рисунки
+      images.forEach((img) => {
+        const element = document.querySelector(img);
+        if (element) {
+          element.style.display = 'none';
+        } else {
+          console.error(`Элемент ${img} не найден.`);
+        }
+      });
+
+      // Показываем текущий рисунок
+      const currentImage = document.querySelector(images[currentIndex]);
+      if (currentImage) {
+        currentImage.style.display = 'block';
+      }
+
+      // Увеличиваем индекс или сбрасываем его, если достигнут конец массива
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // Инициализация: скрываем все рисунки и показываем .ris0
+    images.forEach((img) => {
+      const element = document.querySelector(img);
+      if (element) {
+        element.style.display = 'none';
+      }
+    });
+    const ris0 = document.querySelector('.ris0');
+    if (ris0) {
+      ris0.style.display = 'block';
+    }
+
+    // При каждом клике вызываем функцию для показа следующего рисунка
+    banka.addEventListener('click', function () {
+      if (currentIndex === 0) {
+        // Если это первый клик, скрываем .ris0
+        const ris0 = document.querySelector('.ris0');
+        if (ris0) {
+          ris0.style.display = 'none';
+        }
+      }
+      showNextImage();
+    });
+  });
+}
+//
+// Это изменение игры 4 для мобилочки
+if (window.innerWidth < 580) {
+  document.addEventListener('DOMContentLoaded', function () {
+    // Рисунок 1
+    const krugs = document.querySelectorAll(
+      '.krug1, .krug2, .krug3, .krug4, .krug5, .krug6, .krug7, .krug8, .krug9, .krug10'
+    );
+    const anfs = document.querySelectorAll(
+      '.anf1, .anf2, .anf3, .anf4, .anf5, .anf6, .anf7, .anf8, .anf9, .anf10'
+    );
+
+    // Рисунок 2
+    const bublicks = document.querySelectorAll(
+      '.bublick1, .bublick2, .bublick3, .bublick4, .bublick5, .bublick6, .bublick7, .bublick8, .bublick9, .bublick10'
+    );
+    const anfs2 = document.querySelectorAll(
+      '.anf12, .anf22, .anf32, .anf42, .anf52, .anf62, .anf72, .anf82, .anf92, .anf102'
+    );
+
+    // Рисунок 3
+    const lotoss = document.querySelectorAll(
+      '.lotos1, .lotos2, .lotos3, .lotos4, .lotos5, .lotos6, .lotos7, .lotos8, .lotos9, .lotos10'
+    );
+    const anfs3 = document.querySelectorAll(
+      '.anf13, .anf23, .anf33, .anf43, .anf53, .anf63, .anf73, .anf83, .anf93, .anf103'
+    );
+    // Рисунок 4
+    const swags = document.querySelectorAll(
+      '.swag1, .swag2, .swag3, .swag4, .swag5, .swag6, .swag7, .swag8, .swag9, .swag10'
+    );
+    const anfs4 = document.querySelectorAll(
+      '.anf14, .anf24, .anf34, .anf44, .anf54, .anf64, .anf74, .anf84, .anf94, .anf104'
+    );
+    const banka = document.querySelector('.banka');
+
+    // Функция для сброса состояния
+    function resetState() {
+      // Сбрасываем рисунок 1
+      krugs.forEach((krug) => {
+        krug.style.display = 'block';
+      });
+      anfs.forEach((anf) => {
+        anf.style.display = 'none';
+      });
+
+      // Сбрасываем рисунок 2
+      bublicks.forEach((bublick) => {
+        bublick.style.display = 'block';
+      });
+      anfs2.forEach((anf) => {
+        anf.style.display = 'none';
+      });
+
+      // Сбрасываем рисунок 3
+      lotoss.forEach((lotos) => {
+        lotos.style.display = 'block';
+      });
+      anfs3.forEach((anf) => {
+        anf.style.display = 'none';
+      });
+
+      // Сбрасываем рисунок 4
+      swags.forEach((swag) => {
+        swag.style.display = 'block';
+      });
+      anfs4.forEach((anf) => {
+        anf.style.display = 'none';
+      });
+    }
+
+    // Обработчики кликов для рисунка 1
+    krugs.forEach((krug, index) => {
+      krug.addEventListener('click', () => {
+        krug.style.display = 'none';
+        if (anfs[index]) {
+          anfs[index].style.display = 'block';
+        }
+      });
+    });
+
+    // Обработчики кликов для рисунка 2
+    bublicks.forEach((bublick, index) => {
+      bublick.addEventListener('click', () => {
+        bublick.style.display = 'none';
+        if (anfs2[index]) {
+          anfs2[index].style.display = 'block';
+        }
+      });
+    });
+
+    // Обработчики кликов для рисунка 3
+    lotoss.forEach((lotos, index) => {
+      lotos.addEventListener('click', () => {
+        lotos.style.display = 'none';
+        if (anfs3[index]) {
+          anfs3[index].style.display = 'block';
+        }
+      });
+    });
+    // Обработчики кликов для рисунка 4
+    swags.forEach((swag, index) => {
+      swag.addEventListener('click', () => {
+        swag.style.display = 'none';
+        if (anfs4[index]) {
+          anfs4[index].style.display = 'block';
+        }
+      });
+    });
+    // Обработчик клика для кнопки "Сброс"
+    banka.addEventListener('click', () => {
+      resetState();
+    });
+
+    // Инициализация: скрываем все .anf
+    resetState();
+  });
+}
+//
+//
+//
+//
 //
 // ❗️ ПЕРЕМЕЩЕНИЕ АНФИСА
 $(document).ready(function () {
@@ -683,14 +863,12 @@ document.addEventListener('DOMContentLoaded', function () {
     return document.querySelector('.glavsvet').style.display === 'block';
   }
 
-  // Функция для проверки, все ли стрелки нажаты
   function checkStrelki() {
     if (clickedStrelki.every((clicked) => clicked)) {
-      // Если все стрелки нажаты И пользователь на главном экране, показываем div game
       if (isGlavSvetActive()) {
         gameDiv.style.display = 'block';
       } else {
-        gameDiv.style.display = 'none'; // Скрываем подвал, если не на главном экране
+        gameDiv.style.display = 'none';
       }
     }
   }
@@ -760,6 +938,195 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 //
 //
+// document.addEventListener('DOMContentLoaded', () => {
+//   const klava = document.getElementById('klava');
+//   const obstacles = [
+//     document.getElementById('obstacle-type1'),
+//     document.getElementById('obstacle-type2'),
+//     document.getElementById('obstacle-type3'),
+//     document.getElementById('obstacle-type4'),
+//   ];
+
+//   let isJumping = false;
+//   let currentObstacleIndex = 0;
+//   let startPosition = parseFloat(getComputedStyle(klava).bottom) || 0.7;
+
+//   // Функция для прыжка (для ПК)
+//   function jump() {
+//     if (isJumping) return;
+//     isJumping = true;
+
+//     let jumpHeight = 0;
+//     const maxJump = 90;
+//     const jumpSpeed = 5;
+
+//     function moveUp() {
+//       if (jumpHeight >= maxJump) {
+//         return moveDown();
+//       }
+//       jumpHeight += jumpSpeed;
+//       klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
+//       requestAnimationFrame(moveUp);
+//     }
+
+//     function moveDown() {
+//       if (jumpHeight <= 0) {
+//         klava.style.bottom = `${startPosition}vw`;
+//         isJumping = false;
+//         return;
+//       }
+//       jumpHeight -= jumpSpeed;
+//       klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
+//       requestAnimationFrame(moveDown);
+//     }
+
+//     moveUp();
+//   }
+
+//   // Адаптивный прыжок для мобилок
+//   if (window.innerWidth < 580) {
+//     function jump() {
+//       if (isJumping) return;
+//       isJumping = true;
+
+//       let jumpHeight = 0;
+//       const maxJump = 15;
+//       const jumpSpeed = 1;
+
+//       function moveUp() {
+//         if (jumpHeight >= maxJump) {
+//           return moveDown();
+//         }
+//         jumpHeight += jumpSpeed;
+//         klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
+//         requestAnimationFrame(moveUp);
+//       }
+
+//       function moveDown() {
+//         if (jumpHeight <= 0) {
+//           klava.style.bottom = `${startPosition}vw`;
+//           isJumping = false;
+//           return;
+//         }
+//         jumpHeight -= jumpSpeed;
+//         klava.style.bottom = `${startPosition + jumpHeight / 10}vw`;
+//         requestAnimationFrame(moveDown);
+//       }
+
+//       moveUp();
+//     }
+//   }
+
+//   // Функция для анимации препятствий
+//   function moveObstacle() {
+//     let position = 72;
+//     function animate() {
+//       position -= 0.8;
+//       obstacles[currentObstacleIndex].style.left = `${position}vw`;
+
+//       if (position <= 0.2) {
+//         obstacles[currentObstacleIndex].style.display = 'none';
+//         currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
+//         obstacles[currentObstacleIndex].style.display = 'block';
+//         obstacles[currentObstacleIndex].style.left = '72vw';
+//         position = 72;
+//       }
+
+//       requestAnimationFrame(animate);
+//     }
+//     animate();
+//   }
+
+//   // Запуск событий
+//   klava.addEventListener('click', jump);
+//   moveObstacle();
+// });
+//
+//
+//
+//
+// document.addEventListener('DOMContentLoaded', () => {
+//   const klava = document.getElementById('klava');
+//   const obstacles = [
+//     document.getElementById('obstacle-type1'),
+//     document.getElementById('obstacle-type2'),
+//     document.getElementById('obstacle-type3'),
+//     document.getElementById('obstacle-type4'),
+//   ];
+
+//   let isJumping = false;
+//   let currentObstacleIndex = 0;
+
+//   // Функция для прыжка
+//   function jump() {
+//     if (isJumping) return;
+//     isJumping = true;
+
+//     let jumpHeight = 0;
+//     const maxJump = 90; // Максимальная высота прыжка
+//     const jumpSpeed = 5; // Скорость прыжка
+
+//     const upInterval = setInterval(() => {
+//       if (jumpHeight >= maxJump) {
+//         clearInterval(upInterval);
+
+//         const downInterval = setInterval(() => {
+//           if (jumpHeight <= 0) {
+//             clearInterval(downInterval);
+//             isJumping = false;
+//           }
+//           jumpHeight -= jumpSpeed;
+//           klava.style.top = `${9.5 - jumpHeight / 10}vw`;
+//         }, 20);
+//       }
+//       jumpHeight += jumpSpeed;
+//       klava.style.top = `${9.5 - jumpHeight / 10}vw`;
+//     }, 20);
+//   }
+
+//   // Устанавливаем начальную позицию
+//   let position = 72;
+
+//   // Функция для анимации препятствий
+//   function moveObstacle() {
+//     position -= 0.8; // Скорость движения
+//     obstacles[currentObstacleIndex].style.left = `${position}vw`;
+//     if (position <= 0.2) {
+//       obstacles[currentObstacleIndex].style.display = 'none';
+//       currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
+//       obstacles[currentObstacleIndex].style.display = 'block';
+//       obstacles[currentObstacleIndex].style.left = '72vw'; // Начальная позиция
+
+//       // Сбрасываем позицию для нового препятствия
+//       position = 72;
+//     }
+
+//     // Продолжаем анимацию
+//     requestAnimationFrame(moveObstacle);
+//   }
+//   // Запуск событий
+//   klava.addEventListener('click', jump);
+//   moveObstacle();
+// });
+//
+//
+//
+//
+//
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -776,13 +1143,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let isJumping = false;
   let currentObstacleIndex = 0;
 
-  // Функция для прыжка
+  // Функция для прыжка (основная версия)
   function jump() {
     if (isJumping) return;
     isJumping = true;
 
     let jumpHeight = 0;
-    const maxJump = 100; // Максимальная высота прыжка
+    const maxJump = 90; // Максимальная высота прыжка
     const jumpSpeed = 5; // Скорость прыжка
 
     const upInterval = setInterval(() => {
@@ -801,27 +1168,6 @@ document.addEventListener('DOMContentLoaded', () => {
       jumpHeight += jumpSpeed;
       klava.style.top = `${9.5 - jumpHeight / 10}vw`;
     }, 20);
-    if (window.innerWidth < 500) {
-      let jumpHeight = 0;
-      const maxJump = 100; // Максимальная высота прыжка
-      const jumpSpeed = 10;
-      const upInterval = setInterval(() => {
-        if (jumpHeight >= maxJump) {
-          clearInterval(upInterval);
-
-          const downInterval = setInterval(() => {
-            if (jumpHeight <= 0) {
-              clearInterval(downInterval);
-              isJumping = false;
-            }
-            jumpHeight -= jumpSpeed;
-            klava.style.top = `${55 - jumpHeight / 10}vw`;
-          }, 20);
-        }
-        jumpHeight += jumpSpeed;
-        klava.style.top = `${55 - jumpHeight / 10}vw`;
-      }, 20);
-    }
   }
 
   // Устанавливаем начальную позицию
@@ -844,49 +1190,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // Продолжаем анимацию
     requestAnimationFrame(moveObstacle);
   }
+
   // Запуск событий
   klava.addEventListener('click', jump);
   moveObstacle();
-});
-//
-//
-// обработчик кнопок экран с клавой вперед назад планшет 768
-const uspeh = document.querySelector('.uspeh');
-const vperedButton = document.querySelector('.vpered');
-const nazadButton = document.querySelector('.nazad');
 
-vperedButton.addEventListener('click', () => {
-  uspeh.scrollBy({
-    left: 100,
-    behavior: 'smooth',
-  });
-});
+  // АДАПТИВ ДЛЯ МОБИЛОК
+  if (window.innerWidth < 580) {
+    function jumpMobile() {
+      if (isJumping) return;
+      isJumping = true;
 
-nazadButton.addEventListener('click', () => {
-  uspeh.scrollBy({
-    left: -100,
-    behavior: 'smooth',
-  });
+      let jumpHeight = 0;
+      const maxJump = 9.5; // Максимальная высота
+      const jumpSpeed = 0.5; // Скорость
+      let startPosition = parseFloat(klava.style.bottom) || 2; // Стартовая позиция
+
+      const upInterval = setInterval(() => {
+        if (jumpHeight >= maxJump) {
+          clearInterval(upInterval);
+
+          const downInterval = setInterval(() => {
+            if (jumpHeight <= 0) {
+              clearInterval(downInterval);
+              isJumping = false;
+            }
+            jumpHeight -= jumpSpeed;
+            klava.style.bottom = `${startPosition + jumpHeight}vw`;
+          }, 20);
+        }
+        jumpHeight += jumpSpeed;
+        klava.style.bottom = `${startPosition + jumpHeight}vw`;
+      }, 20);
+    }
+
+    // Для мобилок меняем событие
+    klava.removeEventListener('click', jump);
+    klava.addEventListener('click', jumpMobile);
+  }
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //

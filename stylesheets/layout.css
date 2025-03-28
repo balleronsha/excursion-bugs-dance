@@ -513,7 +513,7 @@ body {
 .canvas {
   position: absolute;
   width: 100vw;
-  height: 48.097vw;
+  height: 48vw;
   background-color: #fcf3f3;
   display: block;
   z-index: 3;
@@ -1753,7 +1753,8 @@ body {
 #obstacle-type2,
 #obstacle-type3,
 #obstacle-type4 {
-  top: 20vw;
+  /* top: 20vw; */
+  bottom: 0.2vw;
   left: 72vw;
   font-family: 'SF Pro';
   font-size: 1.8vw;

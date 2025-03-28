@@ -514,6 +514,13 @@ document.addEventListener('DOMContentLoaded', () => {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
+  const dpr = window.devicePixelRatio || 1; // Учёт плотности пикселей
+  canvas.style.width = '100vw';
+  canvas.style.height = '48vw';
+  canvas.width = Math.floor(window.innerWidth * dpr);
+  canvas.height = Math.floor(window.innerWidth * 0.48 * dpr); // Соотношение сторон 100vw : 48vw
+  ctx.scale(dpr, dpr);
+
   // Переменные для рисования
   let lineW = 5;
   let prevX = null;
@@ -956,11 +963,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 //
 //
-
-//
-//
-//
-//
 //
 //
 //
@@ -978,15 +980,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let isJumping = false;
   let currentObstacleIndex = 0;
+  let position = 75;
+  let initialBottom = 0.7; // Фикси начальную позицию
+  let obstacleSpeed = 0.8; // Базовая скорость для десктопа
 
-  // Функция для прыжка (основная версия)
-  function jump() {
+  // ОСНОВНАЯ ВЕРСИЯ
+  function jumpDesktop() {
     if (isJumping) return;
     isJumping = true;
 
     let jumpHeight = 0;
-    const maxJump = 90; // Максимальная высота прыжка
-    const jumpSpeed = 5; // Скорость прыжка
+    const maxJump = 90;
+    const jumpSpeed = 5;
 
     const upInterval = setInterval(() => {
       if (jumpHeight >= maxJump) {
@@ -1006,68 +1011,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 20);
   }
 
-  // Устанавливаем начальную позицию
-  let position = 72;
-
-  // Функция для анимации препятствий
+  // Функция для анимации препятствий с учётом скорости
   function moveObstacle() {
-    position -= 0.8; // Скорость движения
+    position -= obstacleSpeed; // Используем изменённую скорость
     obstacles[currentObstacleIndex].style.left = `${position}vw`;
+
     if (position <= 0.2) {
       obstacles[currentObstacleIndex].style.display = 'none';
       currentObstacleIndex = (currentObstacleIndex + 1) % obstacles.length;
       obstacles[currentObstacleIndex].style.display = 'block';
-      obstacles[currentObstacleIndex].style.left = '72vw'; // Начальная позиция
-
-      // Сбрасываем позицию для нового препятствия
+      obstacles[currentObstacleIndex].style.left = '72vw';
       position = 72;
     }
 
-    // Продолжаем анимацию
     requestAnimationFrame(moveObstacle);
   }
 
-  // Запуск событий
-  klava.addEventListener('click', jump);
+  // МОБИЛЬНАЯ ВЕРСИЯ (исправленный прыжок)
+  function jumpMobile() {
+    if (isJumping) return;
+    isJumping = true;
+
+    let jumpHeight = 0;
+    const maxJump = 40;
+    const jumpSpeed = 2.5;
+
+    klava.style.bottom = `${initialBottom}vw`;
+
+    const upInterval = setInterval(() => {
+      if (jumpHeight >= maxJump) {
+        clearInterval(upInterval);
+
+        const downInterval = setInterval(() => {
+          if (jumpHeight <= 0) {
+            clearInterval(downInterval);
+            isJumping = false;
+            klava.style.bottom = `${initialBottom}vw`;
+          }
+          jumpHeight -= jumpSpeed;
+          klava.style.bottom = `${initialBottom + jumpHeight}vw`;
+        }, 20);
+      }
+      jumpHeight += jumpSpeed;
+      klava.style.bottom = `${initialBottom + jumpHeight}vw`;
+    }, 20);
+  }
+
+  // ======== ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ МЕЖДУ ВЕРСИЯМИ ======== //
+  function setupControls() {
+    if (window.innerWidth < 580) {
+      klava.removeEventListener('click', jumpDesktop);
+      klava.addEventListener('click', jumpMobile);
+      klava.style.top = '';
+      klava.style.bottom = `${initialBottom}vw`; // Фиксируем стартовое положение мобилки
+      obstacleSpeed = 1.5; // Увеличиваем скорость препятствий для мобильных
+    } else {
+      klava.removeEventListener('click', jumpMobile);
+      klava.addEventListener('click', jumpDesktop);
+      klava.style.bottom = '';
+      klava.style.top = '9.5vw';
+      obstacleSpeed = 0.8; // Обычная скорость для десктопа
+    }
+  }
+
+  // Запускаем нужную версию при загрузке
+  setupControls();
   moveObstacle();
 
-  // АДАПТИВ ДЛЯ МОБИЛОК
-  if (window.innerWidth < 580) {
-    function jumpMobile() {
-      if (isJumping) return;
-      isJumping = true;
-
-      let jumpHeight = 0;
-      const maxJump = 9.5; // Максимальная высота
-      const jumpSpeed = 0.5; // Скорость
-      let startPosition = parseFloat(klava.style.bottom) || 2; // Стартовая позиция
-
-      const upInterval = setInterval(() => {
-        if (jumpHeight >= maxJump) {
-          clearInterval(upInterval);
-
-          const downInterval = setInterval(() => {
-            if (jumpHeight <= 0) {
-              clearInterval(downInterval);
-              isJumping = false;
-            }
-            jumpHeight -= jumpSpeed;
-            klava.style.bottom = `${startPosition + jumpHeight}vw`;
-          }, 20);
-        }
-        jumpHeight += jumpSpeed;
-        klava.style.bottom = `${startPosition + jumpHeight}vw`;
-      }, 20);
-    }
-
-    // Для мобилок меняем событие
-    klava.removeEventListener('click', jump);
-    klava.addEventListener('click', jumpMobile);
-  }
+  // Слушаем изменения размера окна
+  window.addEventListener('resize', setupControls);
 });
 //
 //
 //
 //
+//
+//
+// Ура, это конец
 // КУРАТОРЫ, СПАСИБО ВАМ БОЛЬШОЕ ЗА ЭТОТ МОДУЛЬ ! ВЫ СУПЕР! 🥰❤️
 // я выжила почти

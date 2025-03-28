@@ -2769,14 +2769,12 @@
     background-repeat: no-repeat;
     position: absolute;
     left: 20vw;
-    bottom: 0.7vw;
   }
 
   #obstacle-type1,
   #obstacle-type2,
   #obstacle-type3,
   #obstacle-type4 {
-    top: 20vw;
     left: 72vw;
     font-family: 'SF Pro';
     font-size: 4.8vw;
@@ -2785,7 +2783,6 @@
     color: #fff6f9;
     z-index: 15;
     top: 85vw;
-    bottom: 2vw;
   }
 }
 @media screen and (max-width: 400px) {

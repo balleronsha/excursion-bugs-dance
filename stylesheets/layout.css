@@ -203,7 +203,15 @@ body {
 .r1414,
 .zadnick768,
 .zadnick414,
-.pustota414 {
+.pustota414,
+.zadnic768zel,
+.zadnick768roz,
+.zadnick768kras,
+.zadnick768ser,
+.zadnick414zel,
+.zadnick414roz,
+.zadnick414kras,
+.zadnick414ser {
   visibility: hidden;
   display: none;
 }

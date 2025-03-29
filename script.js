@@ -18,7 +18,7 @@ function initThree() {
   const container = document.querySelector('.zagruzka'); // Контейнер для 3D
   const width = container.clientWidth;
   const height = container.clientHeight;
-  // Создаем сцену
+  // Создаю сцену
   const scene = new THREE.Scene();
   // Камера
   const camera = new THREE.PerspectiveCamera(
@@ -388,13 +388,13 @@ document.addEventListener('DOMContentLoaded', function () {
     new Howl({ src: ['music/swan.mp3'], html5: true }), // Трек 2
     new Howl({ src: ['music/masha.mp3'], html5: true }), // Трек 3
   ];
-  let currentTrackIndex = -1; // Переменная для отслеживания текущего трека
-  // Функция для воспроизведения трека
+  let currentTrackIndex = -1; // Переменная для  трека
+  // Функция для ля ля ля ля трека
   function playTrack(index) {
     stopAllTracks(); // Останавливаю все треки перед воспроизведением нового
     currentTrackIndex = index; // Обновляю текущий индекс трека
     console.log('Воспроизведение трека: ' + index);
-    tracks[index].play(); // Воспроизвожу трек
+    tracks[index].play(); //  трек
   }
 
   // Функция для паузы трека
@@ -408,7 +408,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tracks.forEach((track) => track.stop()); // Останавливаю все треки
   }
 
-  // Привязываем кнопки для воспроизведения треков
+  //  кнопки для воспроизведения треков
   document
     .querySelector('.knpl1')
     .addEventListener('click', () => playTrack(0));
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .querySelector('.knpl3')
     .addEventListener('click', () => playTrack(2));
 
-  // Привязываем кнопки для паузы треков
+  //  кнопки для паузы треков
   document
     .querySelector('.knpa1')
     .addEventListener('click', () => pauseTrack(0));
@@ -493,40 +493,48 @@ document.querySelector('.strelka3').addEventListener('click', function () {
   document.querySelector('.play3').style.display = 'none';
   document.querySelector('.glavsvet').style.display = 'block';
 
-  // Меняем изображение на dver402temnota
+  // Меняю изображение на dver402temnota
   document.querySelector('.dverconsvet').src = 'images/dvercontemnota.svg';
 });
 
 //
 //
+//РИСОВАЛОЧКА МОЯ КРИВАЯ ЛЮБИМАЯ 😇
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('drawing');
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
+  // Устанавливаем размеры канваса
   function resizeCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.style.width = '100vw';
-    canvas.style.height = '48vw';
-    canvas.width = Math.floor(window.innerWidth * dpr);
-    canvas.height = Math.floor(window.innerWidth * 0.48 * dpr);
-    ctx.scale(dpr, dpr);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
+  const dpr = window.devicePixelRatio || 1; // Учёт плотности пикселей
+  canvas.style.width = '100vw';
+  canvas.style.height = '48vw';
+  canvas.width = Math.floor(window.innerWidth * dpr);
+  canvas.height = Math.floor(window.innerWidth * 0.48 * dpr); // Соотношение сторон 100vw : 48vw
+  ctx.scale(dpr, dpr);
+
+  // Переменные для рисования
   let lineW = 5;
-  let draw = false;
   let prevX = null;
   let prevY = null;
+  let draw = false;
 
+  // Начальные настройки
   ctx.lineWidth = lineW;
   ctx.strokeStyle = '#877177';
-  ctx.lineCap = 'round';
 
+  // Функция для выбора цвета
   function setCurrentColor(color) {
     ctx.strokeStyle = color;
   }
 
+  // Обработчики выбора цвета
   document
     .getElementById('seroe')
     .addEventListener('click', () => setCurrentColor('#877177'));
@@ -540,186 +548,112 @@ document.addEventListener('DOMContentLoaded', () => {
     .getElementById('zelenoe')
     .addEventListener('click', () => setCurrentColor('#66a865'));
 
-  document
-    .querySelector('.musor')
-    .addEventListener('click', () =>
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-    );
+  // Кнопка очистки
+  const clearBtn = document.querySelector('.musor');
+  clearBtn.addEventListener('click', () =>
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  );
 
+  // Проверка, активен ли экран play3
   function isPlay3Active() {
-    return document.querySelector('.play3').style.display === 'block';
+    return document.querySelector('.play3')?.style.display === 'block';
   }
 
+  // Обработчики событий мыши
+  window.addEventListener('mousedown', (e) => {
+    if (!isPlay3Active()) return; // Рисую только на экране play3
+
+    const rect = canvas.getBoundingClientRect();
+    prevX = e.clientX - rect.left;
+    prevY = e.clientY - rect.top;
+
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    draw = true;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isPlay3Active()) return; // Рисую только на экране play3
+
+    draw = false;
+    prevX = null;
+    prevY = null;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isPlay3Active() || !draw) return; // Рисую только на экране play3
+
+    const rect = canvas.getBoundingClientRect();
+    let currentX = e.clientX - rect.left;
+    let currentY = e.clientY - rect.top;
+
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    ctx.lineTo(currentX, currentY);
+    ctx.stroke();
+
+    prevX = currentX;
+    prevY = currentY;
+  });
+
+  // Получаем кнопку reset
+  const resetBtn = document.getElementById('reset');
+
   if (window.innerWidth < 800) {
-    canvas.addEventListener('touchstart', (e) => {
-      if (!isPlay3Active()) return;
-      const rect = canvas.getBoundingClientRect();
-      const touch = e.touches[0];
-      prevX = touch.clientX - rect.left;
-      prevY = touch.clientY - rect.top;
-      draw = true;
+    let colors = document.querySelectorAll('.clr');
+    let img = document.querySelector('.zadnick768');
+    canvas.style.height = '0.1vw';
+
+    colors.forEach((color) => {
+      color.addEventListener('click', () => {
+        let colorId = color.id;
+
+        if (colorId === 'krasnoe') {
+          img.src = 'images/zadnick768kras.svg';
+        } else if (colorId === 'seroe') {
+          img.src = 'images/zadnick768ser.svg';
+        } else if (colorId === 'rozovoe') {
+          img.src = 'images/zadnick768roz.svg';
+        } else if (colorId === 'zelenoe') {
+          img.src = 'images/zadnick768zel.svg';
+        }
+      });
     });
 
-    canvas.addEventListener(
-      'touchmove',
-      (e) => {
-        if (!isPlay3Active() || !draw) return;
-        e.preventDefault();
-        const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
-        let currentX = touch.clientX - rect.left;
-        let currentY = touch.clientY - rect.top;
-
-        ctx.beginPath();
-        ctx.moveTo(prevX, prevY);
-        ctx.lineTo(currentX, currentY);
-        ctx.stroke();
-
-        prevX = currentX;
-        prevY = currentY;
-      },
-      { passive: false }
-    );
-
-    canvas.addEventListener('touchend', () => {
-      draw = false;
-      prevX = null;
-      prevY = null;
+    resetBtn?.addEventListener('click', () => {
+      img.src = 'images/zadnick768.svg';
     });
-  } else {
-    window.addEventListener('mousedown', (e) => {
-      if (!isPlay3Active()) return;
-      const rect = canvas.getBoundingClientRect();
-      prevX = e.clientX - rect.left;
-      prevY = e.clientY - rect.top;
-      ctx.beginPath();
-      ctx.moveTo(prevX, prevY);
-      draw = true;
+  }
+
+  if (window.innerWidth < 580) {
+    let colors = document.querySelectorAll('.clr');
+    let img = document.querySelector('.zadnick414');
+    canvas.style.height = '0.1vw';
+
+    colors.forEach((color) => {
+      color.addEventListener('click', () => {
+        let colorId = color.id;
+
+        if (colorId === 'krasnoe') {
+          img.src = 'images/zadnick414kras.svg';
+        } else if (colorId === 'seroe') {
+          img.src = 'images/zadnick414ser.svg';
+        } else if (colorId === 'rozovoe') {
+          img.src = 'images/zadnick414roz.svg';
+        } else if (colorId === 'zelenoe') {
+          img.src = 'images/zadnick414zel.svg';
+        }
+      });
     });
 
-    window.addEventListener('mouseup', () => {
-      draw = false;
-      prevX = null;
-      prevY = null;
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (!isPlay3Active() || !draw) return;
-      const rect = canvas.getBoundingClientRect();
-      let currentX = e.clientX - rect.left;
-      let currentY = e.clientY - rect.top;
-      ctx.beginPath();
-      ctx.moveTo(prevX, prevY);
-      ctx.lineTo(currentX, currentY);
-      ctx.stroke();
-      prevX = currentX;
-      prevY = currentY;
+    resetBtn?.addEventListener('click', () => {
+      img.src = 'images/zadnick414.svg';
     });
   }
 });
-
-//
-// //
-// //РИСОВАЛОЧКА МОЯ КРИВАЯ ЛЮБИМАЯ 😇
-// document.addEventListener('DOMContentLoaded', () => {
-//   const canvas = document.getElementById('drawing');
-//   const ctx = canvas.getContext('2d', { willReadFrequently: true });
-
-//   // Устанавливаем размеры канваса
-//   function resizeCanvas() {
-//     canvas.width = window.innerWidth;
-//     canvas.height = window.innerHeight;
-//   }
-//   resizeCanvas();
-//   window.addEventListener('resize', resizeCanvas);
-
-//   const dpr = window.devicePixelRatio || 1; // Учёт плотности пикселей
-//   canvas.style.width = '100vw';
-//   canvas.style.height = '48vw';
-//   canvas.width = Math.floor(window.innerWidth * dpr);
-//   canvas.height = Math.floor(window.innerWidth * 0.48 * dpr); // Соотношение сторон 100vw : 48vw
-//   ctx.scale(dpr, dpr);
-
-//   // Переменные для рисования
-//   let lineW = 5;
-//   let prevX = null;
-//   let prevY = null;
-//   let draw = false;
-
-//   // Начальные настройки
-//   ctx.lineWidth = lineW;
-//   ctx.strokeStyle = '#877177';
-
-//   // Функция для выбора цвета
-//   function setCurrentColor(color) {
-//     ctx.strokeStyle = color;
-//   }
-
-//   // Обработчики выбора цвета
-//   document
-//     .getElementById('seroe')
-//     .addEventListener('click', () => setCurrentColor('#877177'));
-//   document
-//     .getElementById('rozovoe')
-//     .addEventListener('click', () => setCurrentColor('#d37995'));
-//   document
-//     .getElementById('krasnoe')
-//     .addEventListener('click', () => setCurrentColor('#963b50'));
-//   document
-//     .getElementById('zelenoe')
-//     .addEventListener('click', () => setCurrentColor('#66a865'));
-
-//   // Кнопка очистки
-//   const clearBtn = document.querySelector('.musor');
-//   clearBtn.addEventListener('click', () =>
-//     ctx.clearRect(0, 0, canvas.width, canvas.height)
-//   );
-
-//   // Проверка, активен ли экран play3
-//   function isPlay3Active() {
-//     return document.querySelector('.play3').style.display === 'block';
-//   }
-
-//   // Обработчики событий мыши
-//   window.addEventListener('mousedown', (e) => {
-//     if (!isPlay3Active()) return; // Рисую только на экране play3
-
-//     const rect = canvas.getBoundingClientRect();
-//     prevX = e.clientX - rect.left;
-//     prevY = e.clientY - rect.top;
-
-//     ctx.beginPath();
-//     ctx.moveTo(prevX, prevY);
-//     draw = true;
-//   });
-
-//   window.addEventListener('mouseup', () => {
-//     if (!isPlay3Active()) return; // Рисую только на экране play3
-
-//     draw = false;
-//     prevX = null;
-//     prevY = null;
-//   });
-
-//   window.addEventListener('mousemove', (e) => {
-//     if (!isPlay3Active() || !draw) return; // Рисую только на экране play3
-
-//     const rect = canvas.getBoundingClientRect();
-//     let currentX = e.clientX - rect.left;
-//     let currentY = e.clientY - rect.top;
-
-//     ctx.beginPath();
-//     ctx.moveTo(prevX, prevY);
-//     ctx.lineTo(currentX, currentY);
-//     ctx.stroke();
-
-//     prevX = currentX;
-//     prevY = currentY;
-//   });
-// });
-
 //
 //
+
 //
 //
 // ИГРА 4 ЕЕЕЕ ПОЧТИ КОНЕЦ
@@ -748,7 +682,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let currentIndex = 0;
 
   function showNextImage() {
-    // Скрываем все рисунки
+    // Скрываю все рисунки
     images.forEach((img) => {
       const element = document.querySelector(img);
       if (element) {
@@ -758,17 +692,17 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Показываем текущий рисунок
+    // Показываю текущий рисунок
     const currentImage = document.querySelector(images[currentIndex]);
     if (currentImage) {
       currentImage.style.display = 'block';
     }
 
-    // Увеличиваем индекс или сбрасываем его, если достигнут конец массива
+    // Увеличиваю индекс или сбрасываю  его, если достигнут конец массива
     currentIndex = (currentIndex + 1) % images.length;
   }
 
-  // Инициализация: скрываем все рисунки и показываем .ris0
+  // скрываю все рисунки и показываем .ris0
   images.forEach((img) => {
     const element = document.querySelector(img);
     if (element) {
@@ -780,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ris0.style.display = 'block';
   }
 
-  // При каждом клике вызываем функцию для показа следующего рисунка
+  // При каждом клике вызываю функцию для показа следующего рисунка
   banka.addEventListener('click', function () {
     if (currentIndex === 0) {
       // Если это первый клик, скрываем .ris0
@@ -805,7 +739,7 @@ if (window.innerWidth < 580) {
     let currentIndex = 0;
 
     function showNextImage() {
-      // Скрываем все рисунки
+      // Скрываю все рисунки
       images.forEach((img) => {
         const element = document.querySelector(img);
         if (element) {
@@ -815,17 +749,17 @@ if (window.innerWidth < 580) {
         }
       });
 
-      // Показываем текущий рисунок
+      // Показываю текущий рисунок
       const currentImage = document.querySelector(images[currentIndex]);
       if (currentImage) {
         currentImage.style.display = 'block';
       }
 
-      // Увеличиваем индекс или сбрасываем его, если достигнут конец массива
+      // Увеличиваю индекс или сбрасываю его, если достигнут конец массива
       currentIndex = (currentIndex + 1) % images.length;
     }
 
-    // Инициализация: скрываем все рисунки и показываем .ris0
+    //  скрываю все рисунки и показываем .ris0
     images.forEach((img) => {
       const element = document.querySelector(img);
       if (element) {
@@ -837,7 +771,7 @@ if (window.innerWidth < 580) {
       ris0.style.display = 'block';
     }
 
-    // При каждом клике вызываем функцию для показа следующего рисунка
+    // При клике нажимаю функцию для показа следующего рисунка
     banka.addEventListener('click', function () {
       if (currentIndex === 0) {
         // Если это первый клик, скрываем .ris0
@@ -888,7 +822,7 @@ if (window.innerWidth < 580) {
 
     // Функция для сброса состояния
     function resetState() {
-      // Сбрасываем рисунок 1
+      // Сбрасываю рисунок 1
       krugs.forEach((krug) => {
         krug.style.display = 'block';
       });
@@ -896,7 +830,7 @@ if (window.innerWidth < 580) {
         anf.style.display = 'none';
       });
 
-      // Сбрасываем рисунок 2
+      // Сбрасываю рисунок 2
       bublicks.forEach((bublick) => {
         bublick.style.display = 'block';
       });
@@ -904,7 +838,7 @@ if (window.innerWidth < 580) {
         anf.style.display = 'none';
       });
 
-      // Сбрасываем рисунок 3
+      // Сбрасываю рисунок 3
       lotoss.forEach((lotos) => {
         lotos.style.display = 'block';
       });
@@ -912,7 +846,7 @@ if (window.innerWidth < 580) {
         anf.style.display = 'none';
       });
 
-      // Сбрасываем рисунок 4
+      // Сбрасываю рисунок 4
       swags.forEach((swag) => {
         swag.style.display = 'block';
       });
@@ -964,7 +898,7 @@ if (window.innerWidth < 580) {
       resetState();
     });
 
-    // Инициализация: скрываем все .anf
+    // Инициализация: скрываю все .anf
     resetState();
   });
 }
@@ -1000,7 +934,7 @@ document.addEventListener('DOMContentLoaded', function () {
     '.strelka1, .strelka2, .strelka3, .strelka4'
   );
   const gameDiv = document.querySelector('.game');
-  // Создаем массив для отслеживания состояния стрелок
+  // Создаю массив для отслеживания состояния стрелок
   const clickedStrelki = Array(strelki.length).fill(false);
   // Функция для проверки, находится ли пользователь на главном экране
   function isGlavSvetActive() {
@@ -1017,18 +951,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Добавляем обработчики кликов на каждую стрелку
+  // Добавляею обработчики кликов на каждую стрелку
   strelki.forEach((strelka, index) => {
     strelka.addEventListener('click', function () {
-      // Отмечаем, что стрелка была нажата
+      // Отмечаею, что стрелка была нажата
       clickedStrelki[index] = true;
 
-      // Проверяем состояние всех стрелок
+      // Проверяю состояние всех стрелок
       checkStrelki();
     });
   });
 
-  // Добавляем обработчик события, чтобы скрывать подвал при переходе на другие экраны
+  // Добавляю обработчик события, чтобы скрывать подвал при переходе на другие экраны
   document.addEventListener('click', function (e) {
     if (!isGlavSvetActive()) {
       gameDiv.style.display = 'none';
@@ -1132,7 +1066,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Функция для анимации препятствий с учётом скорости
   function moveObstacle() {
-    position -= obstacleSpeed; // Используем изменённую скорость
+    position -= obstacleSpeed; // Использую изменённую скорость
     obstacles[currentObstacleIndex].style.left = `${position}vw`;
 
     if (position <= 0.2) {
@@ -1176,14 +1110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 20);
   }
 
-  // ======== ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ МЕЖДУ ВЕРСИЯМИ ======== //
   function setupControls() {
     if (window.innerWidth < 580) {
       klava.removeEventListener('click', jumpDesktop);
       klava.addEventListener('click', jumpMobile);
       klava.style.top = '';
       klava.style.bottom = `${initialBottom}vw`; // Фиксируем стартовое положение мобилки
-      obstacleSpeed = 1.5; // Увеличиваем скорость препятствий для мобильных
+      obstacleSpeed = 0.5; // Увеличиваем скорость препятствий для мобильных
     } else {
       klava.removeEventListener('click', jumpMobile);
       klava.addEventListener('click', jumpDesktop);
@@ -1192,12 +1125,10 @@ document.addEventListener('DOMContentLoaded', () => {
       obstacleSpeed = 0.8; // Обычная скорость для десктопа
     }
   }
-
-  // Запускаем нужную версию при загрузке
+  // нужная версию при загрузке
   setupControls();
   moveObstacle();
 
-  // Слушаем изменения размера окна
   window.addEventListener('resize', setupControls);
 });
 //
@@ -1208,4 +1139,4 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // Ура, это конец
 // КУРАТОРЫ, СПАСИБО ВАМ БОЛЬШОЕ ЗА ЭТОТ МОДУЛЬ ! ВЫ СУПЕР! 🥰❤️
-// я выжила почти
+// я выжила почти, ааааааааа ураааааааа

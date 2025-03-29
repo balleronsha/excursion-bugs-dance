@@ -1217,6 +1217,7 @@
     width: 100vw;
     height: 125.098vw;
     background-color: #fcf3f3;
+    z-index: 2;
   }
   .zadnick {
     display: none;
@@ -1225,16 +1226,23 @@
     width: 100vw;
     height: 133.856vw;
     visibility: visible;
-    display: contents;
     display: block;
+  }
+  .zadnick414zel,
+  .zadnick414roz,
+  .zadnick414kras,
+  .zadnick414ser {
+    width: 100vw;
+    height: 133.333vw;
+    overflow: visible;
+    display: none;
   }
   #drawing {
     position: absolute;
     width: 100vw;
-    height: 125.098vw;
+    height: 0.1vw;
     background-color: #fcf3f3;
     display: block;
-    z-index: 3;
   }
 
   #seroe {
@@ -2178,10 +2186,21 @@
     overflow: hidden;
     display: block;
   }
+  .zadnick414zel,
+  .zadnick414roz,
+  .zadnick414kras,
+  .zadnick414ser {
+    width: 100vw;
+    height: 301.449vw;
+    visibility: visible;
+    overflow: hidden;
+    display: none;
+    z-index: 1;
+  }
   #drawing {
     position: absolute;
     width: 100vw;
-    height: 285vw;
+    height: 0.1vw;
     background-color: #fcf3f3;
     display: block;
     z-index: 3;

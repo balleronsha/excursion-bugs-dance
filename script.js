@@ -499,44 +499,34 @@ document.querySelector('.strelka3').addEventListener('click', function () {
 
 //
 //
-//
-//
-//РИСОВАЛОЧКА МОЯ КРИВАЯ ЛЮБИМАЯ 😇
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('drawing');
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
 
-  // Устанавливаем размеры канваса
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.style.width = '100vw';
+    canvas.style.height = '48vw';
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerWidth * 0.48 * dpr);
+    ctx.scale(dpr, dpr);
   }
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const dpr = window.devicePixelRatio || 1; // Учёт плотности пикселей
-  canvas.style.width = '100vw';
-  canvas.style.height = '48vw';
-  canvas.width = Math.floor(window.innerWidth * dpr);
-  canvas.height = Math.floor(window.innerWidth * 0.48 * dpr); // Соотношение сторон 100vw : 48vw
-  ctx.scale(dpr, dpr);
-
-  // Переменные для рисования
   let lineW = 5;
+  let draw = false;
   let prevX = null;
   let prevY = null;
-  let draw = false;
 
-  // Начальные настройки
   ctx.lineWidth = lineW;
   ctx.strokeStyle = '#877177';
+  ctx.lineCap = 'round';
 
-  // Функция для выбора цвета
   function setCurrentColor(color) {
     ctx.strokeStyle = color;
   }
 
-  // Обработчики выбора цвета
   document
     .getElementById('seroe')
     .addEventListener('click', () => setCurrentColor('#877177'));
@@ -550,54 +540,183 @@ document.addEventListener('DOMContentLoaded', () => {
     .getElementById('zelenoe')
     .addEventListener('click', () => setCurrentColor('#66a865'));
 
-  // Кнопка очистки
-  const clearBtn = document.querySelector('.musor');
-  clearBtn.addEventListener('click', () =>
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-  );
+  document
+    .querySelector('.musor')
+    .addEventListener('click', () =>
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+    );
 
-  // Проверка, активен ли экран play3
   function isPlay3Active() {
     return document.querySelector('.play3').style.display === 'block';
   }
 
-  // Обработчики событий мыши
-  window.addEventListener('mousedown', (e) => {
-    if (!isPlay3Active()) return; // Рисую только на экране play3
+  if (window.innerWidth < 800) {
+    canvas.addEventListener('touchstart', (e) => {
+      if (!isPlay3Active()) return;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      prevX = touch.clientX - rect.left;
+      prevY = touch.clientY - rect.top;
+      draw = true;
+    });
 
-    const rect = canvas.getBoundingClientRect();
-    prevX = e.clientX - rect.left;
-    prevY = e.clientY - rect.top;
+    canvas.addEventListener(
+      'touchmove',
+      (e) => {
+        if (!isPlay3Active() || !draw) return;
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        let currentX = touch.clientX - rect.left;
+        let currentY = touch.clientY - rect.top;
 
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    draw = true;
-  });
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currentX, currentY);
+        ctx.stroke();
 
-  window.addEventListener('mouseup', () => {
-    if (!isPlay3Active()) return; // Рисую только на экране play3
+        prevX = currentX;
+        prevY = currentY;
+      },
+      { passive: false }
+    );
 
-    draw = false;
-    prevX = null;
-    prevY = null;
-  });
+    canvas.addEventListener('touchend', () => {
+      draw = false;
+      prevX = null;
+      prevY = null;
+    });
+  } else {
+    window.addEventListener('mousedown', (e) => {
+      if (!isPlay3Active()) return;
+      const rect = canvas.getBoundingClientRect();
+      prevX = e.clientX - rect.left;
+      prevY = e.clientY - rect.top;
+      ctx.beginPath();
+      ctx.moveTo(prevX, prevY);
+      draw = true;
+    });
 
-  window.addEventListener('mousemove', (e) => {
-    if (!isPlay3Active() || !draw) return; // Рисую только на экране play3
+    window.addEventListener('mouseup', () => {
+      draw = false;
+      prevX = null;
+      prevY = null;
+    });
 
-    const rect = canvas.getBoundingClientRect();
-    let currentX = e.clientX - rect.left;
-    let currentY = e.clientY - rect.top;
-
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currentX, currentY);
-    ctx.stroke();
-
-    prevX = currentX;
-    prevY = currentY;
-  });
+    window.addEventListener('mousemove', (e) => {
+      if (!isPlay3Active() || !draw) return;
+      const rect = canvas.getBoundingClientRect();
+      let currentX = e.clientX - rect.left;
+      let currentY = e.clientY - rect.top;
+      ctx.beginPath();
+      ctx.moveTo(prevX, prevY);
+      ctx.lineTo(currentX, currentY);
+      ctx.stroke();
+      prevX = currentX;
+      prevY = currentY;
+    });
+  }
 });
+
+//
+// //
+// //РИСОВАЛОЧКА МОЯ КРИВАЯ ЛЮБИМАЯ 😇
+// document.addEventListener('DOMContentLoaded', () => {
+//   const canvas = document.getElementById('drawing');
+//   const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+//   // Устанавливаем размеры канваса
+//   function resizeCanvas() {
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+//   }
+//   resizeCanvas();
+//   window.addEventListener('resize', resizeCanvas);
+
+//   const dpr = window.devicePixelRatio || 1; // Учёт плотности пикселей
+//   canvas.style.width = '100vw';
+//   canvas.style.height = '48vw';
+//   canvas.width = Math.floor(window.innerWidth * dpr);
+//   canvas.height = Math.floor(window.innerWidth * 0.48 * dpr); // Соотношение сторон 100vw : 48vw
+//   ctx.scale(dpr, dpr);
+
+//   // Переменные для рисования
+//   let lineW = 5;
+//   let prevX = null;
+//   let prevY = null;
+//   let draw = false;
+
+//   // Начальные настройки
+//   ctx.lineWidth = lineW;
+//   ctx.strokeStyle = '#877177';
+
+//   // Функция для выбора цвета
+//   function setCurrentColor(color) {
+//     ctx.strokeStyle = color;
+//   }
+
+//   // Обработчики выбора цвета
+//   document
+//     .getElementById('seroe')
+//     .addEventListener('click', () => setCurrentColor('#877177'));
+//   document
+//     .getElementById('rozovoe')
+//     .addEventListener('click', () => setCurrentColor('#d37995'));
+//   document
+//     .getElementById('krasnoe')
+//     .addEventListener('click', () => setCurrentColor('#963b50'));
+//   document
+//     .getElementById('zelenoe')
+//     .addEventListener('click', () => setCurrentColor('#66a865'));
+
+//   // Кнопка очистки
+//   const clearBtn = document.querySelector('.musor');
+//   clearBtn.addEventListener('click', () =>
+//     ctx.clearRect(0, 0, canvas.width, canvas.height)
+//   );
+
+//   // Проверка, активен ли экран play3
+//   function isPlay3Active() {
+//     return document.querySelector('.play3').style.display === 'block';
+//   }
+
+//   // Обработчики событий мыши
+//   window.addEventListener('mousedown', (e) => {
+//     if (!isPlay3Active()) return; // Рисую только на экране play3
+
+//     const rect = canvas.getBoundingClientRect();
+//     prevX = e.clientX - rect.left;
+//     prevY = e.clientY - rect.top;
+
+//     ctx.beginPath();
+//     ctx.moveTo(prevX, prevY);
+//     draw = true;
+//   });
+
+//   window.addEventListener('mouseup', () => {
+//     if (!isPlay3Active()) return; // Рисую только на экране play3
+
+//     draw = false;
+//     prevX = null;
+//     prevY = null;
+//   });
+
+//   window.addEventListener('mousemove', (e) => {
+//     if (!isPlay3Active() || !draw) return; // Рисую только на экране play3
+
+//     const rect = canvas.getBoundingClientRect();
+//     let currentX = e.clientX - rect.left;
+//     let currentY = e.clientY - rect.top;
+
+//     ctx.beginPath();
+//     ctx.moveTo(prevX, prevY);
+//     ctx.lineTo(currentX, currentY);
+//     ctx.stroke();
+
+//     prevX = currentX;
+//     prevY = currentY;
+//   });
+// });
 
 //
 //

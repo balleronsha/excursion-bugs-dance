@@ -697,7 +697,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (currentImage) {
       currentImage.style.display = 'block';
     }
-
     // Увеличиваю индекс или сбрасываю  его, если достигнут конец массива
     currentIndex = (currentIndex + 1) % images.length;
   }
@@ -713,7 +712,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (ris0) {
     ris0.style.display = 'block';
   }
-
   // При каждом клике вызываю функцию для показа следующего рисунка
   banka.addEventListener('click', function () {
     if (currentIndex === 0) {
@@ -1137,6 +1135,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 //
 //
-// Ура, это конец
+// Ура, это конец ура
 // КУРАТОРЫ, СПАСИБО ВАМ БОЛЬШОЕ ЗА ЭТОТ МОДУЛЬ ! ВЫ СУПЕР! 🥰❤️
 // я выжила почти, ааааааааа ураааааааа
